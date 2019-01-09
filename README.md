@@ -1,4 +1,4 @@
-# acua
+# ACUA
 
 > Animal Care Utility App
 
@@ -7,6 +7,10 @@
 ``` bash
 # Install dependencies
 npm install
+
+## Quick scripts
+npm start = tns run android --bundle
+npm run ios = tns run ios --bundle
 
 # Build for production
 tns build <platform> --bundle
