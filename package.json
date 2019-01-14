@@ -6,10 +6,10 @@
   "license": "MIT",
   "nativescript": {
     "id": "gov.lacounty.acua",
-    "tns-android": {
+    "tns-ios": {
       "version": "5.1.0"
     },
-    "tns-ios": {
+    "tns-android": {
       "version": "5.1.0"
     }
   },
@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@vue/devtools": "5.0.0-beta.3",
+    "axios": "^0.18.0",
     "nativescript-socket.io": "^0.9.0",
     "nativescript-toast": "^1.4.6",
     "nativescript-vue": "^2.0.0",
