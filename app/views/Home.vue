@@ -9,7 +9,7 @@
       <!--Label class="message" :text="search" /-->
 
       <GridLayout class="layout" columns="*,*" rows="*,*,*">
-        <CategoryButton margin="10" row="0" col="0" :title="titles[0]" :action="toFaq" class="HomeButton1"/>
+        <CategoryButton margin="10" row="0" col="0"  :title="titles[0]" :action="toFaq" class="HomeButton1"/>
               
         <CategoryButton margin="10" row="0" col="1" :title="titles[1]" :action="toFaq" class="HomeButton2"/>
               
@@ -43,6 +43,7 @@ export default {
         "FAQ",
         "Contact Us"
       ],
+      textWrap: false,
       //search: "this will change as you type",
       results: [],
       faq: Faq
@@ -83,6 +84,7 @@ export default {
         border-radius: 25;
         font-weight: bold;
         letter-spacing: 0;
+        word-wrap: break-word;
     }
 
     .HomeButton2{
