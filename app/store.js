@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import TicketService from '@/services/TicketService'
-import FaqService from '@/services/FaqService'
+// import FaqService from '@/services/FaqService'
+import FaqService from '@/services/FakeFaqService'
 
 Vue.use(Vuex)
 
