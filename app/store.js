@@ -9,10 +9,14 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     tickets: [],
-    faqs: []
+    faqs: [],
+    newFaq: {}
   },
   // change the state of the app (must be synchronous)
   mutations: {
+    storeFaq (state, faq) {
+      state.newFaq = faq
+    },
     SET_TICKETS (state, tickets) {
       state.tickets = tickets
     },

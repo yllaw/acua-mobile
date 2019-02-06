@@ -2,8 +2,9 @@
   <Page>
     <ActionBar title="FAQ"/>
 
-    <GridLayout columns="*" rows="*">
-    </GridLayout>
+    <StackLayout>
+      <SearchBar v-model="search" hint="Enter text..." @submit="checkFaq" />
+    
 
     <ListView for="faq in faqs" class="list-group">
       <v-template>
@@ -13,26 +14,39 @@
         </StackLayout>
       </v-template>
     </ListView>
+    </StackLayout>
   </Page>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import Ticket from './Ticket.vue'
+import { mapState, mapActions, mapMutations } from 'vuex'
 
 export default {
   data() {
     return {
-      msg: 'Hello World!'
+      search: '',
+      ticket: Ticket
     }
   },
   methods: {
-    ...mapActions(['loadFaqs'])
+    ...mapActions(['loadFaqs']),
+    ...mapMutations(['storeFaq']),
+    checkFaq () {
+      if (this.faqs.filter(faq => faq.question === this.search).length === 0) {
+        this.storeFaq({ question: this.search, answer: null })
+        this.$navigateTo(this.ticket)
+      }
+    }
   },
   computed: {
     ...mapState(['faqs'])
   },
   mounted () {
     this.loadFaqs()
+  },
+  components: {
+    Ticket
   }
 }
 </script>
