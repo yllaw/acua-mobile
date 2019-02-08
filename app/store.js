@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import TicketService from '@/services/TicketService'
+// import TicketService from '@/services/TicketService'
 // import FaqService from '@/services/FaqService'
+import TicketService from '@/services/FakeTicketService'
 import FaqService from '@/services/FakeFaqService'
 
 Vue.use(Vuex)
@@ -10,12 +11,16 @@ export default new Vuex.Store({
   state: {
     tickets: [],
     faqs: [],
-    newFaq: {}
+    userFaq: {},
+    userTicket: {}
   },
   // change the state of the app (must be synchronous)
   mutations: {
     storeFaq (state, faq) {
-      state.newFaq = faq
+      state.userFaq = faq
+    },
+    storeTicket (state, ticket) {
+      state.userTicket = ticket
     },
     SET_TICKETS (state, tickets) {
       state.tickets = tickets
@@ -38,7 +43,7 @@ export default new Vuex.Store({
           commit('SET_TICKETS', res.data)
         })
     },
-    addEntry ({ commit }, ticket) {
+    addTicket ({ commit }, ticket) {
       TicketService.addTicket(ticket)
         .then(res => {
           commit('ADD_TICKET', res.data)

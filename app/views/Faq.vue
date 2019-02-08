@@ -33,6 +33,7 @@ export default {
     ...mapActions(['loadFaqs']),
     ...mapMutations(['storeFaq']),
     checkFaq () {
+      // in the future this is where to check if a user is on site, otherwise no ticket option
       if (this.faqs.filter(faq => faq.question === this.search).length === 0) {
         this.storeFaq({ question: this.search, answer: null })
         this.$navigateTo(this.ticket)

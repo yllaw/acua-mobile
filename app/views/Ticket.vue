@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapActions, mapMutations } from 'vuex'
 import CategoryButton from '@/components/buttons/CategoryButton.vue'
 import Faq from './Faq.vue'
 import Home from './Home.vue'
@@ -27,16 +27,29 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['addFaq']),
+    ...mapActions(['addFaq', 'addTicket']),
+    ...mapMutations(['storeTicket']),
     submitTicket () {
-      this.addFaq(this.newFaq)
+      this.addFaq(this.userFaq)
+      const ticket = { 
+        id: Math.floor(Math.random()*100),
+        phoneAreaCode: null,
+        phoneNumber: null,
+        timeIn: new Date(),
+        question: this.userFaq.question,
+        geoLocation: null
+      }
+      this.storeTicket(ticket)
+      this.addTicket(ticket)
       this.$navigateTo(this.home)
       alert({
         title: 'Alert',
         message: 'You have successfully submitted a ticket!',
         okButtonText: 'OK'
       }).then(() => {
-        console.log(this.newFaq.question)
+        console.log('id:', this.userTicket.id)
+        console.log('time inserted:', this.userTicket.timeIn)
+        console.log('question:', this.userTicket.question)
       })
     },
     toFaq () {
@@ -44,7 +57,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['newFaq'])
+    ...mapState(['userFaq', 'tickets', 'userTicket'])
   },
   components: {
     CategoryButton,
