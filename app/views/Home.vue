@@ -1,6 +1,13 @@
 <template>
   <Page>
-    <ActionBar :title="actionBar"/>
+    <ActionBar >
+      <StackLayout orientation="horizontal">
+
+        <Label class="Action_Text" horizontalAlignment="left" width="*" height="55" />
+        <Label horizontalAlignment="center" width="220" height="55" />
+        <Button class="S_Button"  horizontalAlignment="right" width="55" height="60" />
+      </StackLayout>
+    </ActionBar>  
       <StackLayout>
 
       <!-- SearchBar v-model="search" hint="Enter text..." / -->
@@ -18,13 +25,16 @@
         <CategoryButton margin="10" row="1" col="1" :title="titles[3]" :action="toFaq" class="HomeButton4"/>
                 
         <CategoryButton margin="10" row="2" col="0" :title="titles[4]" :action="toFaq" class="HomeButton5"/>
+
+        <CategoryButton margin="10" row="2" col="1" :action="toFaq" class="HomeButton6"/>
       </GridLayout>
 
       <Label class="message" :text="search" />
 
       </StackLayout>
-
+    
   </Page>
+  
 </template>
 
 <script>
@@ -74,6 +84,24 @@ export default {
         color: #050505
     }
 
+    .S_Button{
+       /* text="right"; 
+        horizontalAlignment="right";
+        width="33%" 
+        height="70" 
+        /*backgroundColor="#1c6b48"/>*/
+        background-image:url("~/assets/images/SearchIcon.png");
+        background-repeat:no-repeat;
+        background-size:cover;
+        
+    }  
+
+    .Action_Text{
+      text: Welcome;
+      margin-right:0;
+      font-size:30;
+    }
+
     .HomeButton1{
         text: Adopt an Animal;
         background:linear-gradient(180deg, rgb(255, 157, 157), rgb(255, 89, 60));
@@ -84,7 +112,9 @@ export default {
         border-radius: 25;
         font-weight: bold;
         letter-spacing: 0;
-        word-wrap: break-word;
+        /*background-image:url("~/assets/images/Acua.png");
+        background-repeat:no-repeat;
+        background-size:cover;*/
     }
 
     .HomeButton2{
@@ -128,6 +158,18 @@ export default {
         background:linear-gradient(180deg, rgb(240, 175, 255),  rgb(208, 0, 255));
         font-size: 30;
         color: #1f0025;
+        width: 200;
+        height: 200;
+        border-radius: 25;
+        font-weight: bold;
+        letter-spacing: 0;
+    }
+
+    .HomeButton6{
+        text: Find Our Location;
+        background:linear-gradient(180deg, rgb(185, 234, 255),  rgb(0, 136, 194));
+        font-size: 30;
+        color: #000f56;
         width: 200;
         height: 200;
         border-radius: 25;
