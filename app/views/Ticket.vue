@@ -14,6 +14,7 @@
 <script>
 import { mapState, mapActions, mapMutations } from 'vuex'
 import CategoryButton from '@/components/buttons/CategoryButton.vue'
+import Ticket from '@/models/Ticket'
 import Faq from './Faq.vue'
 import Home from './Home.vue'
 
@@ -31,14 +32,7 @@ export default {
     ...mapMutations(['storeTicket']),
     submitTicket () {
       this.addFaq(this.userFaq)
-      const ticket = { 
-        id: Math.floor(Math.random()*100),
-        phoneAreaCode: null,
-        phoneNumber: null,
-        timeIn: new Date(),
-        question: this.userFaq.question,
-        geoLocation: null
-      }
+      const ticket = new Ticket(this.userFaq.question)
       this.storeTicket(ticket)
       this.addTicket(ticket)
       this.$navigateTo(this.home)

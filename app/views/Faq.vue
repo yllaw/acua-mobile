@@ -21,6 +21,7 @@
 <script>
 import Ticket from './Ticket.vue'
 import { mapState, mapActions, mapMutations } from 'vuex'
+import Faq from '@/models/Faq'
 
 export default {
   data() {
@@ -35,7 +36,7 @@ export default {
     checkFaq () {
       // in the future this is where to check if a user is on site, otherwise no ticket option
       if (this.faqs.filter(faq => faq.question === this.search).length === 0) {
-        this.storeFaq({ question: this.search, answer: null })
+        this.storeFaq(new Faq(this.search))
         this.$navigateTo(this.ticket)
       }
     }
