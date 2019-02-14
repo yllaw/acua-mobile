@@ -16,17 +16,17 @@
       <!--Label class="message" :text="search" /-->
 
       <GridLayout class="layout" columns="*,*" rows="*,*,*">
-        <CategoryButton margin="10" row="0" col="0"  :title="titles[0]" :action="toFaq" class="HomeButton1"/>
+        <CategoryButton margin="10" row="0" col="0"  :title="titles[0]" :action="toFaq" class="HomeButton1" textWrap="true"/>
               
-        <CategoryButton margin="10" row="0" col="1" :title="titles[1]" :action="toFaq" class="HomeButton2"/>
+        <CategoryButton margin="10" row="0" col="1" :title="titles[1]" :action="toFaq" class="HomeButton2" textWrap="true"/>
               
-        <CategoryButton margin="10" row="1" col="0" :title="titles[2]" :action="toFaq" class="HomeButton3"/>
+        <CategoryButton margin="10" row="1" col="0" :title="titles[2]" :action="toFaq" class="HomeButton3" textWrap="true"/>
               
-        <CategoryButton margin="10" row="1" col="1" :title="titles[3]" :action="toFaq" class="HomeButton4"/>
+        <CategoryButton margin="10" row="1" col="1" :title="titles[3]" :action="toFaq" class="HomeButton4" textWrap="true"/>
                 
-        <CategoryButton margin="10" row="2" col="0" :title="titles[4]" :action="toFaq" class="HomeButton5"/>
+        <CategoryButton margin="10" row="2" col="0" :title="titles[4]" :action="toFaq" class="HomeButton5" textWrap="true"/>
 
-        <CategoryButton margin="10" row="2" col="1" :action="toFaq" class="HomeButton6"/>
+        <CategoryButton margin="10" row="2" col="1" :title="titles[5]" :action="toFaq" class="HomeButton6" textWrap="true"/>
       </GridLayout>
 
       <Label class="message" :text="search" />
@@ -51,7 +51,8 @@ export default {
         "Services & Fees",
         "Service Request",
         "FAQ",
-        "Contact Us"
+        "Contact Us",
+        "Find Our Location"
       ],
       textWrap: false,
       //search: "this will change as you type",
@@ -103,75 +104,58 @@ export default {
     }
 
     .HomeButton1{
-        text: Adopt an Animal;
         background:linear-gradient(180deg, rgb(255, 157, 157), rgb(255, 89, 60));
         font-size: 35;
-        color: #930000;
-        width: 200;
-        height: 200;
+        color: #5b0101;
+        
         border-radius: 25;
         font-weight: bold;
         letter-spacing: 0;
-        /*background-image:url("~/assets/images/Acua.png");
-        background-repeat:no-repeat;
+        image:url("~/assets/images/Acua.png");
+        /*background-repeat:no-repeat;
         background-size:cover;*/
     }
 
     .HomeButton2{
-        text: FAQ;
         background:linear-gradient(180deg, lightgreen, rgb(82, 255, 73));
-        font-size: 50;
-        color: #0b4e01;
-        width: 200;
-        height: 200;
+        font-size: 35;
+        color: #083201;
         border-radius: 25;
         font-weight: bold;
         letter-spacing: 0;
     }
 
     .HomeButton3{
-        text: Servies & Fees;
         background:linear-gradient(180deg, rgb(255, 219, 151), rgb(255, 175, 55));
         font-size: 35;
         color: rgb(59, 38, 0);
-        width: 200;
-        height: 200;
         border-radius: 25;
         font-weight: bold;
         letter-spacing: 0;
     }
 
     .HomeButton4{
-        text: Servies Request;
         background:linear-gradient(180deg, rgb(255, 255, 255), rgb(179, 179, 179));
         font-size: 30;
-        color: #323232;
-        width: 200;
-        height: 200;
+        color: #292929;
         border-radius: 25;
         font-weight: bold;
         letter-spacing: 0;
     }
 
     .HomeButton5{
-        text: Contact Us;
         background:linear-gradient(180deg, rgb(240, 175, 255),  rgb(208, 0, 255));
         font-size: 30;
         color: #1f0025;
-        width: 200;
-        height: 200;
         border-radius: 25;
         font-weight: bold;
         letter-spacing: 0;
     }
 
     .HomeButton6{
-        text: Find Our Location;
         background:linear-gradient(180deg, rgb(185, 234, 255),  rgb(0, 136, 194));
         font-size: 30;
         color: #000f56;
-        width: 200;
-        height: 200;
         border-radius: 25;
         font-weight: bold;
         letter-spacing: 0;
