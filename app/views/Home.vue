@@ -20,7 +20,7 @@
               
         <CategoryButton margin="10" row="0" col="1" :title="titles[1]" :action="toFaq" class="HomeButton2"/>
               
-        <CategoryButton margin="10" row="1" col="0" :title="titles[2]" :action="toFaq" class="HomeButton3"/>
+        <CategoryButton margin="10" row="1" col="0" :title="titles[2]" :action="toServiceRequest" class="HomeButton3"/>
               
         <CategoryButton margin="10" row="1" col="1" :title="titles[3]" :action="toFaq" class="HomeButton4"/>
                 
@@ -40,6 +40,7 @@
 <script>
 import CategoryButton from "@/components/buttons/CategoryButton.vue"
 import Faq from "./Faq.vue"
+import ServiceRequest from "./ServiceRequest.vue"
 
 export default {
   data() {
@@ -56,7 +57,8 @@ export default {
       textWrap: false,
       //search: "this will change as you type",
       results: [],
-      faq: Faq
+      faq: Faq,
+      serviceRequest: ServiceRequest
     };
   },
 
@@ -65,6 +67,9 @@ export default {
   toFaq () {
       this.$navigateTo(this.faq)
     },
+    toServiceRequest () {
+      this.$navigateTo(this.serviceRequest)
+    }
   },
 
   components: {
