@@ -43,6 +43,30 @@
     {
       "question": "Do you sell any supplies for the dog/cat?",
       "answer": "We do not sell any animal supplies at any of our Care Centers, please refer to your local Pet supply store in your area."
+    },
+    {
+      "question": "Do you have a list of other local shelters?",
+      "answer": "A list of local shelters is available in the lobby"
+    },
+    {
+      "question": "How many animals can I adopt at once?",
+      "answer": "LA County residents are allowed to own up to 4 dogs. Contract cities limits are usually between 2-3 dogs per house hold, please contact your City Hall for further details."
+    },
+    {
+      "question": "Do you sell any supplies for the dog/cat?",
+      "answer": "We do not sell any animal supplies at any of our Care Centers, please refer to your local Pet supply store in your area."
+    },
+    {
+      "question": "Do you have a list of other local shelters?",
+      "answer": "A list of local shelters is available in the lobby"
+    },
+    {
+      "question": "How many animals can I adopt at once?",
+      "answer": "LA County residents are allowed to own up to 4 dogs. Contract cities limits are usually between 2-3 dogs per house hold, please contact your City Hall for further details."
+    },
+    {
+      "question": "Do you sell any supplies for the dog/cat?",
+      "answer": "We do not sell any animal supplies at any of our Care Centers, please refer to your local Pet supply store in your area."
     }
   ]
 }

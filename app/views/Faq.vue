@@ -2,37 +2,64 @@
   <Page>
     <ActionBar title="FAQ"/>
 
-    <GridLayout columns="*" rows="*">
-    </GridLayout>
+    <StackLayout>
+      <SearchBar v-model="search" hint="Enter text..." @submit="checkFaq" />
 
-    <ListView for="faq in faqs" class="list-group">
-      <v-template>
-        <StackLayout class="list-group-item">
-          <Label :text="faq.question" />
-          <Label :text="faq.answer" />
-        </StackLayout>
-      </v-template>
-    </ListView>
+      <RadListView ref="listView"
+                   for="faq in faqs"
+                   pullToRefresh="true"
+                   @pullToRefreshInitiated="onPullToRefreshInitiated"
+                   @itemTap="onItemTap">
+        <v-template>
+          <FaqInfo :item="faq" />
+        </v-template>
+      </RadListView>
+    </StackLayout>
   </Page>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import FaqInfo from "@/components/sublists/FaqInfo.vue"
+import Ticket from './Ticket.vue'
+import { mapState, mapActions, mapMutations } from 'vuex'
+import Faq from '@/models/Faq'
 
 export default {
   data() {
     return {
-      msg: 'Hello World!'
+      search: '',
+      ticket: Ticket
     }
   },
   methods: {
-    ...mapActions(['loadFaqs'])
+    ...mapActions(['loadFaqs']),
+    ...mapMutations(['storeFaq']),
+    checkFaq () {
+      // in the future this is where to check if a user is on site, otherwise no ticket option
+      if (this.faqs.filter(faq => faq.question === this.search).length === 0) {
+        this.storeFaq(new Faq(this.search))
+        this.$navigateTo(this.ticket)
+      }
+    },
+    onItemTap () {
+      // TODO
+    },
+    onPullToRefreshInitiated ({ object }) {
+      console.log('Pulling...')
+      setTimeout(() => {
+        object.notifyPullToRefreshFinished()
+      })
+    }
   },
   computed: {
     ...mapState(['faqs'])
   },
   mounted () {
     this.loadFaqs()
+  },
+  components: {
+    Ticket,
+    FaqInfo
   }
 }
 </script>
