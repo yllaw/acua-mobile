@@ -5,11 +5,15 @@
     <StackLayout>
       <SearchBar v-model="search" hint="Enter text..." @submit="checkFaq" />
 
-      <ListView for="faq in faqs" class="list-group">
+      <RadListView ref="listView"
+                   for="faq in faqs"
+                   pullToRefresh="true"
+                   @pullToRefreshInitiated="onPullToRefreshInitiated"
+                   @itemTap="onItemTap">
         <v-template>
           <FaqInfo :item="faq" />
         </v-template>
-      </ListView>
+      </RadListView>
     </StackLayout>
   </Page>
 </template>
@@ -36,6 +40,15 @@ export default {
         this.storeFaq(new Faq(this.search))
         this.$navigateTo(this.ticket)
       }
+    },
+    onItemTap () {
+      // TODO
+    },
+    onPullToRefreshInitiated ({ object }) {
+      console.log('Pulling...')
+      setTimeout(() => {
+        object.notifyPullToRefreshFinished()
+      })
     }
   },
   computed: {
