@@ -1,19 +1,17 @@
 <template>
   <Page>
-    <ActionBar >
+    <!--ActionBar-- title="Welcome" android.icon="~/assets/images/Acua.png" android.iconVisibility="always"-->
+    <ActionBar>
       <StackLayout orientation="horizontal">
-
-        <Label class="Action_Text" horizontalAlignment="left" width="*" height="55" />
-        <Label horizontalAlignment="center" width="220" height="55" />
-        <Button class="S_Button"  horizontalAlignment="right" width="55" height="60" />
+        <Image src="~/assets/images/Acua.png" width="40" height="40" horizontalAlignment="left" />
+        <Label text="Welcome" fontSize="24" horizontalAlignment="left" marginRight="0"/>
+        <Label horizontalAlignment="center" width="50%" height="40"/>
+        <Button class="S_Button" width="40" height="40" @tap="toFaq" horizontalAlignment="right" marginRight="0"/>
       </StackLayout>
-    </ActionBar>  
-      <StackLayout>
+    </ActionBar>
+     
 
-      <!-- SearchBar v-model="search" hint="Enter text..." / -->
-
-
-      <!--Label class="message" :text="search" /-->
+    <StackLayout>
 
       <GridLayout class="layout" columns="*,*" rows="*,*,*">
         <CategoryButton margin="10" row="0" col="0"  :title="titles[0]" :action="toFaq" class="HomeButton1" textWrap="true"/>
@@ -28,10 +26,9 @@
 
         <CategoryButton margin="10" row="2" col="1" :title="titles[5]" :action="toFaq" class="HomeButton6" textWrap="true"/>
       </GridLayout>
-
       <Label class="message" :text="search" />
 
-      </StackLayout>
+    </StackLayout>
     
   </Page>
   
@@ -91,7 +88,7 @@ export default {
         width="33%" 
         height="70" 
         /*backgroundColor="#1c6b48"/>*/
-        background-image:url("~/assets/images/SearchIcon.png");
+        background-image:url("~/assets/images/NativeScript-Vue.png");
         background-repeat:no-repeat;
         background-size:cover;
         
