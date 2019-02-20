@@ -11,7 +11,7 @@ export default {
   addTicket (entry) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve({ data: entry })
+        resolve(entry)
       }, 10)
     })
   }

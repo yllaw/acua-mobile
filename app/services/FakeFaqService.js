@@ -4,14 +4,14 @@ export default {
   getFaqs () {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve({ data: faqs })
+        resolve(faqs)
       }, 10)
     })
   },
   addFaq (entry) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve({ data: entry })
+        resolve(entry)
       }, 10)
     })
   }

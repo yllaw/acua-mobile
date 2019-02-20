@@ -40,25 +40,26 @@ export default new Vuex.Store({
     loadTickets ({ commit }) {
       TicketService.getTickets()
         .then(res => {
-          commit('SET_TICKETS', res.data)
+          commit('SET_TICKETS', res)
         })
     },
     addTicket ({ commit }, ticket) {
       TicketService.addTicket(ticket)
         .then(res => {
-          commit('ADD_TICKET', res.data)
+          commit('ADD_TICKET', res)
         })
     },
     loadFaqs ({ commit }) {
       FaqService.getFaqs()
         .then(res => {
-          commit('SET_FAQS', res.data)
+          console.log('test', res)
+          commit('SET_FAQS', res)
         })
     },
     addFaq ({ commit }, faq) {
       FaqService.addFaq(faq)
         .then(res => {
-          commit('ADD_FAQ', res.data)
+          commit('ADD_FAQ', res)
         })
     }
   }

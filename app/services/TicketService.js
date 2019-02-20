@@ -1,10 +1,15 @@
-import Api from '@/services/Api'
+const httpModule = require('http')
+import env from '@/env.json'
 
 export default {
   getTickets () {
-    return Api().get('/tickets')
+    return httpModule.getJSON(`https://${env.SUBURL}.ngrok.io/ticket`)
   },
   addTicket (ticket) {
-    return Api().post('/ticket', ticket)
+    return httpModule.request({
+      url: `https://${env.SUBURL}.ngrok.io/ticket`,
+      method: 'POST',
+      headers: { "Content-Type": "application/json" }
+    })
   }
 }
