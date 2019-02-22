@@ -1,8 +1,8 @@
 <template>
   <Page>
-    <ActionBar title="Welcome" fontSize="24" android.icon="~/assets/images/Acua.png" android.iconVisibility="always" class="Action_Bar">
-      <ActionItem @tap="toFaq" ios.systemIcon="12" ios.position="left" android.systemIcon="ic_menu_search" android.position="actionBar" />
-      <ActionItem @tap="toFaq" ios.systemIcon="16" ios.position="right" text="delete" android.position="popup" />
+    <ActionBar title="Welcome" fontSize="24" ios.position="left" android.icon="~/assets/images/Acua.png" android.iconVisibility="always" class="Action_Bar">
+      <ActionItem @tap="toFaq" ios.systemIcon="12" ios.position="right" android.systemIcon="ic_menu_search" android.position="actionBar" />
+      <ActionItem @tap="toFaq" ios.position="popup" text="delete" android.position="popup" />
     </ActionBar>
 
     <StackLayout>
