@@ -24,7 +24,7 @@
                 
         <CategoryButton margin="10" row="2" col="0" :title="titles[4]" :action="toFaq" class="HomeButton5" textWrap="true"/>
 
-        <CategoryButton margin="10" row="2" col="1" :title="titles[5]" :action="toFaq" class="HomeButton6" textWrap="true"/>
+        <CategoryButton margin="10" row="2" col="1" :title="titles[5]" :action="toGeolocation" class="HomeButton6" textWrap="true"/>
       </GridLayout>
       <Label class="message" :text="search" />
 
@@ -37,6 +37,7 @@
 <script>
 import CategoryButton from "@/components/buttons/CategoryButton.vue"
 import Faq from "./Faq.vue"
+import Geolocation from "./Geolocation.vue"
 
 export default {
   data() {
@@ -54,11 +55,17 @@ export default {
       textWrap: false,
       //search: "this will change as you type",
       results: [],
-      faq: Faq
+      faq: Faq,
+      geolocation: Geolocation
     };
   },
 
   methods: {
+  
+  toGeolocation() {
+      this.$navigateTo(this.geolocation)
+    
+ },
 
   toFaq () {
       this.$navigateTo(this.faq)
