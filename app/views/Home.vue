@@ -1,17 +1,17 @@
 <template>
   <Page>
-    <!--ActionBar-- title="Welcome" android.icon="~/assets/images/Acua.png" android.iconVisibility="always"-->
-    <ActionBar>
-      <StackLayout orientation="horizontal">
-        <Image src="~/assets/images/Acua.png" width="40" height="40" horizontalAlignment="left" />
-        <Label text="Welcome" fontSize="24" horizontalAlignment="left" marginRight="0"/>
-        <Label horizontalAlignment="center" width="50%" height="40"/>
-        <Button class="S_Button" width="40" height="40" @tap="toFaq" horizontalAlignment="right" marginRight="0"/>
-      </StackLayout>
+    <ActionBar title="Welcome" fontSize="24" android.icon="~/assets/images/Acua.png" android.iconVisibility="always" class="Action_Bar">
+      <ActionItem @tap="toFaq" ios.systemIcon="12" ios.position="left" android.systemIcon="ic_menu_search" android.position="actionBar" />
+      <ActionItem @tap="toFaq" ios.systemIcon="16" ios.position="right" text="delete" android.position="popup" />
     </ActionBar>
-     
 
     <StackLayout>
+
+      <!--FlexboxLayout alignItems="center" justifyContent="space-between" class="Action_Bar">
+        <Image src="~/assets/images/Acua.png" width="40" height="40" horizontalAligment="left" alignSelf="flex-start"/>
+        <Label text="Welcome" fontSize="24"  horizontalAligment="left" alignSelf="flex-start"/>
+        <Button class="S_Button" width="40" height="40" @tap="toFaq" horizontalAligment="right"/>
+      </FlexboxLayout-->
 
       <GridLayout class="layout" columns="*,*" rows="*,*,*">
         <CategoryButton margin="10" row="0" col="0"  :title="titles[0]" :action="toFaq" class="HomeButton1" textWrap="true"/>
@@ -26,7 +26,6 @@
 
         <CategoryButton margin="10" row="2" col="1" :title="titles[5]" :action="toFaq" class="HomeButton6" textWrap="true"/>
       </GridLayout>
-      <Label class="message" :text="search" />
 
     </StackLayout>
     
@@ -73,7 +72,7 @@ export default {
 </script>
 
 <style scoped>
-    ActionBar {
+    .Action_Bar {
         background-color: #009fca;
         color: #ffffff;
     }
