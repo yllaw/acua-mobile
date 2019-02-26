@@ -2,7 +2,8 @@
   <Page>
     <ActionBar title="Welcome" fontSize="24" ios.position="left" android.icon="~/assets/images/Acua.png" android.iconVisibility="always" class="Action_Bar">
       <ActionItem @tap="toFaq" ios.systemIcon="12" ios.position="right" android.systemIcon="ic_menu_search" android.position="actionBar" />
-      <ActionItem @tap="toFaq" ios.position="popup" text="delete" android.position="popup" />
+      <ActionItem @tap="toFaq" ios.systemIcon="0" text="Home Page" android.position="popup" />
+      <ActionItem @tap="toFaq" ios.systemIcon="0" text="FAQ" android.position="popup" />
     </ActionBar>
 
     <StackLayout>
