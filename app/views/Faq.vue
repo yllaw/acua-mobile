@@ -66,7 +66,7 @@ export default {
 
 <style scoped>
   ActionBar {
-    background-color: #53ba82;
+    background-color: #009fca;
     color: #ffffff;
   }
 
@@ -74,6 +74,15 @@ export default {
     vertical-align: center;
     text-align: center;
     font-size: 20;
-    color: #333333;
+    color: #000000;
+  }
+
+  .faq_question{
+    font-weight: bold;
+    font-size: 20;
+    color: black;
+  }
+  .faq_answer{
+    color: #454545;
   }
 </style>

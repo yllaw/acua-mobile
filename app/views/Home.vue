@@ -1,6 +1,6 @@
 <template>
   <Page>
-    <ActionBar title="Welcome" fontSize="24" ios.position="left" android.icon="~/assets/images/Acua.png" android.iconVisibility="always" class="Action_Bar">
+    <ActionBar title="Welcome" fontSize="24" ios.position="left" android.icon="~/assets/images/seal.2016.png" android.iconVisibility="always" class="Action_Bar">
       <ActionItem @tap="toFaq" ios.systemIcon="12" ios.position="right" android.systemIcon="ic_menu_search" android.position="actionBar" />
       <ActionItem @tap="toFaq" ios.systemIcon="0" text="Home Page" android.position="popup" />
       <ActionItem @tap="toFaq" ios.systemIcon="0" text="FAQ" android.position="popup" />
@@ -25,9 +25,8 @@
                 
         <CategoryButton margin="10" row="2" col="0" :title="titles[4]" :action="toFaq" class="HomeButton5" textWrap="true"/>
 
-        <CategoryButton margin="10" row="2" col="1" :title="titles[5]" :action="toFaq" class="HomeButton6" textWrap="true">
-          <image scr="~/assets/images/view.animals.icon_-120x120.png"/>
-        </CategoryButton>  
+        <CategoryButton margin="10" row="2" col="1" :title="titles[5]" :action="toFaq" class="HomeButton6" textWrap="true"/>
+          
       </GridLayout>
 
     </StackLayout>
@@ -102,47 +101,78 @@ export default {
     }
 
     .HomeButton1{
-        background:linear-gradient(180deg, rgb(255, 157, 157), rgb(255, 89, 60));
-        color: #5b0101;
-        
+        background-color:white;
         border-radius: 25;
+        font-size: 15%;
         font-weight: bold;
+        padding-top: 70%;
         letter-spacing: 0;
-        image:url("~/assets/images/Acua.png");
-        /*background-repeat:no-repeat;
-        background-size:cover;*/
+        background-image:url("~/assets/images/view.animals.icon_-120x120.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-position: top;
+        background-origin:padding-box;
+        background-size: 55% 55%;
     }
 
     .HomeButton2{
-        background:linear-gradient(180deg, lightgreen, rgb(82, 255, 73));
-        color: #083201;
+        background-color:white;
         border-radius: 25;
+        font-size: 15%;
         font-weight: bold;
+        padding-top: 70%;
         letter-spacing: 0;
+        background-image:url("~/assets/images/services.icon_-120x120.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-position: top;
+        background-origin:padding-box;
+        background-size: 55% 55%;
     }
 
     .HomeButton3{
-        background:linear-gradient(180deg, rgb(255, 219, 151), rgb(255, 175, 55));
-        color: rgb(59, 38, 0);
+        background-color:white;
         border-radius: 25;
+        font-size: 15%;
         font-weight: bold;
+        padding-top: 70%;
         letter-spacing: 0;
+        background-image:url("~/assets/images/license.icon_-120x120.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-position: top;
+        background-origin:padding-box;
+        background-size: 55% 55%;
     }
 
     .HomeButton4{
-        background:linear-gradient(180deg, rgb(255, 255, 255), rgb(179, 179, 179));
-        color: #292929;
+        background-color:white;
         border-radius: 25;
+        font-size: 15%;
         font-weight: bold;
+        padding-top: 70%;
         letter-spacing: 0;
+        background-image:url("~/assets/images/noise.icon_-120x120.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-position: top;
+        background-origin:padding-box;
+        background-size: 55% 55%;
     }
 
     .HomeButton5{
-        background:linear-gradient(180deg, rgb(240, 175, 255),  rgb(208, 0, 255));
-        color: #1f0025;
+        background-color:white;
         border-radius: 25;
+        font-size: 15%;
         font-weight: bold;
+        padding-top: 70%;
         letter-spacing: 0;
+        background-image:url("~/assets/images/hoursicon-e1506467738461.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-position: top;
+        background-origin:padding-box;
+        background-size: 55% 55%;
     }
 
     .HomeButton6{
@@ -152,7 +182,7 @@ export default {
         font-weight: bold;
         padding-top: 70%;
         letter-spacing: 0;
-        background-image:url("~/assets/images/view.animals.icon_-120x120.png");
+        background-image:url("~/assets/images/locationicon-e1506468333331.png");
         background-repeat: no-repeat;
         background-position: center;
         background-position: top;
