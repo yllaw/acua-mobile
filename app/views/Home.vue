@@ -1,17 +1,18 @@
 <template>
   <Page>
-    <!--ActionBar-- title="Welcome" android.icon="~/assets/images/Acua.png" android.iconVisibility="always"-->
-    <ActionBar>
-      <StackLayout orientation="horizontal">
-        <Image src="~/assets/images/Acua.png" width="40" height="40" horizontalAlignment="left" />
-        <Label text="Welcome" fontSize="24" horizontalAlignment="left" marginRight="0"/>
-        <Label horizontalAlignment="center" width="50%" height="40"/>
-        <Button class="S_Button" width="40" height="40" @tap="toFaq" horizontalAlignment="right" marginRight="0"/>
-      </StackLayout>
+    <ActionBar title="Welcome" fontSize="24" ios.position="left" android.icon="~/assets/images/seal.2016.png" android.iconVisibility="always" class="Action_Bar">
+      <ActionItem @tap="toFaq" ios.systemIcon="12" ios.position="right" android.systemIcon="ic_menu_search" android.position="actionBar" />
+      <ActionItem @tap="toFaq" ios.systemIcon="0" text="Home Page" android.position="popup" />
+      <ActionItem @tap="toFaq" ios.systemIcon="0" text="FAQ" android.position="popup" />
     </ActionBar>
-     
 
     <StackLayout>
+
+      <!--FlexboxLayout alignItems="center" justifyContent="space-between" class="Action_Bar">
+        <Image src="~/assets/images/Acua.png" width="40" height="40" horizontalAligment="left" alignSelf="flex-start"/>
+        <Label text="Welcome" fontSize="24"  horizontalAligment="left" alignSelf="flex-start"/>
+        <Button class="S_Button" width="40" height="40" @tap="toFaq" horizontalAligment="right"/>
+      </FlexboxLayout-->
 
       <GridLayout class="layout" columns="*,*" rows="*,*,*">
         <CategoryButton margin="10" row="0" col="0"  :title="titles[0]" :action="toFaq" class="HomeButton1" textWrap="true"/>
@@ -24,9 +25,13 @@
                 
         <CategoryButton margin="10" row="2" col="0" :title="titles[4]" :action="toFaq" class="HomeButton5" textWrap="true"/>
 
+<<<<<<< HEAD
         <CategoryButton margin="10" row="2" col="1" :title="titles[5]" :action="toGeolocation" class="HomeButton6" textWrap="true"/>
+=======
+        <CategoryButton margin="10" row="2" col="1" :title="titles[5]" :action="toFaq" class="HomeButton6" textWrap="true"/>
+          
+>>>>>>> 05829c6398d364429eb84ff75dc1773dc9b77bd6
       </GridLayout>
-      <Label class="message" :text="search" />
 
     </StackLayout>
     
@@ -80,7 +85,7 @@ export default {
 </script>
 
 <style scoped>
-    ActionBar {
+    .Action_Bar {
         background-color: #009fca;
         color: #ffffff;
     }
@@ -104,69 +109,102 @@ export default {
     .Action_Text{
       text: Welcome;
       margin-right:0;
-      font-size:30;
     }
 
     .HomeButton1{
-        background:linear-gradient(180deg, rgb(255, 157, 157), rgb(255, 89, 60));
-        font-size: 35;
-        color: #5b0101;
-        
+        background-color:white;
         border-radius: 25;
+        font-size: 15%;
         font-weight: bold;
+        padding-top: 70%;
         letter-spacing: 0;
-        image:url("~/assets/images/Acua.png");
-        /*background-repeat:no-repeat;
-        background-size:cover;*/
+        background-image:url("~/assets/images/view.animals.icon_-120x120.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-position: top;
+        background-origin:padding-box;
+        background-size: 55% 55%;
     }
 
     .HomeButton2{
-        background:linear-gradient(180deg, lightgreen, rgb(82, 255, 73));
-        font-size: 35;
-        color: #083201;
+        background-color:white;
         border-radius: 25;
+        font-size: 15%;
         font-weight: bold;
+        padding-top: 70%;
         letter-spacing: 0;
+        background-image:url("~/assets/images/services.icon_-120x120.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-position: top;
+        background-origin:padding-box;
+        background-size: 55% 55%;
     }
 
     .HomeButton3{
-        background:linear-gradient(180deg, rgb(255, 219, 151), rgb(255, 175, 55));
-        font-size: 35;
-        color: rgb(59, 38, 0);
+        background-color:white;
         border-radius: 25;
+        font-size: 15%;
         font-weight: bold;
+        padding-top: 70%;
         letter-spacing: 0;
+        background-image:url("~/assets/images/license.icon_-120x120.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-position: top;
+        background-origin:padding-box;
+        background-size: 55% 55%;
     }
 
     .HomeButton4{
-        background:linear-gradient(180deg, rgb(255, 255, 255), rgb(179, 179, 179));
-        font-size: 30;
-        color: #292929;
+        background-color:white;
         border-radius: 25;
+        font-size: 15%;
         font-weight: bold;
+        padding-top: 70%;
         letter-spacing: 0;
+        background-image:url("~/assets/images/noise.icon_-120x120.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-position: top;
+        background-origin:padding-box;
+        background-size: 55% 55%;
     }
 
     .HomeButton5{
-        background:linear-gradient(180deg, rgb(240, 175, 255),  rgb(208, 0, 255));
-        font-size: 30;
-        color: #1f0025;
+        background-color:white;
         border-radius: 25;
+        font-size: 15%;
         font-weight: bold;
+        padding-top: 70%;
         letter-spacing: 0;
+        background-image:url("~/assets/images/hoursicon-e1506467738461.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-position: top;
+        background-origin:padding-box;
+        background-size: 55% 55%;
     }
 
     .HomeButton6{
-        background:linear-gradient(180deg, rgb(185, 234, 255),  rgb(0, 136, 194));
-        font-size: 30;
-        color: #000f56;
+        background-color:white;
         border-radius: 25;
+        font-size: 15%;
         font-weight: bold;
+        padding-top: 70%;
         letter-spacing: 0;
+        background-image:url("~/assets/images/locationicon-e1506468333331.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-position: top;
+        background-origin:padding-box;
+        background-size: 55% 55%;
+        
+        
     }
     
     .layout{
-        background-color: #e2f6ff
+        background-color: #eeeeee
     }
 
     .message {
