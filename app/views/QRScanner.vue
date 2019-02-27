@@ -3,7 +3,7 @@
     <ActionBar title="BarcodeScanner demo"></ActionBar>
 
     <GridLayout columns="*" rows="auto, auto, auto, auto">
-      <Label row="0" class="message" text="Look for a QR code to scan at your local Animal Care and Control" textWrap="true"></Label>
+      <Label row="0" class="message" text="Look for a QR code to scan at your local Animal Care and Control Center" textWrap="true"></Label>
 
       <BarcodeScanner
           row="1"

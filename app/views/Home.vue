@@ -23,14 +23,9 @@
               
         <CategoryButton margin="10" row="1" col="1" :title="titles[3]" :action="toFaq" class="HomeButton4" textWrap="true"/>
                 
-        <CategoryButton margin="10" row="2" col="0" :title="titles[4]" :action="toFaq" class="HomeButton5" textWrap="true"/>
+        <CategoryButton margin="10" row="2" col="0" :title="titles[4]" :action="toQRScanner" class="HomeButton5" textWrap="true"/>
 
-<<<<<<< HEAD
         <CategoryButton margin="10" row="2" col="1" :title="titles[5]" :action="toGeolocation" class="HomeButton6" textWrap="true"/>
-=======
-        <CategoryButton margin="10" row="2" col="1" :title="titles[5]" :action="toFaq" class="HomeButton6" textWrap="true"/>
-          
->>>>>>> 05829c6398d364429eb84ff75dc1773dc9b77bd6
       </GridLayout>
 
     </StackLayout>
@@ -43,6 +38,7 @@
 import CategoryButton from "@/components/buttons/CategoryButton.vue"
 import Faq from "./Faq.vue"
 import Geolocation from "./Geolocation.vue"
+import QRScanner from "./QRScanner.vue"
 
 export default {
   data() {
@@ -54,27 +50,28 @@ export default {
         "Services & Fees",
         "Service Request",
         "FAQ",
-        "Contact Us",
+        "TICKET",
         "Find Our Location"
       ],
       textWrap: false,
       //search: "this will change as you type",
       results: [],
       faq: Faq,
-      geolocation: Geolocation
+      geolocation: Geolocation,
+      qrScanner: QRScanner
     };
   },
 
   methods: {
-  
-  toGeolocation() {
+    toGeolocation () {
       this.$navigateTo(this.geolocation)
-    
- },
-
-  toFaq () {
+    },
+    toFaq () {
       this.$navigateTo(this.faq)
     },
+    toQRScanner () {
+      this.$navigateTo(this.qrScanner)
+    }
   },
 
   components: {

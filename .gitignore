@@ -10,3 +10,7 @@ platforms
 
 # package-lock
 package-lock.json
+
+# ignore device files
+.cloud
+app/App_Resources

@@ -3,7 +3,7 @@
     <ActionBar title="FAQ"/>
 
     <StackLayout>
-      <SearchBar v-model="search" hint="Enter text..." @submit="checkFaq" />
+      <!-- <SearchBar v-model="search" hint="Enter text..." @submit="checkFaq" /> -->
 
       <RadListView ref="listView"
                    for="faq in faqs"
