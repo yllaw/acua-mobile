@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import Ticket from '@/models/Ticket'
 // import TicketService from '@/services/TicketService'
 // import FaqService from '@/services/FaqService'
 import TicketService from '@/services/FakeTicketService'
@@ -12,12 +13,18 @@ export default new Vuex.Store({
     tickets: [],
     faqs: [],
     userFaq: {},
-    userTicket: {}
+    userTicket: new Ticket()
   },
   // change the state of the app (must be synchronous)
   mutations: {
     storeFaq (state, faq) {
       state.userFaq = faq
+    },
+    setTicketLocation (state, location) {
+      state.userTicket.setLocation(location)
+    },
+    setTicketInfo (state, userInput) {
+      state.userTicket.setTicketInfo(userInput)
     },
     storeTicket (state, ticket) {
       state.userTicket = ticket

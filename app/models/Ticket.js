@@ -1,10 +1,19 @@
 export default class {
-  constructor (question) {
-    this.id = Math.floor(Math.random()*100)
-    this.phoneAreaCode = null
-    this.phoneNumber = null
-    this.timeIn = new Date()
-    this.question = question
-    this.geoLocation = null
+
+  constructor () {
+    this.location = 'temp'
   }
+
+  setLocation (qrCode) {
+    this.location = qrCode
+  }
+
+  setTicketInfo ({ phone, name, query, comment }) {
+    this.phone = phone
+    this.name = name
+    this.query = query
+    this.comment = comment
+    this.timeIn = new Date()
+  }
+
 }

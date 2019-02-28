@@ -23,21 +23,37 @@
 </template>
 
 <script>
-  import { isIOS } from "tns-core-modules/platform";
-  import { BarcodeScanner } from "nativescript-barcodescanner";
+  import { isIOS } from "tns-core-modules/platform"
+  import { BarcodeScanner } from "nativescript-barcodescanner"
+  import { mapMutations, mapState } from "vuex"
+  import TicketForm from "./TicketForm.vue"
 
   export default {
     data() {
       return {
-        isIOS
+        isIOS,
+        ticketForm: TicketForm,
+        locations: {
+          '1': 'Agoura',
+          '2': 'Baldwin Park',
+          '3': 'Carson/Gardena',
+          '4': 'Castaic',
+          '5': 'Downey',
+          '6': 'Lancaster',
+          '7': 'Palmdale'
+        }
       }
     },
+    computed: {
+      ...mapState(['userTicket'])
+    },
     methods: {
+      ...mapMutations(['setTicketLocation']),
       onScanResult(evt) {
-        console.log(`onScanResult: ${evt.text} (${evt.format})`);
+        console.log(`onScanResult: ${evt.text} (${evt.format})`)
       },
       doScan() {
-        this.scan();
+        this.scan()
       },
       scan() {
         new BarcodeScanner().scan({
@@ -52,25 +68,41 @@
           beepOnScan: true,             // Play or Suppress beep on scan (default true)
           openSettingsIfPermissionWasPreviouslyDenied: true, // On iOS you can send the user to the settings app if access was previously denied
           closeCallback: () => {
-            console.log("Scanner closed @ " + new Date().getTime());
+            console.log("Scanner closed @ " + new Date().getTime())
           }
         }).then(
             result => {
-              console.log("--- scanned: " + result.text);
-              // Note that this Promise is never invoked when a 'continuousScanCallback' function is provided
-              setTimeout(function () {
-                // if this alert doesn't show up please upgrade to {N} 2.4.0+
-                alert({
-                  title: "Scan result",
-                  message: "Format: " + result.format + ",\nValue: " + result.text,
-                  okButtonText: "OK"
-                });
-              }, 500);
+              if (this.locations.hasOwnProperty(result.text)) {
+                this.setTicketLocation(result.text)
+
+                console.log("--- scanned: " + result.text)
+                // Note that this Promise is never invoked when a 'continuousScanCallback' function is provided
+                setTimeout(() => {
+                  // if this alert doesn't show up please upgrade to {N} 2.4.0+
+                  alert({
+                    title: "Scan result",
+                    message: "You are at the " + this.locations[result.text] + " center.",
+                    okButtonText: "OK"
+                  })
+                }, 500)
+
+                this.$navigateTo(this.ticketForm)
+
+              } else {
+                setTimeout(() => {
+                  // if this alert doesn't show up please upgrade to {N} 2.4.0+
+                  alert({
+                    title: "Scan result",
+                    message: "Invalid QR Code",
+                    okButtonText: "OK"
+                  })
+                }, 500)
+              }
             },
-            function (errorMessage) {
-              console.log("No scan. " + errorMessage);
+            errorMessage => {
+              console.log("No scan. " + errorMessage)
             }
-        );
+        )
       }
     }
   }
