@@ -56,7 +56,7 @@ export default {
       //search: "this will change as you type",
       results: [],
       faq: Faq,
-      geolocation: Geolocation
+      geolocation: Geolocation,
     };
   },
 
