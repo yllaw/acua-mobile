@@ -1,7 +1,7 @@
 <template>
   <StackLayout orientation="vertical">
-    <Label :text="item.question" />
-    <Label :text="item.answer" />
+    <Label :text="item.question" class="faq_question" textWrap="true"/>
+    <Label :text="item.answer" class="faq_answer" textWrap="true"/>
   </StackLayout>
 </template>
 
@@ -15,4 +15,13 @@ export default {
 
 <style scoped>
 
+.faq_question{
+    font-weight: bold;
+    font-size: 20;
+    color: black;
+  }
+  .faq_answer{
+    color: #454545;
+  }
+  
 </style>
