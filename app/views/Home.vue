@@ -15,11 +15,11 @@
       </FlexboxLayout-->
 
       <GridLayout class="layout" columns="*,*" rows="*,*,*">
-        <CategoryButton margin="10" row="0" col="0"  :title="titles[0]" :action="toFaq" class="HomeButton1" textWrap="true"/>
+        <CategoryButton margin="10" row="0" col="0"  :title="titles[0]" :action="toAdoption" class="HomeButton1" textWrap="true"/>
               
         <CategoryButton margin="10" row="0" col="1" :title="titles[1]" :action="toFaq" class="HomeButton2" textWrap="true"/>
               
-        <CategoryButton margin="10" row="1" col="0" :title="titles[2]" :action="toFaq" class="HomeButton3" textWrap="true"/>
+        <CategoryButton margin="10" row="1" col="0" :title="titles[2]" :action="toServiceRequest" class="HomeButton3" textWrap="true"/>
               
         <CategoryButton margin="10" row="1" col="1" :title="titles[3]" :action="toFaq" class="HomeButton4" textWrap="true"/>
                 
@@ -39,6 +39,8 @@ import CategoryButton from "@/components/buttons/CategoryButton.vue"
 import Faq from "./Faq.vue"
 import Geolocation from "./Geolocation.vue"
 import QRScanner from "./QRScanner.vue"
+import ServiceRequest from "./ServiceRequest.vue"
+import Adoption from "./Adoption.vue"
 
 export default {
   data() {
@@ -58,7 +60,9 @@ export default {
       results: [],
       faq: Faq,
       geolocation: Geolocation,
-      qrScanner: QRScanner
+      qrScanner: QRScanner,
+      serviceRequest: ServiceRequest,
+      adoption: Adoption
     };
   },
 
@@ -71,6 +75,12 @@ export default {
     },
     toQRScanner () {
       this.$navigateTo(this.qrScanner)
+    },
+    toServiceRequest () {
+      this.$navigateTo(this.serviceRequest)
+    },
+    toAdoption () {
+      this.$navigateTo(this.adoption)
     }
   },
 
