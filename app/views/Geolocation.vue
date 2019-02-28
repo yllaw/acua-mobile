@@ -74,7 +74,7 @@
                         address: "29525 Agoura Road, Agoura, CA 91301",
                         latitude: 34.146015,
                         longitude: -118.769421,
-                        distance: 'Mi',
+                        distance: 'mi',
                         imageURL: "~/assets/images/achouse.png"
                     },
                     {
@@ -82,7 +82,7 @@
                         address: "4275 North Elton Street, Baldwin Park, CA 91706",
                         latitude: 34.091362,
                         longitude: -117.951105,
-                        distance: 'Mi',
+                        distance: 'mi',
                         imageURL: "~/assets/images/achouse.png"
                     },
                     {
@@ -116,7 +116,7 @@
                         address: "5210 West Avenue I, Lancaster, CA 93536",
                         latitude: 34.703239,
                         longitude: -118.222650,
-                        distance: '~mi',
+                        distance: 'mi',
                         imageURL: "~/assets/images/achouse.png"
                     },
                     {
@@ -124,14 +124,11 @@
                         address: "38550 Sierra Highway, Palmdale, CA 93550",
                         latitude: 34.5826,
                         longitude: -118.1171,
-                        distance: '~mi',
+                        distance: 'mi',
                         imageURL: "~/assets/images/achouse.png"
                     }  
                 ],
-
-                dist: [],
                 currentLoc: {}, // current location obj
-                distance: '' 
             }
         },
         computed: {
@@ -190,7 +187,7 @@
                         
                         }
 
-
+                        
                                  
                     }
 
