@@ -6,9 +6,9 @@
 
 
         <StackLayout>
-            <Button text="Get Current Location" textWrap="true" @tap="buttonGetLocationTap"/>
+            <Button text="Get Current Location" textWrap="true"  @tap="buttonGetLocationTap"/>
 
-            <RadListView row="2" for="location in centerLocations" class="list-group">
+            <RadListView row="2" for="location in centerLocations" @itemTap="onItemTap" class="list-group">
                 <ListViewLinearLayout v-tkListViewLayout scrollDirection="Vertical"/>
 
                     <v-template>
@@ -64,6 +64,8 @@
     import * as geolocation from "nativescript-geolocation";
     import { Accuracy } from "tns-core-modules/ui/enums";
 
+    import AnimalCenterDetails from "./AnimalCenterDetails"
+
     export default {
         data() {
             return {
@@ -72,6 +74,7 @@
                     {
                         name: "Agoura",
                         address: "29525 Agoura Road, Agoura, CA 91301",
+                        phone: "(818) 991-0071",
                         latitude: 34.146015,
                         longitude: -118.769421,
                         distance: 'mi',
@@ -80,6 +83,7 @@
                     {
                         name: "Baldwin Park",
                         address: "4275 North Elton Street, Baldwin Park, CA 91706",
+                        phone: "(626) 962-3577",
                         latitude: 34.091362,
                         longitude: -117.951105,
                         distance: 'mi',
@@ -88,6 +92,7 @@
                     {
                         name: "Carson/Gardena",
                         address: "216 W. Victoria Street, Gardena CA 90248",
+                        phone: "(310) 523-9566",
                         latitude: 33.864355,
                         longitude: -118.277414,
                         distance: 'mi',
@@ -96,6 +101,7 @@
                     {
                         name: "Castaic",
                         address: "31044 North Charlie Canyon Road, Castaic, CA 91384",
+                        phone: "(661) 257-3191",
                         latitude: 34.482899,
                         longitude: -118.608386,
                         distance: 'mi',
@@ -105,6 +111,7 @@
                     {
                         name: "Downey",
                         address: "11258 South Garfield Avenue, Downey, CA 90242",
+                        phone: "(562) 940-6898",
                         latitude: 33.936560,
                         longitude: -118.133870,
                         distance: 'mi',
@@ -114,6 +121,7 @@
                     {
                         name: "Lancaster",
                         address: "5210 West Avenue I, Lancaster, CA 93536",
+                        phone: "(661) 940-4191",
                         latitude: 34.703239,
                         longitude: -118.222650,
                         distance: 'mi',
@@ -122,6 +130,7 @@
                     {
                         name: "Palmdale",
                         address: "38550 Sierra Highway, Palmdale, CA 93550",
+                        phone: "(661) 575-2888",
                         latitude: 34.5826,
                         longitude: -118.1171,
                         distance: 'mi',
@@ -151,6 +160,7 @@
                 });
             },
             buttonGetLocationTap: function() {
+                console.log("buttonGetDistanceToCareCenters")
                 let that = this;
 
                 const metersToMilesConversionRate = 1609.344
@@ -194,8 +204,20 @@
                 }, function (e) {
                     console.log("Error: " + (e.message || e));
                 });
+
+
+                
                 
             },
+
+            onItemTap(e) {
+                // Navigate to AnimalCenterDetails
+                console.log("==========================================")
+                console.log(JSON.stringify(e.item))
+                console.log("onItemTap, " + e.item)
+                this.$emit("select", e.item);
+                this.$navigateTo(AnimalCenterDetails, { props: { AnimalCenter: e.item } });
+            }
     
         }
     };

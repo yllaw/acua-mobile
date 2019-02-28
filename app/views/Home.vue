@@ -2,8 +2,6 @@
   <Page>
     <ActionBar title="Welcome" fontSize="24" ios.position="left" android.icon="~/assets/images/seal.2016.png" android.iconVisibility="always" class="Action_Bar">
       <ActionItem @tap="toFaq" ios.systemIcon="12" ios.position="right" android.systemIcon="ic_menu_search" android.position="actionBar" />
-      <ActionItem @tap="toFaq" ios.systemIcon="0" text="Home Page" android.position="popup" />
-      <ActionItem @tap="toFaq" ios.systemIcon="0" text="FAQ" android.position="popup" />
     </ActionBar>
 
     <StackLayout>
@@ -25,7 +23,7 @@
                 
         <CategoryButton margin="10" row="2" col="0" :title="titles[4]" :action="toQRScanner" class="HomeButton5" textWrap="true"/>
 
-        <CategoryButton margin="10" row="2" col="1" :title="titles[5]" :action="toGeolocation" class="HomeButton6" textWrap="true"/>
+        <CategoryButton margin="10" row="2" col="1" :title="titles[5]" :action="toAnimalCenterList" class="HomeButton6" textWrap="true"/>
       </GridLayout>
 
     </StackLayout>
@@ -37,7 +35,7 @@
 <script>
 import CategoryButton from "@/components/buttons/CategoryButton.vue"
 import Faq from "./Faq.vue"
-import Geolocation from "./Geolocation.vue"
+import AnimalCenterList from "./AnimalCenterList.vue"
 import QRScanner from "./QRScanner.vue"
 
 export default {
@@ -57,14 +55,14 @@ export default {
       //search: "this will change as you type",
       results: [],
       faq: Faq,
-      geolocation: Geolocation,
+      animalCenterList: AnimalCenterList,
       qrScanner: QRScanner
     };
   },
 
   methods: {
-    toGeolocation () {
-      this.$navigateTo(this.geolocation)
+    toAnimalCenterList() {
+      this.$navigateTo(this.animalCenterList)
     },
     toFaq () {
       this.$navigateTo(this.faq)
