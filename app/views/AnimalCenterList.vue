@@ -61,8 +61,17 @@
 </template>
 
 <script>
+    
+    // ---plugins---
+    // geolocation
     import * as geolocation from "nativescript-geolocation";
     import { Accuracy } from "tns-core-modules/ui/enums";
+    
+    // toast
+    //import * as Toast from 'nativescript-toasts';
+    const Toast = require("nativescript-toasts");
+
+    //-------
 
     import AnimalCenterDetails from "./AnimalCenterDetails"
 
@@ -198,8 +207,13 @@
                         // sort list by distance
                         that.centerLocations.sort((loc1,loc2) => (loc1.distance > loc2.distance) ? 1 : ((loc2.distance > loc1.distance) ? -1 : 0))
 
-                        // TODO: add toast plugin to notify list was sorted by distance
-
+                        // toast to notify list was sorted by distance
+                        let options = {
+                            text: "Sorted by Distance",
+                            duration : Toast.DURATION.SHORT,
+                            position : Toast.POSITION.CENTER //optional
+                        }                        
+                        Toast.show(options);
 
                                  
                     }
@@ -212,6 +226,8 @@
                 
                 
             },
+
+    
 
             onItemTap(e) {
                 // Navigate to AnimalCenterDetails
