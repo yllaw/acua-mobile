@@ -3,10 +3,10 @@
     <ActionBar title="FAQ"/>
 
     <StackLayout>
-      <!-- <SearchBar v-model="search" hint="Enter text..." @submit="checkFaq" /> -->
+      <SearchBar v-model="search" hint="Enter text..." @submit="checkFaq" />
 
       <RadListView ref="listView"
-                   for="faq in faqs"
+                   for="faq in tempFaqs"
                    pullToRefresh="true"
                    @pullToRefreshInitiated="onPullToRefreshInitiated"
                    @itemTap="onItemTap">
@@ -28,7 +28,8 @@ export default {
   data() {
     return {
       search: '',
-      ticket: Ticket
+      ticket: Ticket,
+      tempFaqs: []
     }
   },
   methods: {
@@ -36,10 +37,19 @@ export default {
     ...mapMutations(['storeFaq']),
     checkFaq () {
       // in the future this is where to check if a user is on site, otherwise no ticket option
-      if (this.faqs.filter(faq => faq.question === this.search).length === 0) {
-        this.storeFaq(new Faq(this.search))
-        this.$navigateTo(this.ticket)
-      }
+      // if (this.faqs.filter(faq => faq.question === this.search).length === 0) {
+      //   this.storeFaq(new Faq(this.search))
+      //   this.$navigateTo(this.ticket)
+      // }
+      this.tempFaqs.splice(0, this.tempFaqs.length)
+      
+      // search filter calulation
+      let temp = this.faqs.filter(faq => this.search.split(' ')
+        .some(word => faq.question.includes(word) || faq.answer.includes(word)))
+
+      temp.forEach(faq => {
+        this.tempFaqs.push(faq)
+      })
     },
     onItemTap () {
       // TODO
