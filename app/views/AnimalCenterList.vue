@@ -21,7 +21,7 @@
                         <FormattedString>
                             <!-- <Span text.decode="&euro;"/> -->
                             <!-- distance -->
-                            <Span :text="'~'+ location.distance"/> 
+                            <Span :text="'~'+ location.distance + 'mi'"/> 
                             <!-- distance -->
                         </FormattedString>
                     </Label>
@@ -77,7 +77,7 @@
                         phone: "(818) 991-0071",
                         latitude: 34.146015,
                         longitude: -118.769421,
-                        distance: 'mi',
+                        distance: '',
                         imageURL: "~/assets/images/achouse.png"
                     },
                     {
@@ -86,7 +86,7 @@
                         phone: "(626) 962-3577",
                         latitude: 34.091362,
                         longitude: -117.951105,
-                        distance: 'mi',
+                        distance: '',
                         imageURL: "~/assets/images/achouse.png"
                     },
                     {
@@ -95,7 +95,7 @@
                         phone: "(310) 523-9566",
                         latitude: 33.864355,
                         longitude: -118.277414,
-                        distance: 'mi',
+                        distance: '',
                         imageURL: "~/assets/images/achouse.png"
                     },
                     {
@@ -104,7 +104,7 @@
                         phone: "(661) 257-3191",
                         latitude: 34.482899,
                         longitude: -118.608386,
-                        distance: 'mi',
+                        distance: '',
                         imageURL: "~/assets/images/achouse.png"
                     },
 
@@ -114,7 +114,7 @@
                         phone: "(562) 940-6898",
                         latitude: 33.936560,
                         longitude: -118.133870,
-                        distance: 'mi',
+                        distance: '',
                         imageURL: "~/assets/images/achouse.png"
                     },
 
@@ -124,7 +124,7 @@
                         phone: "(661) 940-4191",
                         latitude: 34.703239,
                         longitude: -118.222650,
-                        distance: 'mi',
+                        distance: '',
                         imageURL: "~/assets/images/achouse.png"
                     },
                     {
@@ -133,7 +133,7 @@
                         phone: "(661) 575-2888",
                         latitude: 34.5826,
                         longitude: -118.1171,
-                        distance: 'mi',
+                        distance: '',
                         imageURL: "~/assets/images/achouse.png"
                     }  
                 ],
@@ -193,11 +193,14 @@
                         
                         // round distance
                         centerLoc.distance = Number(Math.round(centerLoc.distance + 'e2') + 'e-2')
-                        centerLoc.distance += "mi"                     
                         
                         }
+                        // sort list by distance
+                        that.centerLocations.sort((loc1,loc2) => (loc1.distance > loc2.distance) ? 1 : ((loc2.distance > loc1.distance) ? -1 : 0))
 
-                        
+                        // TODO: add toast plugin to notify list was sorted by distance
+
+
                                  
                     }
 
@@ -217,7 +220,10 @@
                 console.log("onItemTap, " + e.item)
                 this.$emit("select", e.item);
                 this.$navigateTo(AnimalCenterDetails, { props: { AnimalCenter: e.item } });
-            }
+            },
+
+           
+            
     
         }
     };
