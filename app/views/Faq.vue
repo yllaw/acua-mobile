@@ -46,7 +46,7 @@ export default {
       // search filter calulation
       let temp = this.faqs.filter(faq => this.search.split(' ')
         .some(word => faq.question.toLowerCase().includes(word.toLowerCase())
-        || faq.answer.includes(word.toLowerCase())))
+        || faq.answer.toLowerCase().includes(word.toLowerCase())))
 
       temp.forEach(faq => {
         this.tempFaqs.push(faq)
