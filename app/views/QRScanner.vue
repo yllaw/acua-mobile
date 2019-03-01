@@ -1,6 +1,6 @@
 <template>
   <Page>
-    <ActionBar title="BarcodeScanner demo"></ActionBar>
+    <ActionBar title="QR Scanner"></ActionBar>
 
     <GridLayout columns="*" rows="auto, auto, auto, auto">
       <Label row="0" class="message" text="Look for a QR code to scan at your local Animal Care and Control Center" textWrap="true"></Label>
@@ -110,7 +110,7 @@
 
 <style scoped>
   ActionBar {
-    background-color: #53ba82;
+    background-color: #009fca;
     color: #ffffff;
   }
 
