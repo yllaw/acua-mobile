@@ -59,7 +59,6 @@ export default new Vuex.Store({
     loadFaqs ({ commit }) {
       FaqService.getFaqs()
         .then(res => {
-          console.log('test', res)
           commit('SET_FAQS', res)
         })
     },
