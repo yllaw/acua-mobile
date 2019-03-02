@@ -68,5 +68,17 @@ export default new Vuex.Store({
           commit('ADD_FAQ', res)
         })
     }
+  },
+  getters: {
+    getSearchResults: state => search => {
+      if (search === '')
+        return state.faqs
+      
+      const words = search.split(' ')
+      
+      return state.faqs.filter(faq => words.some(
+        word => faq.question.toLowerCase().includes(word.toLowerCase())
+        || faq.answer.toLowerCase().includes(word.toLowerCase())))
+    }
   }
 })

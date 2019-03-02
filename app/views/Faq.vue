@@ -6,7 +6,7 @@
       <SearchBar v-model="search" hint="Enter text..." @submit="checkFaq" />
 
       <RadListView ref="listView"
-                   for="faq in tempFaqs"
+                   for="faq in getSearchResults(search)"
                    pullToRefresh="true"
                    @pullToRefreshInitiated="onPullToRefreshInitiated"
                    @itemTap="onItemTap">
@@ -21,7 +21,7 @@
 <script>
 import FaqInfo from "@/components/sublists/FaqInfo.vue"
 import Ticket from './Ticket.vue'
-import { mapState, mapActions, mapMutations } from 'vuex'
+import { mapState, mapActions, mapMutations, mapGetters } from 'vuex'
 import Faq from '@/models/Faq'
 
 export default {
@@ -41,16 +41,6 @@ export default {
       //   this.storeFaq(new Faq(this.search))
       //   this.$navigateTo(this.ticket)
       // }
-      this.tempFaqs.splice(0, this.tempFaqs.length)
-      
-      // search filter calulation
-      let temp = this.faqs.filter(faq => this.search.split(' ')
-        .some(word => faq.question.toLowerCase().includes(word.toLowerCase())
-        || faq.answer.toLowerCase().includes(word.toLowerCase())))
-
-      temp.forEach(faq => {
-        this.tempFaqs.push(faq)
-      })
     },
     onItemTap () {
       // TODO
@@ -63,17 +53,11 @@ export default {
     }
   },
   computed: {
-    ...mapState(['faqs'])
+    ...mapState(['faqs']),
+    ...mapGetters(['getSearchResults'])
   },
   mounted () {
     this.loadFaqs()
-  },
-  watch: {
-    faqs (newVal, oldVal) {
-      newVal.forEach(faq => {
-        this.tempFaqs.push(faq)
-      })
-    }
   },
   components: {
     Ticket,
