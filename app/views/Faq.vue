@@ -68,6 +68,13 @@ export default {
   mounted () {
     this.loadFaqs()
   },
+  watch: {
+    faqs (newVal, oldVal) {
+      newVal.forEach(faq => {
+        this.tempFaqs.push(faq)
+      })
+    }
+  },
   components: {
     Ticket,
     FaqInfo
