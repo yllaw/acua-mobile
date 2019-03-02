@@ -13,17 +13,17 @@
       </FlexboxLayout-->
 
       <GridLayout class="layout" columns="*,*" rows="*,*,*">
-        <CategoryButton margin="10" row="0" col="0"  :title="titles[0]" :action="toFaq" class="HomeButton1" textWrap="true"/>
+        <CategoryButton margin="10" row="0" col="0"  :title="titles[0]" :action="toFaq" class="fa HomeButton1" textWrap="true"/>
               
-        <CategoryButton margin="10" row="0" col="1" :title="titles[1]" :action="toFaq" class="HomeButton2" textWrap="true"/>
+        <CategoryButton margin="10" row="0" col="1" :title="titles[1]" :action="toFaq" class="fa HomeButton2" textWrap="true"/>
               
-        <CategoryButton margin="10" row="1" col="0" :title="titles[2]" :action="toFaq" class="HomeButton3" textWrap="true"/>
+        <CategoryButton margin="10" row="1" col="0" :title="titles[2]" :action="toFaq" class="fa HomeButton3" textWrap="true"/>
               
-        <CategoryButton margin="10" row="1" col="1" :title="titles[3]" :action="toFaq" class="HomeButton4" textWrap="true"/>
+        <CategoryButton margin="10" row="1" col="1" :title="titles[3]" :action="toFaq" class="fa HomeButton4" textWrap="true"/>
                 
-        <CategoryButton margin="10" row="2" col="0" :title="titles[4]" :action="toQRScanner" class="HomeButton5" textWrap="true"/>
+        <CategoryButton margin="10" row="2" col="0" :title="titles[4]" :action="toQRScanner" class="fa HomeButton5" textWrap="true"/>
 
-        <CategoryButton margin="10" row="2" col="1" :title="titles[5]" :action="toAnimalCenterList" class="HomeButton6" textWrap="true"/>
+        <CategoryButton margin="10" row="2" col="1" :title="titles[5]" :action="toAnimalCenterList" class="fa HomeButton6" textWrap="true"/>
       </GridLayout>
 
     </StackLayout>
@@ -79,7 +79,9 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang ="scss">
+@import '../AnimalCenter';
+
     .Action_Bar {
         background-color: #009fca;
         color: #ffffff;
@@ -100,6 +102,10 @@ export default {
         background-size:cover;
         
     }  
+
+    .fa {
+      color: $homepage-blue;
+    }
 
     .Action_Text{
       text: Welcome;

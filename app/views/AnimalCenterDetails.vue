@@ -15,8 +15,8 @@
                 <Label row="1" class="hr-light m-t-15 m-b-15"/>
 
                 <GridLayout row="2" rows="*, *, *" columns="auto,*">
-                 <Label text="Name" class="p-l-15 p-b-10 m-r-20 text-secondary"/>
-                    <Label col="1" class="text p-b-10">
+                 <Label text="Name" class="p-l-15 p-b-10 m-r-20 text-secondary "/>
+                    <Label col="1" class="text p-b-10 font-weight-bold">
                         <FormattedString>
                             <!-- <Span text.decode="&euro;" /> -->
                             <Span :text="AnimalCenter.name + ' Animal Care Center'" />
@@ -27,9 +27,9 @@
 
                     <Label text="Address" row="1" class="p-l-15 p-b-10 m-r-20 text-secondary" />
                 <StackLayout row="1" col="1">
-                <Label textWrap="true" class="p-b-10">
+                <Label @tap="onAddressTap" textWrap="true" class="p-b-10">
                         <FormattedString>
-                            <Span class="fa text-primary" :text="AnimalCenter.address" />
+                            <Span  class="fa text-primary" :text="AnimalCenter.address" />
                         </FormattedString>
                     </Label>
                 </StackLayout>
@@ -53,35 +53,67 @@
 </template>
 
 <script>
-var phone = require( "nativescript-phone" );
+// ---plugins---
+// phone
+var phone = require("nativescript-phone");
 
+// directions
+var Directions = require("nativescript-directions").Directions;
+let directions = new Directions();
+//-------
 
-    export default {
-        props: ["AnimalCenter"],
+export default {
+  props: ["AnimalCenter"],
 
-        computed: {
-            animalCenterData() {
-                console.log("animalCenterData(), returning data: " + this.AnimalCenter)
-                console.log(this.AnimalCenter.name)
-                return this.AnimalCenter || {};
-            }
-        },
+  computed: {
+    animalCenterData() {
+      console.log("animalCenterData(), returning data: " + this.AnimalCenter);
+      return this.AnimalCenter || {};
+    }
+  },
 
-        methods: {
-            onPhoneTap() {
-                console.log("onPhoneTap(), call " + this.AnimalCenter.phone)
-                phone.dial(this.AnimalCenter.phone, true)
-            }
+  methods: {
+    onAddressTap() {
+      console.log(
+        "onAddressTap(), get directions to " + this.AnimalCenter.address
+      );
 
+    // must pass in string as variable otherwise it directions.navigate() won't work
+    const address = this.AnimalCenter.address
+
+      directions.available().then(function(avail) {
+        console.log(avail ? "Yes" : "No");
+        if (avail) {
+            console.log("navigating")
+          directions.navigate({
+              to: {
+                // either pass in a single object or an Array
+                address: address
+              }
+            })
+            .then(
+              function() {
+                console.log("Maps app launched.");
+              },
+              function(error) {
+                console.log(error);
+              }
+            );
         }
-    };
+      });
+    },
+
+    onPhoneTap() {
+      console.log("onPhoneTap(), call " + this.AnimalCenter.phone);
+      phone.dial(this.AnimalCenter.phone, true);
+    }
+  }
+};
 </script>
 
 <style scoped lang="scss">
-
-    ActionBar {
-    background-color: #009fca;
-    color: #ffffff;
-    }
-
+ActionBar {
+  background-color: #009fca;
+  color: #ffffff;
+}
 </style>

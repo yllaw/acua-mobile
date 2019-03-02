@@ -7,6 +7,9 @@ import RadListView from 'nativescript-ui-listview/vue'
 Vue.use(RadListView)
 Vue.registerElement('BarcodeScanner', () => require('nativescript-barcodescanner').BarcodeScannerView)
 
+
+
+
 if (TNS_ENV !== 'production') {
   Vue.use(VueDevtools)
 }
