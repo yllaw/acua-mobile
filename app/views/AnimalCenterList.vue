@@ -6,7 +6,7 @@
 
 
         <StackLayout>
-            <Button text="Get Closest Animal Center" textWrap="true"  @tap="buttonGetLocationTap"/>
+            <Button text="Get Closest Animal Center" textWrap="true"  @tap="buttonGetDistanceToCareCentersTap"/>
 
             <RadListView row="2" for="location in centerLocations" @itemTap="onItemTap" class="list-group">
                 <ListViewLinearLayout v-tkListViewLayout scrollDirection="Vertical"/>
@@ -16,7 +16,7 @@
                     <GridLayout rows="*, *, *" columns="*, *" class="list-group-item-content">
 
 
-                    <Label :text="location.name" class="text-primary list-group-item-text font-weight-bold"/>
+                    <Label :text="location.name" class="fa text-primary list-group-item-text font-weight-bold"/>
                     <Label col="1" horizontalAlignment="right" class="list-group-item-text m-r-5">
                         <FormattedString>
                             <!-- <Span text.decode="&euro;"/> -->
@@ -34,13 +34,13 @@
                     <StackLayout row="2" col="1" verticalAlignment="center" class="list-group-item-text">
                         <Label textWrap="true" class="p-b-10">
                             <FormattedString ios.fontFamily="system">
-                                 <Span :text="location.address"  class="fa text-primary"></Span>
+                                 <Span :text="location.address"  class="text-primary"></Span>
                             </FormattedString>
                         </Label>
                         <Label class="p-b-10">
                             <FormattedString ios.fontFamily="system">
                                 <!-- <Span :text="transmsion"/> -->
-                                <Span text=""/>
+                                <Span :text="location.phone" class=""/>
                             </FormattedString>
                         </Label>
                         <Label class="p-b-10">
@@ -167,8 +167,8 @@
                     console.log("Error: " + (e.message || e));
                 });
             },
-            buttonGetLocationTap: function() {
-                console.log("buttonGetDistanceToCareCenters")
+            buttonGetDistanceToCareCentersTap: function() {
+                console.log("buttonGetDistanceToCareCentersTap(), getting closest animal care center")
                 let that = this;
 
                 const metersToMilesConversionRate = 1609.344
@@ -227,14 +227,11 @@
                 
             },
 
-    
 
             onItemTap(e) {
                 // Navigate to AnimalCenterDetails
-                console.log("==========================================")
-                console.log(JSON.stringify(e.item))
-                console.log("onItemTap, " + e.item)
-                this.$emit("select", e.item); // you NEED to use e.item (e.location === undefined)
+                console.log("onItemTap(e), navigateTo " + JSON.stringify(e.item))
+                this.$emit("select", e.item); // you NEED to use e.item (e.location is undefined)
                 this.$navigateTo(AnimalCenterDetails, { props: { AnimalCenter: e.item } });
             },
 
@@ -248,6 +245,11 @@
 <style scoped lang="scss">
     @import '../AnimalCenter';
 
+    ActionBar {
+    background-color: #009fca;
+    color: #ffffff;
+    }
+
     .list-group {
         .list-group-item-content {
             padding: 8 15 4 15;
@@ -259,7 +261,7 @@
         }
 
         .fa {
-            color: $accent-dark;
+            color: $homepage-blue;
         }
    }
 

@@ -36,7 +36,7 @@
                     
 
                     <Label text="Phone" row="2" class="p-l-15 p-b-10 m-r-20 text-secondary" />
-                    <Label :text="AnimalCenter.phone" row="2" col="1" class="text p-b-10" />
+                    <Label @tap="onPhoneTap" :text="AnimalCenter.phone" row="2" col="1" class="fa text-primary p-b-10" />
 
                     <!-- <Label text="Seats" row="3" class="p-l-15 p-b-10 m-r-20 text-secondary" /> -->
                     <!-- <Label :text="adfg" row="3" col="1" class="text p-b-10" /> -->
@@ -53,19 +53,35 @@
 </template>
 
 <script>
+var phone = require( "nativescript-phone" );
+
+
     export default {
         props: ["AnimalCenter"],
 
         computed: {
             animalCenterData() {
-                console.log("=================AnimalCenterDetails====================")
+                console.log("animalCenterData(), returning data: " + this.AnimalCenter)
                 console.log(this.AnimalCenter.name)
                 return this.AnimalCenter || {};
             }
         },
 
         methods: {
+            onPhoneTap() {
+                console.log("onPhoneTap(), call " + this.AnimalCenter.phone)
+                phone.dial(this.AnimalCenter.phone, true)
+            }
 
         }
     };
 </script>
+
+<style scoped lang="scss">
+
+    ActionBar {
+    background-color: #009fca;
+    color: #ffffff;
+    }
+
+</style>
