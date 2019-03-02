@@ -17,7 +17,7 @@
 
 
                     <Label :text="location.name" class="fa text-primary list-group-item-text font-weight-bold"/>
-                    <Label col="1" horizontalAlignment="right" class="list-group-item-text m-r-5">
+                    <Label col="1" horizontalAlignment="right" class="list-group-item-text m-r-5 text-secondary">
                         <FormattedString>
                             <!-- <Span text.decode="&euro;"/> -->
                             <!-- distance -->

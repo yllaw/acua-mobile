@@ -82,9 +82,8 @@ export default {
     const address = this.AnimalCenter.address
 
       directions.available().then(function(avail) {
-        console.log(avail ? "Yes" : "No");
+        //console.log(avail ? "Yes" : "No");
         if (avail) {
-            console.log("navigating")
           directions.navigate({
               to: {
                 // either pass in a single object or an Array
