@@ -14,8 +14,8 @@
 
                 <Label row="1" class="hr-light m-t-15 m-b-15"/>
 
-                <GridLayout row="2" rows="*, *, *, *, *, *" columns="auto,auto">
-                    <Label text="Name" class="p-l-15 p-b-10 m-r-20 text-secondary"/>
+                <GridLayout row="2" rows="*, *, *" columns="auto,*">
+                 <Label text="Name" class="p-l-15 p-b-10 m-r-20 text-secondary"/>
                     <Label col="1" class="text p-b-10">
                         <FormattedString>
                             <!-- <Span text.decode="&euro;" /> -->
@@ -23,9 +23,16 @@
                         </FormattedString>
                     </Label>
 
+
+
                     <Label text="Address" row="1" class="p-l-15 p-b-10 m-r-20 text-secondary" />
-                    <Label :text="AnimalCenter.address" row="1" col="1" class="fa text-primary" textWrap="true"/>
-                    
+                <StackLayout row="1" col="1">
+                <Label textWrap="true" class="p-b-10">
+                        <FormattedString>
+                            <Span class="fa text-primary" :text="AnimalCenter.address" />
+                        </FormattedString>
+                    </Label>
+                </StackLayout>
                     
 
                     <Label text="Phone" row="2" class="p-l-15 p-b-10 m-r-20 text-secondary" />

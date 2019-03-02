@@ -1,12 +1,12 @@
 <template>
     <Page class="page">
         <ActionBar class="action-bar">
-            <Label class="action-bar-title" text="Animal Care Centers"></Label>
+            <Label text="Animal Care Centers"></Label>
         </ActionBar>
 
 
         <StackLayout>
-            <Button text="Get Current Location" textWrap="true"  @tap="buttonGetLocationTap"/>
+            <Button text="Get Closest Animal Center" textWrap="true"  @tap="buttonGetLocationTap"/>
 
             <RadListView row="2" for="location in centerLocations" @itemTap="onItemTap" class="list-group">
                 <ListViewLinearLayout v-tkListViewLayout scrollDirection="Vertical"/>
@@ -68,7 +68,6 @@
     import { Accuracy } from "tns-core-modules/ui/enums";
     
     // toast
-    //import * as Toast from 'nativescript-toasts';
     const Toast = require("nativescript-toasts");
 
     //-------
@@ -208,6 +207,7 @@
                         that.centerLocations.sort((loc1,loc2) => (loc1.distance > loc2.distance) ? 1 : ((loc2.distance > loc1.distance) ? -1 : 0))
 
                         // toast to notify list was sorted by distance
+                        // TODO: bugfix when spamming button there can be a finite amount of Toasts that constantly appear
                         let options = {
                             text: "Sorted by Distance",
                             duration : Toast.DURATION.SHORT,
@@ -234,7 +234,7 @@
                 console.log("==========================================")
                 console.log(JSON.stringify(e.item))
                 console.log("onItemTap, " + e.item)
-                this.$emit("select", e.item);
+                this.$emit("select", e.item); // you NEED to use e.item (e.location === undefined)
                 this.$navigateTo(AnimalCenterDetails, { props: { AnimalCenter: e.item } });
             },
 
