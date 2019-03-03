@@ -26,13 +26,13 @@
   import { isIOS } from "tns-core-modules/platform"
   import { BarcodeScanner } from "nativescript-barcodescanner"
   import { mapMutations, mapState } from "vuex"
-  import TicketForm from "./TicketForm.vue"
+  import TicketOptions from "./TicketOptions.vue"
 
   export default {
     data() {
       return {
         isIOS,
-        ticketForm: TicketForm,
+        ticketOptions: TicketOptions,
         locations: {
           '1': 'Agoura',
           '2': 'Baldwin Park',
@@ -76,17 +76,8 @@
                 this.setTicketLocation(result.text)
 
                 console.log("--- scanned: " + result.text)
-                // Note that this Promise is never invoked when a 'continuousScanCallback' function is provided
-                setTimeout(() => {
-                  // if this alert doesn't show up please upgrade to {N} 2.4.0+
-                  alert({
-                    title: "Scan result",
-                    message: "You are at the " + this.locations[result.text] + " center.",
-                    okButtonText: "OK"
-                  })
-                }, 500)
 
-                this.$navigateTo(this.ticketForm)
+                this.$navigateTo(this.ticketOptions, { props: { site: this.locations[result.text] } })
 
               } else {
                 setTimeout(() => {
