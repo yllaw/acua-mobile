@@ -9,7 +9,6 @@
             <Button text="Get Closest Animal Center" textWrap="true"  @tap="buttonGetDistanceToCareCentersTap"/>
 
             <RadListView row="2" for="location in centerLocations" @itemTap="onItemTap" class="list-group">
-                <ListViewLinearLayout v-tkListViewLayout scrollDirection="Vertical"/>
 
                     <v-template>
 
@@ -61,7 +60,6 @@
 </template>
 
 <script>
-    
     // ---plugins---
     // geolocation
     import * as geolocation from "nativescript-geolocation";
@@ -213,17 +211,12 @@
                             duration : Toast.DURATION.SHORT,
                             position : Toast.POSITION.CENTER //optional
                         }                        
-                        Toast.show(options);
-
-                                 
+                        Toast.show(options);          
                     }
 
                 }, function (e) {
                     console.log("Error: " + (e.message || e));
                 });
-
-
-                
                 
             },
 
@@ -248,6 +241,12 @@
     ActionBar {
     background-color: #009fca;
     color: #ffffff;
+    }
+
+    .gps-button {
+        background-image:url("~/assets/images/locationicon-e1506468333331.png");
+        background-position: bottom;
+        background-size: 25% 25%;
     }
 
     .list-group {
