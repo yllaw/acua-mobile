@@ -2,8 +2,6 @@
   <Page>
     <ActionBar title="Welcome" fontSize="24" ios.position="left" android.icon="~/assets/images/seal.2016.png" android.iconVisibility="always" class="Action_Bar">
       <ActionItem @tap="toFaq" ios.systemIcon="12" ios.position="right" android.systemIcon="ic_menu_search" android.position="actionBar" />
-      <ActionItem @tap="toFaq" ios.systemIcon="0" text="Home Page" android.position="popup" />
-      <ActionItem @tap="toFaq" ios.systemIcon="0" text="FAQ" android.position="popup" />
     </ActionBar>
 
     <StackLayout>
@@ -17,15 +15,15 @@
       <GridLayout class="layout" columns="*,*" rows="*,*,*">
         <CategoryButton margin="10" row="0" col="0"  :title="titles[0]" :action="toAdoption" class="HomeButton1" textWrap="true"/>
               
-        <CategoryButton margin="10" row="0" col="1" :title="titles[1]" :action="toFaq" class="HomeButton2" textWrap="true"/>
+        <CategoryButton margin="10" row="0" col="1" :title="titles[1]" :action="toFaq" class="fa HomeButton2" textWrap="true"/>
               
         <CategoryButton margin="10" row="1" col="0" :title="titles[2]" :action="toServiceRequest" class="HomeButton3" textWrap="true"/>
               
-        <CategoryButton margin="10" row="1" col="1" :title="titles[3]" :action="toFaq" class="HomeButton4" textWrap="true"/>
+        <CategoryButton margin="10" row="1" col="1" :title="titles[3]" :action="toFaq" class="fa HomeButton4" textWrap="true"/>
                 
-        <CategoryButton margin="10" row="2" col="0" :title="titles[4]" :action="toQRScanner" class="HomeButton5" textWrap="true"/>
+        <CategoryButton margin="10" row="2" col="0" :title="titles[4]" :action="toQRScanner" class="fa HomeButton5" textWrap="true"/>
 
-        <CategoryButton margin="10" row="2" col="1" :title="titles[5]" :action="toGeolocation" class="HomeButton6" textWrap="true"/>
+        <CategoryButton margin="10" row="2" col="1" :title="titles[5]" :action="toAnimalCenterList" class="fa HomeButton6" textWrap="true"/>
       </GridLayout>
 
     </StackLayout>
@@ -37,7 +35,7 @@
 <script>
 import CategoryButton from "@/components/buttons/CategoryButton.vue"
 import Faq from "./Faq.vue"
-import Geolocation from "./Geolocation.vue"
+import AnimalCenterList from "./AnimalCenterList.vue"
 import QRScanner from "./QRScanner.vue"
 import ServiceRequest from "./ServiceRequest.vue"
 import Adoption from "./Adoption.vue"
@@ -63,12 +61,14 @@ export default {
       qrScanner: QRScanner,
       serviceRequest: ServiceRequest,
       adoption: Adoption
+      animalCenterList: AnimalCenterList,
+      qrScanner: QRScanner
     };
   },
 
   methods: {
-    toGeolocation () {
-      this.$navigateTo(this.geolocation)
+    toAnimalCenterList() {
+      this.$navigateTo(this.animalCenterList)
     },
     toFaq () {
       this.$navigateTo(this.faq)
@@ -91,7 +91,9 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang ="scss">
+@import '../AnimalCenter';
+
     .Action_Bar {
         background-color: #009fca;
         color: #ffffff;
@@ -112,6 +114,10 @@ export default {
         background-size:cover;
         
     }  
+
+    .fa {
+      color: $homepage-blue;
+    }
 
     .Action_Text{
       text: Welcome;

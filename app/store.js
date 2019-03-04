@@ -59,7 +59,6 @@ export default new Vuex.Store({
     loadFaqs ({ commit }) {
       FaqService.getFaqs()
         .then(res => {
-          console.log('test', res)
           commit('SET_FAQS', res)
         })
     },
@@ -68,6 +67,18 @@ export default new Vuex.Store({
         .then(res => {
           commit('ADD_FAQ', res)
         })
+    }
+  },
+  getters: {
+    getSearchResults: state => search => {
+      if (search === '')
+        return state.faqs
+      
+      const words = search.split(' ')
+      
+      return state.faqs.filter(faq => words.some(
+        word => faq.question.toLowerCase().includes(word.toLowerCase())
+        || faq.answer.toLowerCase().includes(word.toLowerCase())))
     }
   }
 })

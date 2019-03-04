@@ -1,27 +1,26 @@
 <template>
     <Page class="page">
         <ActionBar class="action-bar">
-            <Label class="action-bar-title" text="Animal Care Centers"></Label>
+            <Label text="Animal Care Centers"></Label>
         </ActionBar>
 
 
         <StackLayout>
-            <Button text="Get Current Location" textWrap="true" @tap="buttonGetLocationTap"/>
+            <Button text="Get Closest Animal Center" textWrap="true"  @tap="buttonGetDistanceToCareCentersTap"/>
 
-            <RadListView row="2" for="location in centerLocations" class="list-group">
-                <ListViewLinearLayout v-tkListViewLayout scrollDirection="Vertical"/>
+            <RadListView row="2" for="location in centerLocations" @itemTap="onItemTap" class="list-group">
 
                     <v-template>
 
                     <GridLayout rows="*, *, *" columns="*, *" class="list-group-item-content">
 
 
-                    <Label :text="location.name" class="text-primary list-group-item-text font-weight-bold"/>
-                    <Label col="1" horizontalAlignment="right" class="list-group-item-text m-r-5">
+                    <Label :text="location.name" class="fa text-primary list-group-item-text font-weight-bold"/>
+                    <Label col="1" horizontalAlignment="right" class="list-group-item-text m-r-5 text-secondary">
                         <FormattedString>
                             <!-- <Span text.decode="&euro;"/> -->
                             <!-- distance -->
-                            <Span :text="'~'+ location.distance"/> 
+                            <Span :text="'~'+ location.distance + 'mi'"/> 
                             <!-- distance -->
                         </FormattedString>
                     </Label>
@@ -34,13 +33,13 @@
                     <StackLayout row="2" col="1" verticalAlignment="center" class="list-group-item-text">
                         <Label textWrap="true" class="p-b-10">
                             <FormattedString ios.fontFamily="system">
-                                 <Span :text="location.address"  class="fa text-primary"></Span>
+                                 <Span :text="location.address"  class="text-primary"></Span>
                             </FormattedString>
                         </Label>
                         <Label class="p-b-10">
                             <FormattedString ios.fontFamily="system">
                                 <!-- <Span :text="transmsion"/> -->
-                                <Span text=""/>
+                                <Span :text="location.phone" class=""/>
                             </FormattedString>
                         </Label>
                         <Label class="p-b-10">
@@ -61,8 +60,17 @@
 </template>
 
 <script>
+    // ---plugins---
+    // geolocation
     import * as geolocation from "nativescript-geolocation";
     import { Accuracy } from "tns-core-modules/ui/enums";
+    
+    // toast
+    const Toast = require("nativescript-toasts");
+
+    //-------
+
+    import AnimalCenterDetails from "./AnimalCenterDetails"
 
     export default {
         data() {
@@ -72,59 +80,66 @@
                     {
                         name: "Agoura",
                         address: "29525 Agoura Road, Agoura, CA 91301",
+                        phone: "(818) 991-0071",
                         latitude: 34.146015,
                         longitude: -118.769421,
-                        distance: 'mi',
+                        distance: '',
                         imageURL: "~/assets/images/achouse.png"
                     },
                     {
                         name: "Baldwin Park",
                         address: "4275 North Elton Street, Baldwin Park, CA 91706",
+                        phone: "(626) 962-3577",
                         latitude: 34.091362,
                         longitude: -117.951105,
-                        distance: 'mi',
+                        distance: '',
                         imageURL: "~/assets/images/achouse.png"
                     },
                     {
                         name: "Carson/Gardena",
                         address: "216 W. Victoria Street, Gardena CA 90248",
+                        phone: "(310) 523-9566",
                         latitude: 33.864355,
                         longitude: -118.277414,
-                        distance: 'mi',
+                        distance: '',
                         imageURL: "~/assets/images/achouse.png"
                     },
                     {
                         name: "Castaic",
                         address: "31044 North Charlie Canyon Road, Castaic, CA 91384",
+                        phone: "(661) 257-3191",
                         latitude: 34.482899,
                         longitude: -118.608386,
-                        distance: 'mi',
+                        distance: '',
                         imageURL: "~/assets/images/achouse.png"
                     },
 
                     {
                         name: "Downey",
                         address: "11258 South Garfield Avenue, Downey, CA 90242",
+                        phone: "(562) 940-6898",
                         latitude: 33.936560,
                         longitude: -118.133870,
-                        distance: 'mi',
+                        distance: '',
                         imageURL: "~/assets/images/achouse.png"
                     },
 
                     {
                         name: "Lancaster",
                         address: "5210 West Avenue I, Lancaster, CA 93536",
+                        phone: "(661) 940-4191",
                         latitude: 34.703239,
                         longitude: -118.222650,
-                        distance: 'mi',
+                        distance: '',
                         imageURL: "~/assets/images/achouse.png"
                     },
                     {
                         name: "Palmdale",
                         address: "38550 Sierra Highway, Palmdale, CA 93550",
+                        phone: "(661) 575-2888",
                         latitude: 34.5826,
                         longitude: -118.1171,
-                        distance: 'mi',
+                        distance: '',
                         imageURL: "~/assets/images/achouse.png"
                     }  
                 ],
@@ -150,7 +165,8 @@
                     console.log("Error: " + (e.message || e));
                 });
             },
-            buttonGetLocationTap: function() {
+            buttonGetDistanceToCareCentersTap: function() {
+                console.log("buttonGetDistanceToCareCentersTap(), getting closest animal care center")
                 let that = this;
 
                 const metersToMilesConversionRate = 1609.344
@@ -183,12 +199,19 @@
                         
                         // round distance
                         centerLoc.distance = Number(Math.round(centerLoc.distance + 'e2') + 'e-2')
-                        centerLoc.distance += "mi"                     
                         
                         }
+                        // sort list by distance
+                        that.centerLocations.sort((loc1,loc2) => (loc1.distance > loc2.distance) ? 1 : ((loc2.distance > loc1.distance) ? -1 : 0))
 
-                        
-                                 
+                        // toast to notify list was sorted by distance
+                        // TODO: bugfix when spamming button there can be a finite amount of Toasts that constantly appear
+                        let options = {
+                            text: "Sorted by Distance",
+                            duration : Toast.DURATION.SHORT,
+                            position : Toast.POSITION.CENTER //optional
+                        }                        
+                        Toast.show(options);          
                     }
 
                 }, function (e) {
@@ -196,6 +219,17 @@
                 });
                 
             },
+
+
+            onItemTap(e) {
+                // Navigate to AnimalCenterDetails
+                console.log("onItemTap(e), navigateTo " + JSON.stringify(e.item))
+                this.$emit("select", e.item); // you NEED to use e.item (e.location is undefined)
+                this.$navigateTo(AnimalCenterDetails, { props: { AnimalCenter: e.item } });
+            },
+
+           
+            
     
         }
     };
@@ -203,6 +237,17 @@
 
 <style scoped lang="scss">
     @import '../AnimalCenter';
+
+    ActionBar {
+    background-color: #009fca;
+    color: #ffffff;
+    }
+
+    .gps-button {
+        background-image:url("~/assets/images/locationicon-e1506468333331.png");
+        background-position: bottom;
+        background-size: 25% 25%;
+    }
 
     .list-group {
         .list-group-item-content {
@@ -215,7 +260,7 @@
         }
 
         .fa {
-            color: $accent-dark;
+            color: $homepage-blue;
         }
    }
 
