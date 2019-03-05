@@ -37,6 +37,7 @@ import CategoryButton from "@/components/buttons/CategoryButton.vue"
 import Faq from "./Faq.vue"
 import AnimalCenterList from "./AnimalCenterList.vue"
 import QRScanner from "./QRScanner.vue"
+import TicketOptions from "./TicketOptions.vue"
 
 export default {
   data() {
@@ -56,7 +57,8 @@ export default {
       results: [],
       faq: Faq,
       animalCenterList: AnimalCenterList,
-      qrScanner: QRScanner
+      qrScanner: QRScanner,
+      ticketOptions: TicketOptions
     };
   },
 
@@ -68,7 +70,8 @@ export default {
       this.$navigateTo(this.faq)
     },
     toQRScanner () {
-      this.$navigateTo(this.qrScanner)
+      // this.$navigateTo(this.qrScanner)
+      this.$navigateTo(this.ticketOptions, { props: { site: 'Downey' } })
     }
   },
 
