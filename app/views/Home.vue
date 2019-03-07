@@ -60,7 +60,7 @@ export default {
       geolocation: Geolocation,
       qrScanner: QRScanner,
       serviceRequest: ServiceRequest,
-      adoption: Adoption
+      adoption: Adoption,
       animalCenterList: AnimalCenterList,
       qrScanner: QRScanner
     };
