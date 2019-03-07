@@ -8,11 +8,10 @@ export default class {
     this.location = qrCode
   }
 
-  setTicketInfo ({ phone, name, query, comment }) {
+  setTicketInfo ({ phone, name, query }) {
     this.phone = phone
     this.name = name
     this.query = query
-    this.comment = comment
     this.timeIn = new Date()
   }
 

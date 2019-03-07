@@ -13,11 +13,11 @@
       </FlexboxLayout-->
 
       <GridLayout class="layout" columns="*,*" rows="*,*,*">
-        <CategoryButton margin="10" row="0" col="0"  :title="titles[0]" :action="toAdoption" class="HomeButton1" textWrap="true"/>
+        <CategoryButton margin="10" row="0" col="0"  :title="titles[0]" :action="toAdoption" class="fa HomeButton1" textWrap="true"/>
               
         <CategoryButton margin="10" row="0" col="1" :title="titles[1]" :action="toFaq" class="fa HomeButton2" textWrap="true"/>
               
-        <CategoryButton margin="10" row="1" col="0" :title="titles[2]" :action="toServiceRequest" class="HomeButton3" textWrap="true"/>
+        <CategoryButton margin="10" row="1" col="0" :title="titles[2]" :action="toServiceRequest" class="fa HomeButton3" textWrap="true"/>
               
         <CategoryButton margin="10" row="1" col="1" :title="titles[3]" :action="toFaq" class="fa HomeButton4" textWrap="true"/>
                 
@@ -37,8 +37,8 @@ import CategoryButton from "@/components/buttons/CategoryButton.vue"
 import Faq from "./Faq.vue"
 import AnimalCenterList from "./AnimalCenterList.vue"
 import QRScanner from "./QRScanner.vue"
-import ServiceRequest from "./ServiceRequest.vue"
 import Adoption from "./Adoption.vue"
+import ServiceRequest from "./ServiceRequest.vue"
 
 export default {
   data() {
@@ -57,12 +57,11 @@ export default {
       //search: "this will change as you type",
       results: [],
       faq: Faq,
-      geolocation: Geolocation,
-      qrScanner: QRScanner,
-      serviceRequest: ServiceRequest,
-      adoption: Adoption,
       animalCenterList: AnimalCenterList,
-      qrScanner: QRScanner
+      qrScanner: QRScanner,
+      adoption: Adoption,
+      serviceRequest: ServiceRequest,
+
     };
   },
 
@@ -76,12 +75,13 @@ export default {
     toQRScanner () {
       this.$navigateTo(this.qrScanner)
     },
-    toServiceRequest () {
-      this.$navigateTo(this.serviceRequest)
-    },
     toAdoption () {
       this.$navigateTo(this.adoption)
+    },
+    toServiceRequest () {
+      this.$navigateTo(this.serviceRequest)
     }
+
   },
 
   components: {

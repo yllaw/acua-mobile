@@ -7,11 +7,7 @@
     </ActionBar>
 
     <StackLayout>
-      <!-- <SearchBar v-model="search" hint="Enter text..." @submit="checkFaq" /> -->
       <WebView src="http://animalcare.lacounty.gov/view-our-animals/" />
-
-      <!--<WebView src="<div><h1>Some static HTML</h1></div>" />-->
-  
     </StackLayout>
   </Page>
 </template>
@@ -22,6 +18,7 @@ import Ticket from './Ticket.vue'
 import { mapState, mapActions, mapMutations } from 'vuex'
 import Faq from '@/models/Faq'
 import Home from './Home.vue'
+
 export default {
   data() {
     return {
