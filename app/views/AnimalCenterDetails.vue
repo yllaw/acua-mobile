@@ -12,22 +12,23 @@
             <StackLayout>
                 <Image :src="AnimalCenter.imageURL" stretch="aspectFit" height="200" class="m-b-15" />
 
-                <Label row="1" class="hr-light m-t-15 m-b-15"/>
+                <Label row="1" class="hr-light m-t-15 m-b-15 stack"/>
 
-                <GridLayout row="2" rows="*, *, *" columns="auto,*">
-                 <Label text="Name" class="p-l-15 p-b-10 m-r-20 text-secondary "/>
-                    <Label col="1" class="text p-b-10 font-weight-bold">
+                <GridLayout row="2" rows="*, *, *, auto" columns="auto,*">
+                <Image class="p-l-15 p-b-10 m-r-20" src="~/assets/images/achouse.png" stretch="aspectFit" height="40" width="40" loadMode="async"/>
+
+                    <Label margin="5" col="1" class="text p-b-10 font-weight-bold stack">
                         <FormattedString>
-                            <!-- <Span text.decode="&euro;" /> -->
                             <Span :text="AnimalCenter.name + ' Animal Care Center'" />
                         </FormattedString>
                     </Label>
 
 
 
-                    <Label text="Address" row="1" class="p-l-15 p-b-10 m-r-20 text-secondary" />
+                    <Image class="p-l-15 p-b-10 m-r-20" row="1" src="~/assets/images/locationicon.png" stretch="aspectFit" height="40" width="40" loadMode="async"/>
+
                 <StackLayout row="1" col="1">
-                <Label @tap="onAddressTap" textWrap="true" class="p-b-10">
+                <Label margin="5" @tap="onAddressTap" textWrap="true" class="p-b-10">
                         <FormattedString>
                             <Span  class="fa text-primary" :text="AnimalCenter.address" />
                         </FormattedString>
@@ -35,17 +36,17 @@
                 </StackLayout>
                     
 
-                    <Label text="Phone" row="2" class="p-l-15 p-b-10 m-r-20 text-secondary" />
-                    <Label @tap="onPhoneTap" :text="AnimalCenter.phone" row="2" col="1" class="fa text-primary p-b-10" />
+                    <Image class="p-l-15 p-b-10 m-r-20" row="2" src="~/assets/images/phoneicon.png" stretch="aspectFit" height="40" width="40" oadMode="async"/>
+                    <Label @tap="onPhoneTap" :text="AnimalCenter.phone" row="2" col="1" class="text-primary p-b-10 stack" />
 
-                    <!-- <Label text="Seats" row="3" class="p-l-15 p-b-10 m-r-20 text-secondary" /> -->
-                    <!-- <Label :text="adfg" row="3" col="1" class="text p-b-10" /> -->
+                    <Image class="p-l-15 p-b-10 m-r-20" row="3" src="~/assets/images/hoursicon.png" stretch="aspectFit" height="40" width="40" loadMode="async"/>
+                    <GridLayout margin="5" class="stack-hours" row="3" col="1" columns="*, *" rows="auto, auto">
+                        <Label :text="AnimalCenter.availability.weekday" row="0" col="0"/>
+                        <Label :text="AnimalCenter.availability.weekdayhours" row="0" col="1" textWrap="true"/>
+                        <Label :text="AnimalCenter.availability.weekend" row="1" col="0"/>
+                        <Label :text="AnimalCenter.availability.weekendhours" row="1" col="1" textWrap="true"/>
+                    </GridLayout>
 
-                    <!-- <Label text="Transmission" row="4" class="p-l-15 p-b-10 m-r-20 text-secondary" /> -->
-                    <!-- <Label :text="adfg" row="4" col="1" class="text p-b-10" /> -->
-
-                    <!-- <Label text="Luggage" row="5" class="p-l-15 p-b-10 m-r-20 text-secondary" /> -->
-                    <!-- <Label :text="adfg" row="5" col="1" class="text p-b-10" /> -->
                 </GridLayout>
             </StackLayout>
         </ScrollView>
@@ -111,6 +112,16 @@ export default {
 </script>
 
 <style scoped lang="scss">
+//@import '../AnimalCenter';
+
+.stack {
+  padding-top: 14;
+}
+
+.stack-hours {
+  padding-top: 6;
+}
+
 ActionBar {
   background-color: #009fca;
   color: #ffffff;

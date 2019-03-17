@@ -1,6 +1,6 @@
 <template>
   <StackLayout orientation="vertical">
-    <Label class="fa text-primary list-group-item-text font-weight-bold" textWrap="true">
+    <Label class="homepage-blue text-primary list-group-item-text font-weight-bold" textWrap="true">
     <FormattedString>
         <Span :text="item.question"/>
       </FormattedString>
@@ -44,7 +44,7 @@ export default {
   background-color: $background-light;
 }
 
-.fa {
+.homepage-blue {
   color: $homepage-blue;
 }
 </style>
