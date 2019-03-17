@@ -6,7 +6,7 @@
 
 
         <StackLayout>
-            <Button text="Get Closest Animal Center" textWrap="true"  @tap="buttonGetDistanceToCareCentersTap"/>
+            <Button class="btn btn-primary btn-rounded-sm" text="Get Closest Animal Center" textWrap="true"  @tap="buttonGetDistanceToCareCentersTap"/>
 
             <RadListView row="2" for="location in centerLocations" @itemTap="onItemTap" class="list-group">
 
