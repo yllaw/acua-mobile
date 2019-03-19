@@ -17,7 +17,7 @@
                 <GridLayout row="2" rows="*, *, *, auto" columns="auto,*">
                 <Image class="p-l-15 p-b-10 m-r-20" src="~/assets/images/achouse.png" stretch="aspectFit" height="40" width="40" loadMode="async"/>
 
-                    <Label margin="5" col="1" class="text p-b-10 font-weight-bold stack">
+                    <Label textWrap="true" margin="5" col="1" class="text p-b-10 font-weight-bold title stack">
                         <FormattedString>
                             <Span :text="AnimalCenter.name + ' Animal Care Center'" />
                         </FormattedString>
@@ -41,10 +41,10 @@
 
                     <Image class="p-l-15 p-b-10 m-r-20" row="3" src="~/assets/images/hoursicon.png" stretch="aspectFit" height="40" width="40" loadMode="async"/>
                     <GridLayout margin="5" class="stack-hours" row="3" col="1" columns="*, *" rows="auto, auto">
-                        <Label :text="AnimalCenter.availability.weekday" row="0" col="0"/>
-                        <Label :text="AnimalCenter.availability.weekdayhours" row="0" col="1" textWrap="true"/>
-                        <Label :text="AnimalCenter.availability.weekend" row="1" col="0"/>
-                        <Label :text="AnimalCenter.availability.weekendhours" row="1" col="1" textWrap="true"/>
+                        <Label class="hours" :text="AnimalCenter.availability.weekday" row="0" col="0"/>
+                        <Label class="hours" :text="AnimalCenter.availability.weekdayhours" row="0" col="1" textWrap="true"/>
+                        <Label class="hours" :text="AnimalCenter.availability.weekend" row="1" col="0"/>
+                        <Label class="hours" :text="AnimalCenter.availability.weekendhours" row="1" col="1" textWrap="true"/>
                     </GridLayout>
 
                 </GridLayout>
@@ -79,13 +79,14 @@ export default {
         "onAddressTap(), get directions to " + this.AnimalCenter.address
       );
 
-    // must pass in string as variable otherwise it directions.navigate() won't work
-    const address = this.AnimalCenter.address
+      // must pass in string as variable otherwise it directions.navigate() won't work
+      const address = this.AnimalCenter.address;
 
       directions.available().then(function(avail) {
         //console.log(avail ? "Yes" : "No");
         if (avail) {
-          directions.navigate({
+          directions
+            .navigate({
               to: {
                 // either pass in a single object or an Array
                 address: address
@@ -112,7 +113,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
-//@import '../AnimalCenter';
+@import "../AnimalCenter";
+
+.title {
+  font-size: 18em;
+  color: $midnight-dark;
+
+}
 
 .stack {
   padding-top: 14;
@@ -120,6 +127,11 @@ export default {
 
 .stack-hours {
   padding-top: 6;
+}
+
+.hours {
+  color: $blue-dark;
+
 }
 
 ActionBar {

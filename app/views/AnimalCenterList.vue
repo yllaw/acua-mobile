@@ -6,7 +6,7 @@
 
 
         <StackLayout>
-            <Button class="btn btn-primary btn-rounded-sm" text="Get Closest Animal Center" textWrap="true"  @tap="buttonGetDistanceToCareCentersTap"/>
+            <Button class="gps-button btn btn-primary btn-rounded-sm" text="Get Closest Animal Center" textWrap="true"  @tap="buttonGetDistanceToCareCentersTap"/>
 
             <RadListView row="2" for="location in centerLocations" @itemTap="onItemTap" class="list-group">
 
@@ -51,8 +51,6 @@
 
                     </StackLayout>
 
-                    <!-- <Label :text="',lat: ' + location.latitude + ', long: ' + location.longitude" textWrap = "true"/> -->
-
                     </GridLayout>
                 </v-template>
 
@@ -83,10 +81,10 @@ export default {
           address: "29525 Agoura Road, Agoura, CA 91301",
           phone: "(818) 991-0071",
           availability: {
-              weekday: "Monday-Thursday",
-              weekend: "Friday-Sunday",
-              weekdayhours: "12:00 p.m. - 7:00 p.m",
-              weekendhours: "10:00 a.m. - 5:00 p.m"
+            weekday: "Monday-Thursday",
+            weekend: "Friday-Sunday",
+            weekdayhours: "12:00 p.m. - 7:00 p.m",
+            weekendhours: "10:00 a.m. - 5:00 p.m"
           },
           latitude: 34.146015,
           longitude: -118.769421,
@@ -98,10 +96,10 @@ export default {
           address: "4275 North Elton Street, Baldwin Park, CA 91706",
           phone: "(626) 962-3577",
           availability: {
-              weekday: "Monday-Thursday",
-              weekend: "Friday-Sunday",
-              weekdayhours: "12:00 p.m. - 7:00 p.m",
-              weekendhours: "10:00 a.m. - 5:00 p.m"
+            weekday: "Monday-Thursday",
+            weekend: "Friday-Sunday",
+            weekdayhours: "12:00 p.m. - 7:00 p.m",
+            weekendhours: "10:00 a.m. - 5:00 p.m"
           },
           latitude: 34.091362,
           longitude: -117.951105,
@@ -113,10 +111,10 @@ export default {
           address: "216 W. Victoria Street, Gardena CA 90248",
           phone: "(310) 523-9566",
           availability: {
-              weekday: "Monday-Thursday",
-              weekend: "Friday-Sunday",
-              weekdayhours: "12:00 p.m. - 7:00 p.m",
-              weekendhours: "10:00 a.m. - 5:00 p.m"
+            weekday: "Monday-Thursday",
+            weekend: "Friday-Sunday",
+            weekdayhours: "12:00 p.m. - 7:00 p.m",
+            weekendhours: "10:00 a.m. - 5:00 p.m"
           },
           latitude: 33.864355,
           longitude: -118.277414,
@@ -128,10 +126,10 @@ export default {
           address: "31044 North Charlie Canyon Road, Castaic, CA 91384",
           phone: "(661) 257-3191",
           availability: {
-              weekday: "Monday-Thursday",
-              weekend: "Friday-Sunday",
-              weekdayhours: "12:00 p.m. - 7:00 p.m",
-              weekendhours: "10:00 a.m. - 5:00 p.m"
+            weekday: "Monday-Thursday",
+            weekend: "Friday-Sunday",
+            weekdayhours: "12:00 p.m. - 7:00 p.m",
+            weekendhours: "10:00 a.m. - 5:00 p.m"
           },
           latitude: 34.482899,
           longitude: -118.608386,
@@ -144,10 +142,10 @@ export default {
           address: "11258 South Garfield Avenue, Downey, CA 90242",
           phone: "(562) 940-6898",
           availability: {
-              weekday: "Monday-Thursday",
-              weekend: "Friday-Sunday",
-              weekdayhours: "12:00 p.m. - 7:00 p.m",
-              weekendhours: "10:00 a.m. - 5:00 p.m"
+            weekday: "Monday-Thursday",
+            weekend: "Friday-Sunday",
+            weekdayhours: "12:00 p.m. - 7:00 p.m",
+            weekendhours: "10:00 a.m. - 5:00 p.m"
           },
           latitude: 33.93656,
           longitude: -118.13387,
@@ -160,10 +158,10 @@ export default {
           address: "5210 West Avenue I, Lancaster, CA 93536",
           phone: "(661) 940-4191",
           availability: {
-              weekday: "Monday-Thursday",
-              weekend: "Friday-Sunday",
-              weekdayhours: "12:00 p.m. - 7:00 p.m",
-              weekendhours: "10:00 a.m. - 5:00 p.m"
+            weekday: "Monday-Thursday",
+            weekend: "Friday-Sunday",
+            weekdayhours: "12:00 p.m. - 7:00 p.m",
+            weekendhours: "10:00 a.m. - 5:00 p.m"
           },
           latitude: 34.703239,
           longitude: -118.22265,
@@ -175,10 +173,10 @@ export default {
           address: "38550 Sierra Highway, Palmdale, CA 93550",
           phone: "(661) 575-2888",
           availability: {
-              weekday: "Monday-Thursday",
-              weekend: "Friday-Sunday",
-              weekdayhours: "12:00 p.m. - 7:00 p.m",
-              weekendhours: "10:00 a.m. - 5:00 p.m"
+            weekday: "Monday-Thursday",
+            weekend: "Friday-Sunday",
+            weekdayhours: "12:00 p.m. - 7:00 p.m",
+            weekendhours: "10:00 a.m. - 5:00 p.m"
           },
           latitude: 34.5826,
           longitude: -118.1171,
@@ -215,7 +213,7 @@ export default {
     },
     buttonGetDistanceToCareCentersTap: function() {
       console.log(
-        "buttonGetDistanceToCareCentersTap(), getting closest animal care center"
+        "buttonGetDistanceToCareCentersTap(), getting list of animal care centers; sorted by distance"
       );
       let that = this;
 
@@ -300,9 +298,7 @@ ActionBar {
 }
 
 .gps-button {
-  background-image: url("~/assets/images/locationicon-e1506468333331.png");
-  background-position: bottom;
-  background-size: 25% 25%;
+  border-radius: 25%;
 }
 
 .list-group {
@@ -320,15 +316,4 @@ ActionBar {
   }
 }
 
-// Start custom common variables
-// End custom common variables
-
-// Custom styles
-// .fa {
-//     color: $accent-dark;
-// }
-
-// .info {
-//     font-size: 20;
-// }
 </style>
