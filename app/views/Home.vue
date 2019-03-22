@@ -17,7 +17,7 @@
               
         <CategoryButton verticalAlignment="center" margin="5" row="0" col="1" src="~/assets/images/license.icon.png" :title="titles[1]" :action="toFaq" class="homepage-blue HomeButton2" textWrap="true"/>
               
-        <CategoryButton verticalAlignment="center"  margin="5" row="1" col="0" src="~/assets/images/services.icon.png" :title="titles[2]" :action="toFaq" class="homepage-blue HomeButton3" textWrap="true"/>
+        <CategoryButton verticalAlignment="center"  margin="5" row="1" col="0" src="~/assets/images/services.icon.png" :title="titles[2]" :action="toServiceRequest" class="homepage-blue HomeButton3" textWrap="true"/>
               
         <CategoryButton verticalAlignment="center"  margin="5" row="1" col="1" src="~/assets/images/noise.icon.png" :title="titles[3]" :action="toFaq" class="homepage-blue HomeButton4" textWrap="true"/>
                 
@@ -33,10 +33,12 @@
 </template>
 
 <script>
-import CategoryButton from "@/components/buttons/CategoryButton.vue";
-import Faq from "./Faq.vue";
-import AnimalCenterList from "./AnimalCenterList.vue";
-import QRScanner from "./QRScanner.vue";
+import CategoryButton from "@/components/buttons/CategoryButton.vue"
+import Faq from "./Faq.vue"
+import AnimalCenterList from "./AnimalCenterList.vue"
+import QRScanner from "./QRScanner.vue"
+import Adoption from "./Adoption.vue"
+import ServiceRequest from "./ServiceRequest.vue"
 
 export default {
   data() {
@@ -56,7 +58,10 @@ export default {
       results: [],
       faq: Faq,
       animalCenterList: AnimalCenterList,
-      qrScanner: QRScanner
+      qrScanner: QRScanner,
+      adoption: Adoption,
+      serviceRequest: ServiceRequest,
+
     };
   },
 
@@ -67,9 +72,16 @@ export default {
     toFaq() {
       this.$navigateTo(this.faq);
     },
-    toQRScanner() {
-      this.$navigateTo(this.qrScanner);
+    toQRScanner () {
+      this.$navigateTo(this.qrScanner)
+    },
+    toAdoption () {
+      this.$navigateTo(this.adoption)
+    },
+    toServiceRequest () {
+      this.$navigateTo(this.serviceRequest)
     }
+
   },
 
   components: {
