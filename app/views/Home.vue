@@ -4,7 +4,7 @@
       <ActionItem @tap="toFaq" ios.systemIcon="12" ios.position="right" android.systemIcon="ic_menu_search" android.position="actionBar" />
     </ActionBar>
 
-    <StackLayout>
+    <StackLayout backgroundColor="#b21a82">
 
       <!--FlexboxLayout alignItems="center" justifyContent="space-between" class="Action_Bar">
         <Image src="~/assets/images/Acua.png" width="40" height="40" horizontalAligment="left" alignSelf="flex-start"/>
@@ -114,11 +114,10 @@ export default {
   background-size: cover;
 }
 
-.cover {
-  background-image: url("~/assets/images/background-pug.jpg");
+  cover {
+  background-image: url("~/assets/images/background-purple-dog.png");
   background-repeat: no-repeat;
-  background-size: cover;
-
+  background-size: contain;
 }
 
 .homepage-blue {
@@ -131,7 +130,7 @@ export default {
 }
 
 .HomeButton1 {
-  background-color: rgba(255, 209, 253, 0.6);
+  background-color: rgba(255, 255, 255, 1);
   border-radius: 25;
   font-size: 14%;
   font-weight: bold;
@@ -140,7 +139,7 @@ export default {
 }
 
 .HomeButton2 {
-  background-color: rgba(255, 209, 253, 0.6);
+  background-color: rgba(255, 255, 255, 1);
   border-radius: 25;
   font-size: 14%;
   font-weight: bold;
@@ -149,7 +148,7 @@ export default {
 }
 
 .HomeButton3 {
-  background-color: rgba(255, 209, 253, 0.6);
+  background-color: rgba(255, 255, 255, 1);
   border-radius: 25;
   font-size: 14%;
   font-weight: bold;
@@ -158,7 +157,7 @@ export default {
 }
 
 .HomeButton4 {
-  background-color: rgba(255, 209, 253, 0.6);
+  background-color: rgba(255, 255, 253, 1);
   border-radius: 25;
   font-size: 14%;
   font-weight: bold;
@@ -167,7 +166,7 @@ export default {
 }
 
 .HomeButton5 {
-  background-color: rgba(255, 209, 253, 0.6);
+  background-color: rgba(255, 255, 255, 1);
   border-radius: 25;
   font-size: 14%;
   font-weight: bold;
@@ -176,7 +175,7 @@ export default {
 }
 
 .HomeButton6 {
-  background-color: rgba(255, 209, 253, 0.6);
+  background-color: rgba(255, 255, 255, 1);
   border-radius: 25;
   font-size: 14%;
   font-weight: bold;

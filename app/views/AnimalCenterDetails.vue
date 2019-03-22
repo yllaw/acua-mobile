@@ -12,10 +12,10 @@
             <StackLayout>
                 <Image :src="AnimalCenter.imageURL" stretch="aspectFit" height="200" class="m-b-15" />
 
-                <Label row="1" class="hr-light m-t-15 m-b-15 stack"/>
+                <Label row="1" class="hr-light m-t-15 m-b-15"/>
 
                 <GridLayout row="2" rows="*, *, *, auto" columns="auto,*">
-                <Image class="p-l-15 p-b-10 m-r-20" src="~/assets/images/achouse.png" stretch="aspectFit" height="40" width="40" loadMode="async"/>
+                <Image class="p-l-15 p-b-10 m-r-20" src="~/assets/images/achouse.png" stretch="aspectFit" height="40" width="40" loadMode="async" margin="3"/>
 
                     <Label textWrap="true" margin="5" col="1" class="text p-b-10 font-weight-bold title stack">
                         <FormattedString>
@@ -25,21 +25,20 @@
 
 
 
-                    <Image class="p-l-15 p-b-10 m-r-20" row="1" src="~/assets/images/locationicon.png" stretch="aspectFit" height="40" width="40" loadMode="async"/>
+                    <Image class="p-l-15 p-b-10 m-r-20" row="1" src="~/assets/images/locationicon.png" stretch="aspectFit" height="40" width="40" loadMode="async" margin="3"/>
 
-                <StackLayout row="1" col="1">
-                <Label margin="5" @tap="onAddressTap" textWrap="true" class="p-b-10">
+                <Label margin="5" @tap="onAddressTap" textWrap="true" row="1" col="1" class="p-b-10 stack">
                         <FormattedString>
                             <Span  class="fa text-primary" :text="AnimalCenter.address" />
                         </FormattedString>
                     </Label>
-                </StackLayout>
                     
-
-                    <Image class="p-l-15 p-b-10 m-r-20" row="2" src="~/assets/images/phoneicon.png" stretch="aspectFit" height="40" width="40" oadMode="async"/>
-                    <Label @tap="onPhoneTap" :text="AnimalCenter.phone" row="2" col="1" class="text-primary p-b-10 stack" />
-
-                    <Image class="p-l-15 p-b-10 m-r-20" row="3" src="~/assets/images/hoursicon.png" stretch="aspectFit" height="40" width="40" loadMode="async"/>
+                    <!-- phone -->
+                    <Image class="p-l-15 p-b-10 m-r-20" row="2" src="~/assets/images/phoneicon.png" stretch="aspectFit" height="40" width="40" loadMode="async" margin="3"/>
+                    <Label @tap="onPhoneTap" :text="AnimalCenter.phone" margin="5" row="2" col="1" class="fa text-primary p-b-10 stack" />
+                    
+                    <!-- hours -->
+                    <Image class="p-l-15 p-b-10 m-r-20" row="3" src="~/assets/images/hoursicon.png" stretch="aspectFit" height="40" width="40" loadMode="async" margin="3"/>
                     <GridLayout margin="5" class="stack-hours" row="3" col="1" columns="*, *" rows="auto, auto">
                         <Label class="hours" :text="AnimalCenter.availability.weekday" row="0" col="0"/>
                         <Label class="hours" :text="AnimalCenter.availability.weekdayhours" row="0" col="1" textWrap="true"/>
@@ -123,6 +122,8 @@ export default {
 
 .stack {
   padding-top: 14;
+  border-bottom-width: 1;
+  border-bottom-color: rgb(212, 212, 212);
 }
 
 .stack-hours {
