@@ -13,17 +13,17 @@
       </FlexboxLayout-->
 
       <GridLayout class="layout cover" columns="*,*" rows="*,*,*">
-        <CategoryButton margin="10" row="0" col="0" src="~/assets/images/animals.icon.png" :title="titles[0]" :action="toFaq" class="homepage-blue HomeButton1" textWrap="true"/>
+        <CategoryButton verticalAlignment="center" ios:padding="5" margin="5" row="0" col="0" src="~/assets/images/animals.icon.png" :title="titles[0]" :action="toFaq" class="homepage-blue HomeButton1" textWrap="true"/>
               
-        <CategoryButton margin="10" row="0" col="1" src="~/assets/images/license.icon.png" :title="titles[1]" :action="toFaq" class="homepage-blue HomeButton2" textWrap="true"/>
+        <CategoryButton verticalAlignment="center" ios:padding="5" margin="5" row="0" col="1" src="~/assets/images/license.icon.png" :title="titles[1]" :action="toFaq" class="homepage-blue HomeButton2" textWrap="true"/>
               
-        <CategoryButton margin="10" row="1" col="0" src="~/assets/images/services.icon.png" :title="titles[2]" :action="toFaq" class="homepage-blue HomeButton3" textWrap="true"/>
+        <CategoryButton verticalAlignment="center" ios:padding="5" margin="5" row="1" col="0" src="~/assets/images/services.icon.png" :title="titles[2]" :action="toFaq" class="homepage-blue HomeButton3" textWrap="true"/>
               
-        <CategoryButton margin="10" row="1" col="1" src="~/assets/images/noise.icon.png" :title="titles[3]" :action="toFaq" class="homepage-blue HomeButton4" textWrap="true"/>
+        <CategoryButton verticalAlignment="center" ios:padding="5" margin="5" row="1" col="1" src="~/assets/images/noise.icon.png" :title="titles[3]" :action="toFaq" class="homepage-blue HomeButton4" textWrap="true"/>
                 
-        <CategoryButton margin="10" row="2" col="0" src="~/assets/images/hoursicon.png" :title="titles[4]" :action="toQRScanner" class="homepage-blue HomeButton5" textWrap="true"/>
+        <CategoryButton verticalAlignment="center" ios:padding="2" margin="5" row="2" col="0" src="~/assets/images/hoursicon.png" :title="titles[4]" :action="toQRScanner" class="homepage-blue HomeButton5" textWrap="true"/>
 
-        <CategoryButton margin="10" row="2" col="1" src="~/assets/images/locationicon.png" :title="titles[5]" :action="toAnimalCenterList" class="homepage-blue HomeButton6" textWrap="true"/>
+        <CategoryButton verticalAlignment="center" ios:padding="2" margin="5" row="2" col="1" src="~/assets/images/locationicon.png" :title="titles[5]" :action="toAnimalCenterList" class="homepage-blue HomeButton6" textWrap="true"/>
       </GridLayout>
 
     </StackLayout>
@@ -119,7 +119,7 @@ export default {
 }
 
 .HomeButton1 {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 209, 253, 0.6);
   border-radius: 25;
   font-size: 14%;
   font-weight: bold;
@@ -128,7 +128,7 @@ export default {
 }
 
 .HomeButton2 {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 209, 253, 0.6);
   border-radius: 25;
   font-size: 14%;
   font-weight: bold;
@@ -137,7 +137,7 @@ export default {
 }
 
 .HomeButton3 {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 209, 253, 0.6);
   border-radius: 25;
   font-size: 14%;
   font-weight: bold;
@@ -146,7 +146,7 @@ export default {
 }
 
 .HomeButton4 {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 209, 253, 0.6);
   border-radius: 25;
   font-size: 14%;
   font-weight: bold;
@@ -155,7 +155,7 @@ export default {
 }
 
 .HomeButton5 {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 209, 253, 0.6);
   border-radius: 25;
   font-size: 14%;
   font-weight: bold;
@@ -164,7 +164,7 @@ export default {
 }
 
 .HomeButton6 {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 209, 253, 0.6);
   border-radius: 25;
   font-size: 14%;
   font-weight: bold;

@@ -1,6 +1,6 @@
 <template>
 <StackLayout>
-  <Image :src="src" stretch="aspectFit" height="100" class="image" @tap="action" />
+  <Image :src="src" stretch="aspectFit" height="110" class="image" @tap="action" />
   <Button class="button" :text="title" @tap="action" />
 </StackLayout>
 </template>
@@ -18,7 +18,7 @@
 <style scoped>
 
 .image {
-  padding-bottom: 10em;
+  padding-bottom: 5em;
 }
 
 .button{
