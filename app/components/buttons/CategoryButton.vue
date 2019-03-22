@@ -1,7 +1,7 @@
 <template>
 <StackLayout>
-  <Image :src="src" stretch="aspectFit" height="110" class="image" @tap="action" />
-  <Button class="button" :text="title" @tap="action" />
+  <Image verticalAlignment="center" :src="src" stretch="aspectFit" height="110" class="image" @tap="action" />
+  <Button verticalAlignment="bottom" class="button" :text="title" @tap="action" />
 </StackLayout>
 </template>
 
@@ -18,11 +18,10 @@
 <style scoped>
 
 .image {
-  padding-bottom: 5em;
 }
 
+/* button on android is styled with default setting when border radius is omitted*/
 .button{
-  padding-top: 10em;
   border-radius: 25%;
 }
 </style>

@@ -13,17 +13,17 @@
       </FlexboxLayout-->
 
       <GridLayout class="layout cover" columns="*,*" rows="*,*,*">
-        <CategoryButton verticalAlignment="center" ios:padding="5" margin="5" row="0" col="0" src="~/assets/images/animals.icon.png" :title="titles[0]" :action="toFaq" class="homepage-blue HomeButton1" textWrap="true"/>
+        <CategoryButton verticalAlignment="center" margin="5" row="0" col="0" src="~/assets/images/animals.icon.png" :title="titles[0]" :action="toFaq" class="homepage-blue HomeButton1" textWrap="true"/>
               
-        <CategoryButton verticalAlignment="center" ios:padding="5" margin="5" row="0" col="1" src="~/assets/images/license.icon.png" :title="titles[1]" :action="toFaq" class="homepage-blue HomeButton2" textWrap="true"/>
+        <CategoryButton verticalAlignment="center" margin="5" row="0" col="1" src="~/assets/images/license.icon.png" :title="titles[1]" :action="toFaq" class="homepage-blue HomeButton2" textWrap="true"/>
               
-        <CategoryButton verticalAlignment="center" ios:padding="5" margin="5" row="1" col="0" src="~/assets/images/services.icon.png" :title="titles[2]" :action="toFaq" class="homepage-blue HomeButton3" textWrap="true"/>
+        <CategoryButton verticalAlignment="center"  margin="5" row="1" col="0" src="~/assets/images/services.icon.png" :title="titles[2]" :action="toFaq" class="homepage-blue HomeButton3" textWrap="true"/>
               
-        <CategoryButton verticalAlignment="center" ios:padding="5" margin="5" row="1" col="1" src="~/assets/images/noise.icon.png" :title="titles[3]" :action="toFaq" class="homepage-blue HomeButton4" textWrap="true"/>
+        <CategoryButton verticalAlignment="center"  margin="5" row="1" col="1" src="~/assets/images/noise.icon.png" :title="titles[3]" :action="toFaq" class="homepage-blue HomeButton4" textWrap="true"/>
                 
-        <CategoryButton verticalAlignment="center" ios:padding="2" margin="5" row="2" col="0" src="~/assets/images/hoursicon.png" :title="titles[4]" :action="toQRScanner" class="homepage-blue HomeButton5" textWrap="true"/>
+        <CategoryButton verticalAlignment="center"  margin="5" row="2" col="0" src="~/assets/images/hoursicon.png" :title="titles[4]" :action="toQRScanner" class="homepage-blue HomeButton5" textWrap="true"/>
 
-        <CategoryButton verticalAlignment="center" ios:padding="2" margin="5" row="2" col="1" src="~/assets/images/locationicon.png" :title="titles[5]" :action="toAnimalCenterList" class="homepage-blue HomeButton6" textWrap="true"/>
+        <CategoryButton verticalAlignment="center" margin="5" row="2" col="1" src="~/assets/images/locationicon.png" :title="titles[5]" :action="toAnimalCenterList" class="homepage-blue HomeButton6" textWrap="true"/>
       </GridLayout>
 
     </StackLayout>
@@ -169,6 +169,7 @@ export default {
   font-size: 14%;
   font-weight: bold;
   padding-top: 7em;
+  padding-bottom: 2em;
   letter-spacing: 0;
 }
 
