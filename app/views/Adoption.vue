@@ -1,32 +1,26 @@
 <template>
-  <Page>
-    <ActionBar title="Welcome to NativeScript-Vue!"/>
-    <GridLayout columns="*" rows="*">
-      <Label class="message" :text="msg" col="0" row="0"/>
-    </GridLayout>
-  </Page>
+    <Page class="page">
+        <ActionBar title="Home" class="action-bar" />
+        <StackLayout class="home-panel">
+            <WebView height="8192px" src="http://animalcare.lacounty.gov/view-our-animals/" />
+        </StackLayout>
+    </Page>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      msg: 'Hello World!'
-    }
-  }
-}
+    export default {
+        data() {
+            return {};
+        }
+    };
 </script>
 
 <style scoped>
-  ActionBar {
-    background-color: #53ba82;
-    color: #ffffff;
-  }
+    .home-panel {
+        vertical-align: center;
+        font-size: 20;
+    }
 
-  .message {
-    vertical-align: center;
-    text-align: center;
-    font-size: 20;
-    color: #333333;
-  }
 </style>
+
+

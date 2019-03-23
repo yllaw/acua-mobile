@@ -14,38 +14,38 @@
 
                 <Label row="1" class="hr-light m-t-15 m-b-15"/>
 
-                <GridLayout row="2" rows="*, *, *" columns="auto,*">
-                 <Label text="Name" class="p-l-15 p-b-10 m-r-20 text-secondary "/>
-                    <Label col="1" class="text p-b-10 font-weight-bold">
+                <GridLayout row="2" rows="*, *, *, auto" columns="auto,*">
+                <Image class="p-l-15 p-b-10 m-r-20" src="~/assets/images/achouse.png" stretch="aspectFit" height="40" width="40" loadMode="async" margin="3"/>
+
+                    <Label textWrap="true" margin="5" col="1" class="text p-b-10 font-weight-bold title stack">
                         <FormattedString>
-                            <!-- <Span text.decode="&euro;" /> -->
                             <Span :text="AnimalCenter.name + ' Animal Care Center'" />
                         </FormattedString>
                     </Label>
 
 
 
-                    <Label text="Address" row="1" class="p-l-15 p-b-10 m-r-20 text-secondary" />
-                <StackLayout row="1" col="1">
-                <Label @tap="onAddressTap" textWrap="true" class="p-b-10">
+                    <Image class="p-l-15 p-b-10 m-r-20" row="1" src="~/assets/images/locationicon.png" stretch="aspectFit" height="40" width="40" loadMode="async" margin="3"/>
+
+                <Label margin="5" @tap="onAddressTap" textWrap="true" row="1" col="1" class="p-b-10 stack">
                         <FormattedString>
                             <Span  class="fa text-primary" :text="AnimalCenter.address" />
                         </FormattedString>
                     </Label>
-                </StackLayout>
                     
+                    <!-- phone -->
+                    <Image class="p-l-15 p-b-10 m-r-20" row="2" src="~/assets/images/phoneicon.png" stretch="aspectFit" height="40" width="40" loadMode="async" margin="3"/>
+                    <Label @tap="onPhoneTap" :text="AnimalCenter.phone" margin="5" row="2" col="1" class="fa text-primary p-b-10 stack" />
+                    
+                    <!-- hours -->
+                    <Image class="p-l-15 p-b-10 m-r-20" row="3" src="~/assets/images/hoursicon.png" stretch="aspectFit" height="40" width="40" loadMode="async" margin="3"/>
+                    <GridLayout margin="5" class="stack-hours" row="3" col="1" columns="*, *" rows="auto, auto">
+                        <Label class="hours" :text="AnimalCenter.availability.weekday" row="0" col="0"/>
+                        <Label class="hours" :text="AnimalCenter.availability.weekdayhours" row="0" col="1" textWrap="true"/>
+                        <Label class="hours" :text="AnimalCenter.availability.weekend" row="1" col="0"/>
+                        <Label class="hours" :text="AnimalCenter.availability.weekendhours" row="1" col="1" textWrap="true"/>
+                    </GridLayout>
 
-                    <Label text="Phone" row="2" class="p-l-15 p-b-10 m-r-20 text-secondary" />
-                    <Label @tap="onPhoneTap" :text="AnimalCenter.phone" row="2" col="1" class="fa text-primary p-b-10" />
-
-                    <!-- <Label text="Seats" row="3" class="p-l-15 p-b-10 m-r-20 text-secondary" /> -->
-                    <!-- <Label :text="adfg" row="3" col="1" class="text p-b-10" /> -->
-
-                    <!-- <Label text="Transmission" row="4" class="p-l-15 p-b-10 m-r-20 text-secondary" /> -->
-                    <!-- <Label :text="adfg" row="4" col="1" class="text p-b-10" /> -->
-
-                    <!-- <Label text="Luggage" row="5" class="p-l-15 p-b-10 m-r-20 text-secondary" /> -->
-                    <!-- <Label :text="adfg" row="5" col="1" class="text p-b-10" /> -->
                 </GridLayout>
             </StackLayout>
         </ScrollView>
@@ -78,13 +78,14 @@ export default {
         "onAddressTap(), get directions to " + this.AnimalCenter.address
       );
 
-    // must pass in string as variable otherwise it directions.navigate() won't work
-    const address = this.AnimalCenter.address
+      // must pass in string as variable otherwise it directions.navigate() won't work
+      const address = this.AnimalCenter.address;
 
       directions.available().then(function(avail) {
         //console.log(avail ? "Yes" : "No");
         if (avail) {
-          directions.navigate({
+          directions
+            .navigate({
               to: {
                 // either pass in a single object or an Array
                 address: address
@@ -111,6 +112,29 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "../AnimalCenter";
+
+.title {
+  font-size: 18em;
+  color: $midnight-dark;
+
+}
+
+.stack {
+  padding-top: 14;
+  border-bottom-width: 1;
+  border-bottom-color: rgb(212, 212, 212);
+}
+
+.stack-hours {
+  padding-top: 6;
+}
+
+.hours {
+  color: $blue-dark;
+
+}
+
 ActionBar {
   background-color: #009fca;
   color: #ffffff;

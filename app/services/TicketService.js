@@ -1,4 +1,4 @@
-const httpModule = require('http')
+const httpModule = require('tns-core-modules/http')
 import env from '@/env.json'
 
 export default {

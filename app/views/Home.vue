@@ -1,10 +1,10 @@
 <template>
-  <Page>
+  <Page >
     <ActionBar title="Welcome" fontSize="24" ios.position="left" android.icon="~/assets/images/seal.2016.png" android.iconVisibility="always" class="Action_Bar">
       <ActionItem @tap="toFaq" ios.systemIcon="12" ios.position="right" android.systemIcon="ic_menu_search" android.position="actionBar" />
     </ActionBar>
 
-    <StackLayout>
+    <StackLayout backgroundColor="#b21a82">
 
       <!--FlexboxLayout alignItems="center" justifyContent="space-between" class="Action_Bar">
         <Image src="~/assets/images/Acua.png" width="40" height="40" horizontalAligment="left" alignSelf="flex-start"/>
@@ -12,18 +12,18 @@
         <Button class="S_Button" width="40" height="40" @tap="toFaq" horizontalAligment="right"/>
       </FlexboxLayout-->
 
-      <GridLayout class="layout" columns="*,*" rows="*,*,*">
-        <CategoryButton margin="10" row="0" col="0"  :title="titles[0]" :action="toFaq" class="fa HomeButton1" textWrap="true"/>
+      <GridLayout class="layout cover" columns="*,*" rows="*,*,*">
+        <CategoryButton verticalAlignment="center" margin="5" row="0" col="0" src="~/assets/images/animals.icon.png" :title="titles[0]" :action="toFaq" class="homepage-blue HomeButton1" textWrap="true"/>
               
-        <CategoryButton margin="10" row="0" col="1" :title="titles[1]" :action="toFaq" class="fa HomeButton2" textWrap="true"/>
+        <CategoryButton verticalAlignment="center" margin="5" row="0" col="1" src="~/assets/images/license.icon.png" :title="titles[1]" :action="toFaq" class="homepage-blue HomeButton2" textWrap="true"/>
               
-        <CategoryButton margin="10" row="1" col="0" :title="titles[2]" :action="toFaq" class="fa HomeButton3" textWrap="true"/>
+        <CategoryButton verticalAlignment="center"  margin="5" row="1" col="0" src="~/assets/images/services.icon.png" :title="titles[2]" :action="toServiceRequest" class="homepage-blue HomeButton3" textWrap="true"/>
               
-        <CategoryButton margin="10" row="1" col="1" :title="titles[3]" :action="toFaq" class="fa HomeButton4" textWrap="true"/>
+        <CategoryButton verticalAlignment="center"  margin="5" row="1" col="1" src="~/assets/images/noise.icon.png" :title="titles[3]" :action="toFaq" class="homepage-blue HomeButton4" textWrap="true"/>
                 
-        <CategoryButton margin="10" row="2" col="0" :title="titles[4]" :action="toQRScanner" class="fa HomeButton5" textWrap="true"/>
+        <CategoryButton verticalAlignment="center"  margin="5" row="2" col="0" src="~/assets/images/hoursicon.png" :title="titles[4]" :action="toQRScanner" class="homepage-blue HomeButton5" textWrap="true"/>
 
-        <CategoryButton margin="10" row="2" col="1" :title="titles[5]" :action="toAnimalCenterList" class="fa HomeButton6" textWrap="true"/>
+        <CategoryButton verticalAlignment="center" margin="5" row="2" col="1" src="~/assets/images/locationicon.png" :title="titles[5]" :action="toAnimalCenterList" class="homepage-blue HomeButton6" textWrap="true"/>
       </GridLayout>
 
     </StackLayout>
@@ -38,6 +38,8 @@ import Faq from "./Faq.vue"
 import AnimalCenterList from "./AnimalCenterList.vue"
 import QRScanner from "./QRScanner.vue"
 import TicketOptions from "./TicketOptions.vue"
+import Adoption from "./Adoption.vue"
+import ServiceRequest from "./ServiceRequest.vue"
 
 export default {
   data() {
@@ -58,164 +60,143 @@ export default {
       faq: Faq,
       animalCenterList: AnimalCenterList,
       qrScanner: QRScanner,
-      ticketOptions: TicketOptions
+      ticketOptions: TicketOptions,
+      adoption: Adoption,
+      serviceRequest: ServiceRequest,
+
     };
   },
 
   methods: {
     toAnimalCenterList() {
-      this.$navigateTo(this.animalCenterList)
+      this.$navigateTo(this.animalCenterList);
     },
-    toFaq () {
-      this.$navigateTo(this.faq)
+    toFaq() {
+      this.$navigateTo(this.faq);
     },
     toQRScanner () {
       // this.$navigateTo(this.qrScanner)
       this.$navigateTo(this.ticketOptions, { props: { site: 'Downey' } })
+      this.$navigateTo(this.qrScanner)
+    },
+    toAdoption () {
+      this.$navigateTo(this.adoption)
+    },
+    toServiceRequest () {
+      this.$navigateTo(this.serviceRequest)
     }
+
   },
 
   components: {
     CategoryButton,
     Faq
   }
-}
+};
 </script>
 
 <style scoped lang ="scss">
-@import '../AnimalCenter';
+@import "../AnimalCenter";
 
-    .Action_Bar {
-        background-color: #009fca;
-        color: #ffffff;
-    }
+.Action_Bar {
+  background-color: #009fca;
+  color: #ffffff;
+}
 
-    .S_Bar{
-        color: #050505
-    }
+.S_Bar {
+  color: #050505;
+}
 
-    .S_Button{
-       /* text="right"; 
+.S_Button {
+  /* text="right"; 
         horizontalAlignment="right";
         width="33%" 
         height="70" 
         /*backgroundColor="#1c6b48"/>*/
-        background-image:url("~/assets/images/NativeScript-Vue.png");
-        background-repeat:no-repeat;
-        background-size:cover;
-        
-    }  
+  background-image: url("~/assets/images/NativeScript-Vue.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
-    .fa {
-      color: $homepage-blue;
-    }
+  cover {
+  background-image: url("~/assets/images/background-purple-dog.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 
-    .Action_Text{
-      text: Welcome;
-      margin-right:0;
-    }
+.homepage-blue {
+  color: $homepage-blue;
+}
 
-    .HomeButton1{
-        background-color:white;
-        border-radius: 25;
-        font-size: 15%;
-        font-weight: bold;
-        padding-top: 70%;
-        letter-spacing: 0;
-        background-image:url("~/assets/images/view.animals.icon_-120x120.png");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-position: top;
-        background-origin:padding-box;
-        background-size: 55% 55%;
-    }
+.Action_Text {
+  text: Welcome;
+  margin-right: 0;
+}
 
-    .HomeButton2{
-        background-color:white;
-        border-radius: 25;
-        font-size: 15%;
-        font-weight: bold;
-        padding-top: 70%;
-        letter-spacing: 0;
-        background-image:url("~/assets/images/services.icon_-120x120.png");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-position: top;
-        background-origin:padding-box;
-        background-size: 55% 55%;
-    }
+.HomeButton1 {
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 25;
+  font-size: 14%;
+  font-weight: bold;
+  padding-top: 7em;
+  letter-spacing: 0;
+}
 
-    .HomeButton3{
-        background-color:white;
-        border-radius: 25;
-        font-size: 15%;
-        font-weight: bold;
-        padding-top: 70%;
-        letter-spacing: 0;
-        background-image:url("~/assets/images/license.icon_-120x120.png");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-position: top;
-        background-origin:padding-box;
-        background-size: 55% 55%;
-    }
+.HomeButton2 {
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 25;
+  font-size: 14%;
+  font-weight: bold;
+  padding-top: 7em;
+  letter-spacing: 0;
+}
 
-    .HomeButton4{
-        background-color:white;
-        border-radius: 25;
-        font-size: 15%;
-        font-weight: bold;
-        padding-top: 70%;
-        letter-spacing: 0;
-        background-image:url("~/assets/images/noise.icon_-120x120.png");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-position: top;
-        background-origin:padding-box;
-        background-size: 55% 55%;
-    }
+.HomeButton3 {
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 25;
+  font-size: 14%;
+  font-weight: bold;
+  padding-top: 7em;
+  letter-spacing: 0;
+}
 
-    .HomeButton5{
-        background-color:white;
-        border-radius: 25;
-        font-size: 15%;
-        font-weight: bold;
-        padding-top: 70%;
-        letter-spacing: 0;
-        background-image:url("~/assets/images/hoursicon-e1506467738461.png");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-position: top;
-        background-origin:padding-box;
-        background-size: 55% 55%;
-    }
+.HomeButton4 {
+  background-color: rgba(255, 255, 253, 1);
+  border-radius: 25;
+  font-size: 14%;
+  font-weight: bold;
+  padding-top: 7em;
+  letter-spacing: 0;
+}
 
-    .HomeButton6{
-        background-color:white;
-        border-radius: 25;
-        font-size: 15%;
-        font-weight: bold;
-        padding-top: 70%;
-        letter-spacing: 0;
-        background-image:url("~/assets/images/locationicon-e1506468333331.png");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-position: top;
-        background-origin:padding-box;
-        background-size: 55% 55%;
-        
-        
-    }
-    
-    .layout{
-        background-color: #eeeeee
-    }
+.HomeButton5 {
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 25;
+  font-size: 14%;
+  font-weight: bold;
+  padding-top: 7em;
+  letter-spacing: 0;
+}
 
-    .message {
-        vertical-align: center;
-        text-align: center;
-        font-size: 20;
-        color: #252525;
-    }
+.HomeButton6 {
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 25;
+  font-size: 14%;
+  font-weight: bold;
+  padding-top: 7em;
+  padding-bottom: 2em;
+  letter-spacing: 0;
+}
+
+.layout {
+  background-color: #eeeeee;
+}
+
+.message {
+  vertical-align: center;
+  text-align: center;
+  font-size: 20;
+  color: #252525;
+}
 </style>
 
