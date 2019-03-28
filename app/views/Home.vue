@@ -114,10 +114,8 @@ export default {
   background-size: cover;
 }
 
-  cover {
-  background-image: url("~/assets/images/background-purple-dog.png");
-  background-repeat: no-repeat;
-  background-size: contain;
+  .cover {
+    background: linear-gradient(45deg, plum, #009fca)
 }
 
 .homepage-blue {
