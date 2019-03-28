@@ -1,6 +1,6 @@
 <template>
   <Page >
-    <ActionBar title="Welcome" fontSize="24" ios.position="left" android.icon="~/assets/images/seal.2016.png" android.iconVisibility="always" class="Action_Bar">
+    <ActionBar title="Welcome" fontSize="24" ios.position="left" class="Action_Bar">
       <ActionItem @tap="toFaq" ios.systemIcon="12" ios.position="right" android.systemIcon="ic_menu_search" android.position="actionBar" />
     </ActionBar>
 
@@ -114,10 +114,8 @@ export default {
   background-size: cover;
 }
 
-  cover {
-  background-image: url("~/assets/images/background-purple-dog.png");
-  background-repeat: no-repeat;
-  background-size: contain;
+  .cover {
+    background: linear-gradient(45deg, plum, #009fca)
 }
 
 .homepage-blue {
