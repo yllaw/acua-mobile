@@ -13,7 +13,7 @@
       </FlexboxLayout-->
 
       <GridLayout class="layout cover" columns="*,*" rows="*,*,*">
-        <CategoryButton verticalAlignment="center" margin="5" row="0" col="0" src="~/assets/images/animals.icon.png" :title="titles[0]" :action="toFaq" class="homepage-blue HomeButton1" textWrap="true"/>
+        <CategoryButton verticalAlignment="center" margin="5" row="0" col="0" src="~/assets/images/animals.icon.png" :title="titles[0]" :action="toAdoption" class="homepage-blue HomeButton1" textWrap="true"/>
               
         <CategoryButton verticalAlignment="center" margin="5" row="0" col="1" src="~/assets/images/license.icon.png" :title="titles[1]" :action="toFaq" class="homepage-blue HomeButton2" textWrap="true"/>
               

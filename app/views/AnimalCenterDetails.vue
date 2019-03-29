@@ -2,10 +2,7 @@
     <Page class="page">
         <ActionBar class="action-bar">
             <NavigationButton @tap="$navigateBack()" android.systemIcon="ic_menu_back" />
-            <Label class="action-bar-title" :text="AnimalCenter.name" horizontalAlignment="center" />
-            <!-- <ActionItem @tap="onEditButtonTap" ios.position="right" android.position="right"> -->
-                <!-- <Label text="Edit" verticalAlignment="center" class="action-item" /> -->
-            <!-- </ActionItem> -->
+            <Label class="action-bar-title" :text="AnimalCenter.name" horizontalAlignment="center" />>
         </ActionBar>
 
         <ScrollView>
@@ -17,6 +14,7 @@
                 <GridLayout row="2" rows="*, *, *, auto" columns="auto,*">
                 <Image class="p-l-15 p-b-10 m-r-20" src="~/assets/images/achouse.png" stretch="aspectFit" height="40" width="40" loadMode="async" margin="3"/>
 
+                    <!-- name -->
                     <Label textWrap="true" margin="5" col="1" class="text p-b-10 font-weight-bold title stack">
                         <FormattedString>
                             <Span :text="AnimalCenter.name + ' Animal Care Center'" />
@@ -24,10 +22,10 @@
                     </Label>
 
 
-
+                    <!-- address -->
                     <Image class="p-l-15 p-b-10 m-r-20" row="1" src="~/assets/images/locationicon.png" stretch="aspectFit" height="40" width="40" loadMode="async" margin="3"/>
 
-                <Label margin="5" @tap="onAddressTap" textWrap="true" row="1" col="1" class="p-b-10 stack">
+                    <Label margin="5" @tap="onAddressTap" textWrap="true" row="1" col="1" class="p-b-10 stack">
                         <FormattedString>
                             <Span  class="fa text-primary" :text="AnimalCenter.address" />
                         </FormattedString>

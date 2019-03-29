@@ -1,8 +1,8 @@
 <template>
     <Page class="page">
-        <ActionBar title="Home" class="action-bar" />
+        <ActionBar title="Adopt an Animal!" class="action-bar" />
         <StackLayout class="home-panel">
-            <WebView height="8192px" src="http://animalcare.lacounty.gov/view-our-animals/" />
+            <Label text="Adoption" textWrap="true" />
         </StackLayout>
     </Page>
 </template>
