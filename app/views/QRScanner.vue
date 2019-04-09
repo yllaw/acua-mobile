@@ -1,6 +1,9 @@
 <template>
   <Page>
-    <ActionBar title="QR Scanner"></ActionBar>
+    <ActionBar>
+      <NavigationButton @tap="$navigateBack()" android.systemIcon="ic_menu_back" />
+      <Label text="QR Scanner" fontSize="20" verticalAlignment="center"/>
+    </ActionBar>
 
     <GridLayout columns="*" rows="auto, auto, auto, auto">
       <Label row="0" class="message" text="Look for a QR code to scan at your local Animal Care and Control Center" textWrap="true"></Label>

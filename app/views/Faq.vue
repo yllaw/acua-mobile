@@ -1,6 +1,9 @@
 <template>
-  <Page>
-    <ActionBar title="FAQ"/>
+  <Page class="page">
+    <ActionBar>
+      <NavigationButton @tap="$navigateBack()" android.systemIcon="ic_menu_back" />
+      <Label text="FAQ" fontSize="20" verticalAlignment="center" />
+    </ActionBar>
 
     <StackLayout>
       <SearchBar v-model="search" hint="Enter text..." @submit="checkFaq" />
@@ -69,8 +72,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    @import '../AnimalCenter';
-
+  @import '../AnimalCenter';
 
 ActionBar {
   background-color: #009fca;
@@ -96,6 +98,4 @@ ActionBar {
 .list-group-item-text {
   margin: 7 8;
 }
-
-    
 </style>

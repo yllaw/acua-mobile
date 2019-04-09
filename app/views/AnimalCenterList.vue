@@ -1,7 +1,8 @@
 <template>
     <Page class="page">
         <ActionBar class="action-bar">
-            <Label text="Animal Care Centers"></Label>
+          <NavigationButton @tap="$navigateBack()" android.systemIcon="ic_menu_back" />
+          <Label text="Animal Care Centers" fontSize="20" verticalAlignment="center"></Label>
         </ActionBar>
 
 
