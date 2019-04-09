@@ -1,7 +1,7 @@
 <template>
   <Page >
     <ActionBar title="Welcome" fontSize="24" ios.position="left" android.icon="~/assets/images/seal.2016.png" android.iconVisibility="always" class="Action_Bar">
-      <ActionItem @tap="toFaq" ios.systemIcon="12" ios.position="right" android.systemIcon="ic_menu_search" android.position="actionBar" />
+      <ActionItem @tap="toTicketOptions" ios.systemIcon="12" ios.position="right" android.systemIcon="ic_menu_search" android.position="actionBar" />
     </ActionBar>
 
     <StackLayout backgroundColor="#b21a82">
@@ -39,6 +39,7 @@ import AnimalCenterList from "./AnimalCenterList.vue"
 import QRScanner from "./QRScanner.vue"
 import Adoption from "./Adoption.vue"
 import ServiceRequest from "./ServiceRequest.vue"
+import TicketOptions from "./TicketOptions.vue"
 
 export default {
   data() {
@@ -61,6 +62,7 @@ export default {
       qrScanner: QRScanner,
       adoption: Adoption,
       serviceRequest: ServiceRequest,
+      ticketOptions: TicketOptions,
 
     };
   },
@@ -80,8 +82,10 @@ export default {
     },
     toServiceRequest () {
       this.$navigateTo(this.serviceRequest)
+    },
+    toTicketOptions () {
+      this.$navigateTo(this.ticketOptions)
     }
-
   },
 
   components: {
