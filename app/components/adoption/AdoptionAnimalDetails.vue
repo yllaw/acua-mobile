@@ -16,7 +16,7 @@
                 <StackLayout orientation="horizontal" class="">
                     <GridLayout v-for="image in item.images" rows="auto" columns="*">
                         <Image class="card-img-thumb" row="0" col="0" :src="image.src"
-                            stretch="aspectFill" />
+                            stretch="aspectFit" />
                     </GridLayout>
                 </StackLayout>
             </ScrollView>
@@ -416,7 +416,7 @@
     }
 
     .card-img-thumb {
-        background-color: #828282;
+        background-color: rgb(230, 230, 230);
         vertical-align: center;
         border-radius: 5;
         width: 130;
