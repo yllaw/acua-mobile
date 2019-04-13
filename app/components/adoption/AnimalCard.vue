@@ -16,9 +16,13 @@
                     <Label row="0" col="0" class="item-category" textwrap="true"
                         verticalAlignment="top" horizontalAlignment="left"
                         :text="item.category" />
-                    <Label col="1" row="0" class="fa rating-icon" :text="'fa-star' | fonticon" />
+
+
+                        
+                        <!-- Rating -->
+                    <!-- <Label col="1" row="0" class="fa rating-icon" :text="'fa-star' | fonticon" />
                     <Label col="2" row="0" class="rating-value item-category"
-                        :text="item.rating" />
+                        :text="item.rating" /> -->
                 </GridLayout>
             </GridLayout>
             <StackLayout width="100%" marginTop="5" class="line" />

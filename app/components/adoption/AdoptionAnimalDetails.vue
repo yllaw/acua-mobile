@@ -35,16 +35,16 @@
                     <Label row="1" col="1" class="item-category" textwrap="true"
                         verticalAlignment="top" horizontalAlignment="left"
                         :text="item.category" />
-                    <Label row="2" col="1" class="item-category" :text="'Average Rate:' + item.rating " />
+                    <!-- <Label row="2" col="1" class="item-category" :text="'Average Rate:' + item.rating " /> -->
 
 
-                    <StackLayout row="3" col="1" orientation="horizontal">
+                    <!-- <StackLayout row="3" col="1" orientation="horizontal">
                         <Label class="fa rate" :text="'fa-star' | fonticon" />
                         <Label class="fa rate" :text="'fa-star' | fonticon" />
                         <Label class="fa rate" :text="'fa-star' | fonticon" />
                         <Label class="fa rate" :text="'fa-star' | fonticon" />
                         <Label class="fa rate" :text="'fa-star-half-o' | fonticon" />
-                    </StackLayout>
+                    </StackLayout> -->
 
 
                 </GridLayout>
@@ -52,7 +52,7 @@
                 <StackLayout class="line anim-likes" row="2" width="100%"
                     marginTop="10" />
 
-                <GridLayout class="anim-likes" marginTop="5" width="100%" row="3"
+                <!-- <GridLayout class="anim-likes" marginTop="5" width="100%" row="3"
                     columns="auto,*,auto,auto" rows="auto">
                     <GridLayout col="0" rows="auto" columns="auto,auto" @tap="toggleLike">
                         <Label col="0" row="0" ref="like" class="like-icon fa"
@@ -75,7 +75,7 @@
                         <Label ref="" class="like-icon layout fa" :text="'fa-share-square-o' | fonticon" />
                         <Label class="layout" text="Share"></Label>
                     </StackLayout>
-                </GridLayout>
+                </GridLayout> -->
             </GridLayout>
 
             <StackLayout width="100%" class="lineBreak anim-likes" />
