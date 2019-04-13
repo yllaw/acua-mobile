@@ -69,7 +69,7 @@ import { Accuracy } from "tns-core-modules/ui/enums";
 const Toast = require("nativescript-toasts");
 //-------
 
-import AnimalCenterDetails from "./AnimalCenterDetails";
+import AnimalCenterDetails from "@/components/AnimalCenterDetails";
 
 export default {
   data() {
