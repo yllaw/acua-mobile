@@ -1,6 +1,7 @@
 <template>
   <Page >
-    <ActionBar title="Welcome" fontSize="24" ios.position="left" class="Action_Bar">
+    <ActionBar ios.position="left" class="Action_Bar">
+      <Label text="Welcome" fontSize="20" verticalAlignment="center"/>
       <ActionItem @tap="toFaq" ios.systemIcon="12" ios.position="right" android.systemIcon="ic_menu_search" android.position="actionBar" />
     </ActionBar>
 

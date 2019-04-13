@@ -1,8 +1,8 @@
 <template>
     <Page class="page">
-        <ActionBar class="action-bar">
+        <ActionBar>
            <NavigationButton @tap="$navigateBack()" android.systemIcon="ic_menu_back" />
-            <Label text="Service Request"></Label>
+            <Label text="Service Request" fontSize="20" verticalAlignment="center"/>
         </ActionBar>
 
         <StackLayout class="home-panel">
