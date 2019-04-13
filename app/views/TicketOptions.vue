@@ -1,6 +1,7 @@
 <template>
   <Page>
     <ActionBar title="Ticket Reason" class="Action_Bar"/>
+
     <GridLayout columns="*" rows="auto, auto, auto, auto">
       <Label class="Location_Title" textWrap="true" row="0">You are at the {{site}} Animal Care and Control Center.</Label>
 
@@ -19,6 +20,7 @@
         <Button text="Create Ticket" @tap="createTicket" class="Button_Style"/>
       </StackLayout>
     </GridLayout>
+
   </Page>
 </template>
 
@@ -40,6 +42,7 @@ export default {
       ticketForm: TicketForm,
     }
   },
+  
   methods: {
     toHome () {
       this.$navigateTo(this.home)
@@ -67,6 +70,7 @@ export default {
     font-size: 18;
     color: black;
 }
+
 .Action_Bar {
   background-color: #009fca;
   color: #ffffff;

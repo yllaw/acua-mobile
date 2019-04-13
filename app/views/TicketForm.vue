@@ -1,17 +1,17 @@
 <template>
   <Page>
-    <ActionBar title="Ticket Processing" />
+    <ActionBar title="Ticket Processing" class="Action_Bar"/>
     <StackLayout>
-      <Label text="Phone number:" />
+      <Label text="Phone number:" class="PhoneNumber"/>
       <TextView v-model="phone" />
 
-      <Label text="First and last name:" />
+      <Label text="First and last name:" class="FandL_Name"/>
       <TextView v-model="name" />
 
       <Label v-if="query" text="query:" />
       <Label textWrap="true">{{query}}</Label>
       
-      <Button @tap="submitTicket" text="Submit Ticket"/>
+      <Button @tap="submitTicket" text="Submit Ticket" class="Button_Style"/>
     </StackLayout>
   </Page>
 </template>
@@ -60,5 +60,29 @@ export default {
 </script>
 
 <style scoped>
+.msg {
+    font-size: 18;
+    color: black;
+}
 
+.Action_Bar {
+  background-color: #009fca;
+  color: #ffffff;
+}
+
+.PhoneNumber{
+  font-size: 18%;
+  padding: 15%;
+}
+
+.FandL_Name{
+  font-size: 18%;
+  padding: 15%;
+}
+
+.Button_Style{
+  background-color: #009fca;
+  color: #ffffff;
+  margin-top: 10%;
+}
 </style>

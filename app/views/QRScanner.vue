@@ -16,7 +16,7 @@
           v-if="isIOS">
       </BarcodeScanner>
 
-      <Button row="2" class="btn btn-primary btn-rounded-sm" text="Scan QR Code" @tap="doScan"></Button>
+      <Button row="2" class="btn btn-primary btn-rounded-sm QR_Button" text="Scan QR Code" @tap="doScan" ></Button>
 
     </GridLayout>
   </Page>
@@ -107,8 +107,22 @@
 
   .message {
     vertical-align: center;
-    text-align: center;
+    text-align: left;
+    font-size: 30;
+    color: #000000;
+    padding-top: 50%;
+    padding-bottom: 70%;
+    padding-left: 10%;
+  }
+
+  .QR_Button{
+    border-radius: 25;
     font-size: 20;
-    color: #333333;
+    font-weight: bold;
+    letter-spacing: 0;
+    text-align: center;
+    height: 200;
+    width:200;
+    
   }
 </style>
