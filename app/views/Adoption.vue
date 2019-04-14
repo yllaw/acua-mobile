@@ -16,7 +16,7 @@
 							@tap="popular" rows="*,auto" cols="auto" col="0" row="0"
 							width="50%">
 							<Label v-show="selectedTabview==0" row="0" class="fa navIcon"
-									:text="selectedTabview==0?'fa-shopping-basket':'' | fonticon"/>
+									:text="selectedTabview==0?'fa-paw':'' | fonticon"/>
 							<Label :class="selectedTabview==0?'active':''" row="1"
 									text="Animals" class="tabviewText"></Label>
 					</GridLayout>
@@ -31,7 +31,7 @@
 					<!-- end nav-->
 			</GridLayout>
 
-<!--selected tab view animal -->
+<!--selected tab set to view animal -->
 <!--item -->
 			<GridLayout v-show="selectedTabview == 0" row="2" width="100%" backgroundColor="white">
 				<ListView ref="listview" separatorColor="transparent" for="item in items" :key="index">
@@ -43,15 +43,13 @@
 
 <!--selected tab view filter -->
 			<GridLayout v-show="selectedTabview == 1" row="2" width="100%" backgroundColor="white">		
-				<ListView ref="listview" separatorColor="transparent" for="item in itemsCategory" :key="index">
+				<RadListView ref="listview" separatorColor="transparent" for="item in itemsCategory" :key="index">
 					<v-template>
 						<Category :item="item"> </Category>
 					</v-template>
-				</ListView>
+				</RadListView>
 			</GridLayout>
 
-			<GridLayout v-show="selectedTabview == 2" row="2" width="100%" backgroundColor="white">		
-			</GridLayout>
 <!-- bottom nav -->
 
 			<!-- <navBottom row="3" /> -->
@@ -105,10 +103,11 @@ export default {
           ],
           category: "Dog",
           categoryTag: "#2D9CDB",
-          price: "300.00",
-          likes: 987,
-          isLike: false,
-          isFavorite: true,
+          breed_group: "Toy",
+          primary_breed: "Chihuahua",
+          age: "4 months",
+          gender: "F",
+          isFavorite: false,
           comments: 13,
           rating: "4.5",
           description: "a"
@@ -125,10 +124,11 @@ export default {
             { src: "~/assets/images/opossum.png" }
           ],
           category: "Cat",
-          categoryTag: "#e4ce0d",
-          price: "230.00",
-          likes: 891,
-          isLike: true,
+          categoryTag: "#6127ae",
+          breed_group: "Shorthair",
+          primary_breed: "Tabby",
+          age: "6",
+          gender: "M",
           isFavorite: true,
           comments: 7,
           rating: "4.0",
@@ -136,7 +136,7 @@ export default {
         },
         {
           name: "Snoopy",
-          cover: "~/assets/images/doggo.png",
+          cover: "~/assets/images/snoopy.jpg",
           images: [
             { src: "~/assets/images/bee.png" },
             { src: "~/assets/images/peacock.png" },
@@ -147,9 +147,10 @@ export default {
           ],
           category: "Dog",
           categoryTag: "#27AE60",
-          price: "300.00",
-          likes: 730,
-          isLike: true,
+          breed_group: "Hound",
+          primary_breed: "Beagle",
+          age: "10",
+          gender: "M",
           isFavorite: true,
           comments: 11,
           rating: "4.0",
@@ -167,15 +168,35 @@ export default {
             { src: "~/assets/images/opossum.png" }
           ],
           category: "Cat",
-          categoryTag: "#27AE60",
-          price: "300.00",
-          likes: 730,
-          isLike: true,
-          isFavorite: true,
-          comments: 11,
-          rating: "4.0",
+          categoryTag: "#e4ce0d",
+          breed_group: "Longhair",
+          primary_breed: "Domestic",
+          gender: "F",
+          age: "10 months",
+          isFavorite: false,
           description: "a"
         }
+        // {
+        //   name: "Muffin",
+        //   cover: "~/assets/images/doggo.png",
+        //   images: [
+        //     { src: "~/assets/images/bee.png" },
+        //     { src: "~/assets/images/peacock.png" },
+        //     { src: "~/assets/images/rattlesnake.png" },
+        //     { src: "~/assets/images/coyote.png" },
+        //     { src: "~/assets/images/mountainlion.png" },
+        //     { src: "~/assets/images/opossum.png" }
+        //   ],
+        //   category: "Dog",
+        //   categoryTag: "#27AE60",
+        //   breed: "300.00",
+        //   likes: 730,
+        //   isLike: true,
+        //   isFavorite: true,
+        //   comments: 11,
+        //   rating: "4.0",
+        //   description: "a"
+        // }
       ],
       category: [
         {
@@ -228,20 +249,12 @@ export default {
     showCategory() {
       this.selectedTabview = 1;
     },
-    showPromos() {
-      this.selectedTabview = 2;
-    },
-    home() {
-      this.selectedTab = 0;
-    },
-    cart() {
-      this.selectedTab = 1;
-    },
-    history() {
-      this.selectedTab = 2;
-    },
-    about() {
-      this.selectedTab = 3;
+    toggleHeart() {
+    if (isIOS) {
+        return;
+      }
+      this.animateFavorite();
+      this.item.isFavorite = !this.item.isFavorite;
     }
   }
 };
@@ -271,6 +284,7 @@ export default {
 
 .navIcon {
   text-align: center;
+  margin-top: 3;
 }
 
 .navTab {
