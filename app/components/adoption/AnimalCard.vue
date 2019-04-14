@@ -7,6 +7,8 @@
                 :src="item.cover" />
             <GridLayout width="100%" columns="auto,*" rows="auto,auto" class=""
                 verticalAlignment="center">
+                
+                <!-- Gender -->
                 <Label :text="categoryIcon | fonticon" row="0" col="0"
                     rowSpan="2" :backgroundColor="item.categoryTag" class="fa category-icon" />
                     
@@ -20,22 +22,17 @@
                         :text="item.category" />
 
 
-                         
-                        <!-- Rating -->
-                    <!-- <Label col="1" row="0" class="fa info-icon" :text="'fa-info-circle' | fonticon" />
-                    <Label col="2" row="0" class="rating-value item-category"
-                        :text="item.breed + ' - ' + item.primary_breed"/> -->
                 </GridLayout>
             </GridLayout>
             <StackLayout width="100%" marginTop="5" class="line" />
 
-            <!-- Here the problem in scroll transistion -->
+            <!-- BUG: problem with scroll transistion on ios emulator -->
             <!-- <ItemLike :item="item"></ItemLike> -->
 
             <GridLayout class="" marginTop="5" width="100%" row="3"
                     columns="*, auto, auto" rows="auto">
                     <GridLayout col="0" rows="auto" columns="auto,auto" @tap="onClickButton()">
-                        <Label col="0" row="0" ref="like" class="like-icon fa"
+                        <Label col="0" row="0" ref="info" class="like-icon fa"
                             :text="'fa-info-circle' | fonticon" />
                         <Label col="1" row="0" class="layout" :text="item.breed_group + ' - ' + item.primary_breed"></Label>
                     </GridLayout>
@@ -88,40 +85,6 @@ export default {
   },
   mounted() {},
   methods: {
-    animateLike() {
-      if (isIOS) {
-        return;
-      }
-      let imgLogo = this.$refs.like.nativeView;
-      imgLogo
-        .animate({
-          scale: {
-            x: 0.6,
-            y: 0.6
-          },
-          duration: 100,
-          delay: 0
-        })
-        .then(function() {
-          return imgLogo.animate({
-            scale: {
-              x: 1.2,
-              y: 1.2,
-              duration: 50
-            }
-          });
-        })
-        .then(function() {
-          return imgLogo.animate({
-            scale: {
-              x: 1,
-              y: 1,
-              duration: 100
-            }
-          });
-        })
-        .then(function() {});
-    },
     animateFavorite() {
       if (isIOS) {
         return;

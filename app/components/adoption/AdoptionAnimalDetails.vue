@@ -26,7 +26,7 @@
                 <GridLayout class="anim-itemInfo" marginTop="15" row="1"
                     width="100%" columns="auto,*" rows="auto,auto,auto,auto"
                     verticalAlignment="center">
-                    <Label :text="categoryIcon | fonticon" row="0" col="0"
+                    <Label :text="genderIcon | fonticon" row="0" col="0"
                         rowSpan="2" :backgroundColor="item.categoryTag" class="fa category-icon" />
                     <Label row="0" col="1" class="item-name" textwrap="true"
                         verticalAlignment="bottom" horizontalAlignment="left"
@@ -52,30 +52,24 @@
                 <StackLayout class="line anim-likes" row="2" width="100%"
                     marginTop="10" />
 
-                <!-- <GridLayout class="anim-likes" marginTop="5" width="100%" row="3"
-                    columns="auto,*,auto,auto" rows="auto">
-                    <GridLayout col="0" rows="auto" columns="auto,auto" @tap="toggleLike">
-                        <Label col="0" row="0" ref="like" class="like-icon fa"
-                            :class="[isLike ? 'liked-active' : 'default']"
-                            :text="isLike ? 'fa-thumbs-up':'fa-thumbs-o-up' | fonticon" />
-                        <Label col="1" row="0" class="layout" :text="item.likes"></Label>
+                <GridLayout class="anim-likes" marginTop="5" width="100%" row="3"
+                    columns="*,auto,auto" rows="auto">
+                    <GridLayout col="0" rows="auto" columns="auto,auto">
+                        <Label col="0" row="0" ref="info" class="like-icon fa"
+                            :text="'fa-info-circle' | fonticon" />
+                        <Label col="1" row="0" class="layout" :text="item.breed_group + ' - ' + item.primary_breed"></Label>
                     </GridLayout>
-                    <StackLayout col="1" orientation="horizontal" marginLeft="15">
-                        <Label ref="" class="like-icon layout fa" :text="'fa-comment-o' | fonticon" />
-                        <Label class="layout" :text="item.comments"></Label>
-                    </StackLayout>
-                    <GridLayout col="2" rows="auto" columns="auto,auto" @tap="toggleHeart"
+                    <GridLayout col="1" rows="auto" columns="auto,auto" @tap="toggleHeart"
                         marginRight="15">
                         <Label col="0" row="0" ref="favorite" class="like-icon  fa"
-                            :class="[isHeart ? 'heart-active' : 'default']"
-                            :text="isHeart ? 'fa-heart':'fa-heart-o' | fonticon" />
+                            :class="[item.isFavorite ? 'heart-active' : 'default']" :text="item.isFavorite ? 'fa-heart':'fa-heart-o' | fonticon" />
                         <Label col="1" row="0" class="layout" text="Favorite"></Label>
                     </GridLayout>
-                    <StackLayout col="3" orientation="horizontal">
+                    <StackLayout col="2" orientation="horizontal">
                         <Label ref="" class="like-icon layout fa" :text="'fa-share-square-o' | fonticon" />
                         <Label class="layout" text="Share"></Label>
                     </StackLayout>
-                </GridLayout> -->
+                </GridLayout>
             </GridLayout>
 
             <StackLayout width="100%" class="lineBreak anim-likes" />
@@ -111,7 +105,7 @@ export default {
   props: ["item"],
   components: {},
   computed: {
-    categoryIcon() {
+    genderIcon() {
       switch (this.item.gender) {
         case "M":
           this.item.categoryTag = "#0099ff";
@@ -142,8 +136,8 @@ export default {
         src: "~/assets/images/food/pancake640.jpg"
       }
     ];
-    this.isLike = this.item.isLike;
-    this.isHeart = this.item.isFavorite;
+    // this.isLike = this.item.isLike;
+    // this.isHeart = this.item.isFavorite;
   },
   mounted() {},
   methods: {
@@ -211,37 +205,6 @@ export default {
     close() {
       this.$navigateBack();
     },
-    animateLike() {
-      let imgLogo = this.$refs.like.nativeView;
-      imgLogo
-        .animate({
-          scale: {
-            x: 0.6,
-            y: 0.6
-          },
-          duration: 100,
-          delay: 0
-        })
-        .then(function() {
-          return imgLogo.animate({
-            scale: {
-              x: 1.2,
-              y: 1.2,
-              duration: 50
-            }
-          });
-        })
-        .then(function() {
-          return imgLogo.animate({
-            scale: {
-              x: 1,
-              y: 1,
-              duration: 100
-            }
-          });
-        })
-        .then(function() {});
-    },
     animateFavorite() {
       let imgLogo = this.$refs.favorite.nativeView;
       imgLogo
@@ -273,18 +236,9 @@ export default {
         })
         .then(function() {});
     },
-    toggleLike() {
-      this.animateLike();
-      this.isLike = !this.isLike;
-      if (this.isLike) {
-        this.item.likes += 1;
-      } else {
-        this.item.likes -= 1;
-      }
-    },
     toggleHeart() {
       this.animateFavorite();
-      this.isHeart = !this.isHeart;
+      this.item.isFavorite = !this.item.isFavorite;
     },
     onClickButton() {
       this.$emit("clicked");

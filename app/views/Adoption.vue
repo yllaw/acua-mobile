@@ -1,8 +1,8 @@
 <template>
 	<page actionBarHidden="false" backgroundSpanUnderStatusBar="true">
 		<!-- @loaded="onLoaded" -->
-        <ActionBar class="navTab">
-            <Label text="Animals for Adoption"></Label>
+        <ActionBar class="actionbar navTab">
+            <Label fontSize="18" text="Animals for Adoption"></Label>
         </ActionBar>
 
 		<GridLayout rows="auto,auto,*" columns="auto">
