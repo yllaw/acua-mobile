@@ -6,7 +6,7 @@
             <Image stretch="aspectFit" class="card-img" @tap="onClickButton()"
                 :src="item.cover" />
             <GridLayout width="100%" columns="auto,*" rows="auto,auto" class=""
-                verticalAlignment="center">
+                verticalAlignment="center" @tap="onClickButton()">
                 
                 <!-- Gender -->
                 <Label :text="categoryIcon | fonticon" row="0" col="0"

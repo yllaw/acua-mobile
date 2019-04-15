@@ -7,24 +7,27 @@
 
     <StackLayout backgroundColor="#b21a82">
 
-      <!--FlexboxLayout alignItems="center" justifyContent="space-between" class="Action_Bar">
-        <Image src="~/assets/images/Acua.png" width="40" height="40" horizontalAligment="left" alignSelf="flex-start"/>
-        <Label text="Welcome" fontSize="24"  horizontalAligment="left" alignSelf="flex-start"/>
-        <Button class="S_Button" width="40" height="40" @tap="toFaq" horizontalAligment="right"/>
-      </FlexboxLayout-->
-
       <GridLayout class="layout cover" columns="*,*" rows="*,*,*">
-        <CategoryButton verticalAlignment="center" margin="5" row="0" col="0" src="~/assets/images/animals.icon.png" :title="titles[0]" :action="toAdoption" class="homepage-blue HomeButton1" textWrap="true"/>
-              
-        <CategoryButton verticalAlignment="center" margin="5" row="0" col="1" src="~/assets/images/license.icon.png" :title="titles[1]" :action="toFaq" class="homepage-blue HomeButton2" textWrap="true"/>
-              
-        <CategoryButton verticalAlignment="center"  margin="5" row="1" col="0" src="~/assets/images/services.icon.png" :title="titles[2]" :action="toServiceRequest" class="homepage-blue HomeButton3" textWrap="true"/>
-              
-        <CategoryButton verticalAlignment="center"  margin="5" row="1" col="1" src="~/assets/images/noise.icon.png" :title="titles[3]" :action="toFaq" class="homepage-blue HomeButton4" textWrap="true"/>
-                
-        <CategoryButton verticalAlignment="center"  margin="5" row="2" col="0" src="~/assets/images/hoursicon.png" :title="titles[4]" :action="toQRScanner" class="homepage-blue HomeButton5" textWrap="true"/>
-
-        <CategoryButton verticalAlignment="center" margin="5" row="2" col="1" src="~/assets/images/locationicon.png" :title="titles[5]" :action="toAnimalCenterList" class="homepage-blue HomeButton6" textWrap="true"/>
+        <!--Adoption -->
+        <CategoryButton verticalAlignment="center" margin="5" row="0" col="0" src="~/assets/images/animals.icon.png" :icon="''"
+        :title="titles[0]" :action="toAdoption" class="homepage-blue HomeButton1" textWrap="true"/>
+          
+        <!--Service Request -->
+        <CategoryButton verticalAlignment="center"  margin="5" row="1" col="0" src="~/assets/images/services.icon.png" :icon="''"
+        :title="titles[2]" :action="toServiceRequest" class="homepage-blue HomeButton3" textWrap="true"/>
+         
+        <!--FAQ -->
+        <CategoryButton verticalAlignment="center"  margin="5" row="0" col="1" src="~/assets/images/noise.icon.png" :icon="''"
+        :title="titles[3]" :action="toFaq" class="homepage-blue HomeButton4" textWrap="true"/>
+        
+        <!--Ticket -->
+        <CategoryButton verticalAlignment="center"  margin="5" row="2" col="0" src="~/assets/images/hoursicon.png" 
+        :icon="'fa-map-marker' | fonticon" :title="titles[4]" :action="toQRScanner" class="fa homepage-blue HomeButton5" textWrap="true"/>
+       
+        <!--Find a Location -->
+        <CategoryButton verticalAlignment="center" margin="5" row="1" col="1" src="~/assets/images/locationicon.png" :icon="''"
+        :title="titles[5]" :action="toAnimalCenterList" class="homepage-blue HomeButton6" textWrap="true"/>
+      
       </GridLayout>
 
     </StackLayout>
@@ -51,7 +54,7 @@ export default {
         "Services & Fees",
         "Service Request",
         "FAQ",
-        "TICKET",
+        "Grab a Ticket!",
         "Find Our Location"
       ],
       textWrap: false,
