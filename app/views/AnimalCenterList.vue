@@ -12,18 +12,18 @@
             <RadListView row="2" for="location in centerLocations" @itemTap="onItemTap" class="list-group">
 
                     <v-template>
-
+                      
+                    <!-- card containter -->
                     <GridLayout rows="*, *, *, *" columns="*, *" class="list-group-item-content">
 
-
+                    <!-- name -->
                     <Label :text="location.name" class="homepage-blue text-primary list-group-item-text font-weight-bold"/>
 
+                    <!-- distance -->
                     <Label col="1" horizontalAlignment="right" class="list-group-item-text m-r-5 text-secondary">
                         <FormattedString>
-                            <!-- <Span text.decode="&euro;"/> -->
                             <!-- distance -->
                             <Span :text="'~'+ location.distance + 'mi'"/> 
-                            <!-- distance -->
                         </FormattedString>
                     </Label>
 
@@ -33,14 +33,28 @@
                     <Image row="2" :src="location.imageURL" stretch="aspectFit" height="120" class="m-r-20" loadMode="async"/>
 
                     <StackLayout row="2" col="1" verticalAlignment="center" class="list-group-item-text">
-                        <Label textWrap="true" class="p-b-10">
+                      <GridLayout rows="*, *" columns="*, 4*"> 
+                        <!--address -->
+                        <Label row="0" col="0" textWrap="true" class="p-b-10">
+                            <FormattedString ios.fontFamily="system">
+                                 <Span :text="'fa-map-marker' | fonticon" class="fa"></Span>
+                            </FormattedString>
+                        </Label>
+                        <Label row="0" col="1" textWrap="true" class="p-b-10">
                             <FormattedString ios.fontFamily="system">
                                  <Span :text="location.address"  class="text-primary"></Span>
                             </FormattedString>
                         </Label>
-                        <Label class="p-b-10">
+                        <!-- -->
+
+                        <!-- phone number-->                      
+                        <Label row="1" col="0" textWrap="true" class="p-b-10">
                             <FormattedString ios.fontFamily="system">
-                                <!-- <Span :text="transmsion"/> -->
+                                <Span :text="'fa-phone' | fonticon" class="fa icon"></Span>
+                            </FormattedString>
+                        </Label>
+                        <Label row="1" col="1" textWrap="true" class="p-b-10">
+                            <FormattedString ios.fontFamily="system">
                                 <Span :text="location.phone" class=""/>
                             </FormattedString>
                         </Label>
@@ -49,7 +63,9 @@
                                 <Span text=""/>
                             </FormattedString>
                         </Label>
+                        <!-- -->
 
+                      </GridLayout>
                     </StackLayout>
 
                     </GridLayout>
@@ -296,6 +312,10 @@ export default {
 ActionBar {
   background-color: #009fca;
   color: #ffffff;
+}
+
+.icon{
+  margin-right: 5
 }
 
 .gps-button {
