@@ -11,8 +11,8 @@
 
                 <Label row="1" class="hr-light m-t-15 m-b-15"/>
 
-                <GridLayout row="2" rows="*, *, *, auto" columns="auto,*">
-                <Image class="p-l-15 p-b-10 m-r-20" src="~/assets/images/achouse.png" stretch="aspectFit" height="40" width="40" loadMode="async" margin="3"/>
+                <GridLayout rows="*, *, *, auto" columns="auto,*">
+                <Image row="0" col="0" class="p-l-15 p-b-10 m-r-20" src="~/assets/images/achouse.png" stretch="aspectFit" height="40" width="40" loadMode="async" margin="3"/>
 
                     <!-- name -->
                     <Label textWrap="true" margin="5" col="1" class="text p-b-10 font-weight-bold title stack">

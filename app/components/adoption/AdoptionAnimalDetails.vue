@@ -85,11 +85,47 @@
 
                 <StackLayout row="1">
                     <ScrollView>
-                        <StackLayout verticalAlignment="top"
-                            horizontalAlignment="left">
-                            <Textview editable="false" class="description-value"
-                                textWrap="true" :text="description" />
-                        </StackLayout>
+                        <GridLayout rows="*, *, *, *, *, *, *, *" columns="auto, *" verticalAlignment="top"
+                            horizontalAlignment="center">
+                          
+                        <Label row="0" col="0" class="description-value" text="Availability:" />
+                        <Label row="0" col="1"  class="fa description-value" :class="item.isAvailable==true? 'isAvailable':'isNotAvailable'">
+                        <FormattedString>
+                            <Span :text="item.isAvailable==true? 'Available':'Not Available'" />
+                            <Span :text="item.isAvailable==true? 'fa-check':'fa-times' | fonticon" />
+                        </FormattedString>
+                        </Label>
+
+
+                        <Label row="1" col="0" class="description-value" text="Location:" />    
+                        <Label row="1" col="1" class="description-value" :text="item.location" /> 
+
+                        <Label row="2" col="0" class="description-value" text="Age:" /> 
+                        <Label row="2" col="1" class="description-value" :text="item.age" />
+
+                        <Label row="3" col="0" class="description-value" text="Gender: " /> 
+                        <Label row="3" col="1" class="description-value" :text="item.gender" />     
+
+                        <Label row="4" col="0" class="description-value" text="Breed Group:" /> 
+                        <Label row="4" col="1" class="description-value" :text="item.breed_group" />                   
+                        
+                        <Label row="5" col="0" class="description-value" text="Primary Breed:" /> 
+                        <Label row="5" col="1" class="description-value" :text="item.primary_breed" />    
+
+                        <Label row="6" col="0" class="description-value" text="Animal Size:" />  
+                        <Label row="6" col="1" class="description-value" :text="item.animal_size" />    
+                          
+                        <Label row="7" col="0" class="description-value" text="Primary Color:" /> 
+                        <Label row="7" col="1" class="description-value" :text="item.primary_color" />    
+
+                        
+                                  
+
+    
+    
+                            <!-- <Textview editable="false" class="description-value"
+                                textWrap="true" :text="description" /> -->
+                        </GridLayout>
                     </ScrollView>
                 </StackLayout>
 
@@ -287,6 +323,17 @@ TextView {
 .description-value {
   font-size: 14;
   color: black;
+  margin: 8;
+}
+
+.description-value.isAvailable {
+  color: green;
+  font-weight: bold
+}
+
+.description-value.isNotAvailable {
+  color: red;
+  font-weight: bold
 }
 
 .rate {
