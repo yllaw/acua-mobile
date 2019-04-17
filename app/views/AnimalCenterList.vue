@@ -299,7 +299,13 @@ export default {
       console.log("onItemTap(e), navigateTo " + JSON.stringify(e.item));
       this.$emit("select", e.item); // you NEED to use e.item (e.location is undefined)
       this.$navigateTo(AnimalCenterDetails, {
-        props: { AnimalCenter: e.item }
+        props: { AnimalCenter: e.item },
+        animated: true,
+        transition: {
+          name: "slide",
+          duration: 380,
+          curve: "easeIn"
+        }
       });
     }
   }

@@ -10,23 +10,23 @@
       <GridLayout class="layout cover" columns="*,*" rows="*,*,*">
         <!--Adoption -->
         <CategoryButton verticalAlignment="center" margin="5" row="0" col="0" src="~/assets/images/animals.icon.png" :icon="''"
-        :title="titles[0]" :action="toAdoption" class="homepage-blue HomeButton1" textWrap="true"/>
+        :title="titles[0]" :action="toAdoption" class="homepage-blue HomeButton" textWrap="true"/>
           
         <!--Service Request -->
         <CategoryButton verticalAlignment="center"  margin="5" row="1" col="0" src="~/assets/images/services.icon.png" :icon="''"
-        :title="titles[2]" :action="toServiceRequest" class="homepage-blue HomeButton3" textWrap="true"/>
+        :title="titles[2]" :action="toServiceRequest" class="homepage-blue HomeButton" textWrap="true"/>
          
         <!--FAQ -->
         <CategoryButton verticalAlignment="center"  margin="5" row="0" col="1" src="~/assets/images/noise.icon.png" :icon="''"
-        :title="titles[3]" :action="toFaq" class="homepage-blue HomeButton4" textWrap="true"/>
+        :title="titles[3]" :action="toFaq" class="homepage-blue HomeButton" textWrap="true"/>
         
         <!--Ticket -->
         <CategoryButton verticalAlignment="center"  margin="5" row="2" col="0" src="~/assets/images/hoursicon.png" 
-        :icon="'fa-map-marker' | fonticon" :title="titles[4]" :action="toQRScanner" class="fa homepage-blue HomeButton5" textWrap="true"/>
+        :icon="'fa-map-marker' | fonticon" :title="titles[4]" :action="toQRScanner" class="fa homepage-blue HomeButton" textWrap="true"/>
        
         <!--Find a Location -->
         <CategoryButton verticalAlignment="center" margin="5" row="1" col="1" src="~/assets/images/locationicon.png" :icon="''"
-        :title="titles[5]" :action="toAnimalCenterList" class="homepage-blue HomeButton6" textWrap="true"/>
+        :title="titles[5]" :action="toAnimalCenterList" class="homepage-blue HomeButton" textWrap="true"/>
       
       </GridLayout>
 
@@ -71,19 +71,54 @@ export default {
 
   methods: {
     toAnimalCenterList() {
-      this.$navigateTo(this.animalCenterList);
+      this.$navigateTo(this.animalCenterList, {
+        animated: true,
+        transition: {
+          name: "slide",
+          duration: 380,
+          curve: "easeIn"
+        }
+      });
     },
     toFaq() {
-      this.$navigateTo(this.faq);
+      this.$navigateTo(this.faq, {
+        animated: true,
+        transition: {
+          name: "slide",
+          duration: 380,
+          curve: "easeIn"
+        }
+      });
     },
     toQRScanner () {
-      this.$navigateTo(this.qrScanner)
+      this.$navigateTo(this.qrScanner, {
+        animated: true,
+        transition: {
+          name: "slide",
+          duration: 380,
+          curve: "easeIn"
+        }
+      });
     },
     toAdoption () {
-      this.$navigateTo(this.adoption)
+      this.$navigateTo(this.adoption, {
+        animated: true,
+        transition: {
+          name: "slide",
+          duration: 380,
+          curve: "easeIn"
+        }
+      });
     },
     toServiceRequest () {
-      this.$navigateTo(this.serviceRequest)
+      this.$navigateTo(this.serviceRequest, {
+        animated: true,
+        transition: {
+          name: "slide",
+          duration: 380,
+          curve: "easeIn"
+        }
+      });
     }
 
   },
@@ -130,58 +165,12 @@ export default {
   margin-right: 0;
 }
 
-.HomeButton1 {
+.HomeButton {
   background-color: rgba(255, 255, 255, 1);
   border-radius: 25;
   font-size: 14%;
   font-weight: bold;
   padding-top: 7em;
-  letter-spacing: 0;
-}
-
-.HomeButton2 {
-  background-color: rgba(255, 255, 255, 1);
-  border-radius: 25;
-  font-size: 14%;
-  font-weight: bold;
-  padding-top: 7em;
-  letter-spacing: 0;
-}
-
-.HomeButton3 {
-  background-color: rgba(255, 255, 255, 1);
-  border-radius: 25;
-  font-size: 14%;
-  font-weight: bold;
-  padding-top: 7em;
-  letter-spacing: 0;
-}
-
-.HomeButton4 {
-  background-color: rgba(255, 255, 253, 1);
-  border-radius: 25;
-  font-size: 14%;
-  font-weight: bold;
-  padding-top: 7em;
-  letter-spacing: 0;
-}
-
-.HomeButton5 {
-  background-color: rgba(255, 255, 255, 1);
-  border-radius: 25;
-  font-size: 14%;
-  font-weight: bold;
-  padding-top: 7em;
-  letter-spacing: 0;
-}
-
-.HomeButton6 {
-  background-color: rgba(255, 255, 255, 1);
-  border-radius: 25;
-  font-size: 14%;
-  font-weight: bold;
-  padding-top: 7em;
-  padding-bottom: 2em;
   letter-spacing: 0;
 }
 
