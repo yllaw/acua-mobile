@@ -127,7 +127,6 @@ export default {
 }
 
 .Action_Text {
-  text: Welcome;
   margin-right: 0;
 }
 

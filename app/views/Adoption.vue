@@ -2,6 +2,7 @@
 	<page actionBarHidden="false" backgroundSpanUnderStatusBar="true">
 		<!-- @loaded="onLoaded" -->
         <ActionBar class="actionbar navTab">
+           <NavigationButton @tap="$navigateBack()" android.systemIcon="ic_menu_back" />
             <Label fontSize="18" text="Animals for Adoption"></Label>
         </ActionBar>
 
@@ -17,7 +18,7 @@
 							width="50%">
 							<Label v-show="selectedTabview==0" row="0" class="fa navIcon"
 									:text="selectedTabview==0?'fa-paw':'' | fonticon"/>
-							<Label :class="selectedTabview==0?'active':''" row="1"
+							<Label horizontalAlignment="center" :class="selectedTabview==0?'active':''" row="1"
 									text="Animals" class="tabviewText"></Label>
 					</GridLayout>
 					<GridLayout class="tabview" :class="selectedTabview==1?'active':''"
@@ -26,7 +27,7 @@
 							<Label v-show="selectedTabview==1" row="0" class="fa navIcon"
 									:text="selectedTabview==1?'fa-filter':'' | fonticon"/>
 							<Label :class="selectedTabview==1?'active':''" row="1"
-									text="Filter" class="tabviewText"></Label>							
+									text="Filter" horizontalAlignment="center" class="tabviewText"></Label>							
 					</GridLayout>
 					<!-- end nav-->
 			</GridLayout>
@@ -272,7 +273,6 @@ export default {
   margin-bottom: 5;
   font-size: 13;
   color: #d8d2d2;
-  horizontal-align: center;
 }
 .tabviewText.active {
   margin-top: 0;
@@ -294,28 +294,5 @@ export default {
 .navTabview {
   background-color: blue;
 }
-.status-img {
-  margin-top: 4;
-  margin-right: 20;
-  width: 30;
-  height: 30;
-}
-.status-profile {
-  border-width: 1;
-  border-color: #ffffff;
-  background-color: #f1ebeb;
-  border-radius: 50%;
-  margin-top: 4;
-  margin-right: 15;
-  width: 30;
-  height: 30;
-}
-.status-title {
-  color: white;
-  font-size: 18;
-  margin-left: 15;
-  margin-top: 8;
-  horizontal-align: left;
-  vertical-align: center;
-}
+
 </style>

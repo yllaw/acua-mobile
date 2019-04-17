@@ -110,7 +110,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../AnimalCenter";
+@import "@/AnimalCenter";
 
 .title {
   font-size: 18em;

@@ -14,7 +14,7 @@
 
             <ScrollView class="anim-images" orientation="horizontal">
                 <StackLayout orientation="horizontal" class="">
-                    <GridLayout v-for="image in item.images" rows="auto" columns="*">
+                    <GridLayout v-bind:key="image" v-for="image in item.images" rows="auto" columns="*">
                         <Image class="card-img-thumb" row="0" col="0" :src="image.src"
                             stretch="aspectFit" />
                     </GridLayout>
