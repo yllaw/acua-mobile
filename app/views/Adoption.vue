@@ -14,7 +14,7 @@
 					width="100%"  rows="auto" columns="auto,auto">
 														<!--active class tab navigation****-->
 					<GridLayout class="tabview" :class="selectedTabview==0?'active':''"
-							@tap="popular" rows="*,auto" cols="auto" col="0" row="0"
+							@tap="adoptionList" rows="*,auto" cols="auto" col="0" row="0"
 							width="50%">
 							<Label v-show="selectedTabview==0" row="0" class="fa navIcon"
 									:text="selectedTabview==0?'fa-paw':'' | fonticon"/>
@@ -261,9 +261,11 @@ export default {
       });
     },
 
-    popular() {
+    adoptionList() {
       this.selectedTabview = 0;
     },
+
+    // TODO: show filter
     showCategory() {
       this.selectedTabview = 1;
     },

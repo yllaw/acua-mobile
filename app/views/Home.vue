@@ -26,7 +26,7 @@
        
         <!--Find a Location -->
         <CategoryButton verticalAlignment="center" margin="5" row="1" col="1" src="~/assets/images/locationicon.png" :icon="''"
-        :title="titles[5]" :action="toAnimalCenterList" class="homepage-blue HomeButton" textWrap="true"/>
+        :title="titles[5]" :action="toLocationList" class="homepage-blue HomeButton" textWrap="true"/>
       
       </GridLayout>
 
@@ -39,7 +39,7 @@
 <script>
 import CategoryButton from "@/components/buttons/CategoryButton.vue"
 import Faq from "./Faq.vue"
-import AnimalCenterList from "./AnimalCenterList.vue"
+import Location from "./Location.vue"
 import QRScanner from "./QRScanner.vue"
 import Adoption from "./Adoption.vue"
 import ServiceRequest from "./ServiceRequest.vue"
@@ -61,7 +61,7 @@ export default {
       //search: "this will change as you type",
       results: [],
       faq: Faq,
-      animalCenterList: AnimalCenterList,
+      location: Location,
       qrScanner: QRScanner,
       adoption: Adoption,
       serviceRequest: ServiceRequest,
@@ -70,8 +70,8 @@ export default {
   },
 
   methods: {
-    toAnimalCenterList() {
-      this.$navigateTo(this.animalCenterList, {
+    toLocationList() {
+      this.$navigateTo(this.location, {
         animated: true,
         transition: {
           name: "slide",
