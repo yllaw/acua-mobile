@@ -43,6 +43,7 @@ import AnimalCenterList from "./AnimalCenterList.vue"
 import QRScanner from "./QRScanner.vue"
 import Adoption from "./Adoption.vue"
 import ServiceRequest from "./ServiceRequest.vue"
+import { mapState } from "vuex"
 
 export default {
   data() {
@@ -69,6 +70,8 @@ export default {
     };
   },
 
+  computed: mapState(['approvedTicket']),
+
   methods: {
     toAnimalCenterList() {
       this.$navigateTo(this.animalCenterList, {
@@ -91,14 +94,22 @@ export default {
       });
     },
     toQRScanner () {
-      this.$navigateTo(this.qrScanner, {
-        animated: true,
-        transition: {
-          name: "slide",
-          duration: 380,
-          curve: "easeIn"
-        }
-      });
+      if (this.approvedTicket !== null) {
+        alert({
+          title: "Access Denied",
+          message: "You cannot submit another ticket.",
+          okButtonText: "OK"
+        })
+      } else {
+        this.$navigateTo(this.qrScanner, {
+          animated: true,
+          transition: {
+            name: "slide",
+            duration: 380,
+            curve: "easeIn"
+          }
+        });
+      }
     },
     toAdoption () {
       this.$navigateTo(this.adoption, {
