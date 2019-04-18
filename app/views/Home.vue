@@ -94,7 +94,7 @@ export default {
       });
     },
     toQRScanner () {
-      if (this.approvedTicket !== null) {
+      if (this.approvedTicket === null) {
         alert({
           title: "Access Denied",
           message: "You cannot submit another ticket.",
