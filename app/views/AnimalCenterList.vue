@@ -8,7 +8,7 @@
 
         <StackLayout>
             <!--get distance btn -->
-            <IconButton class="fa gps-button btn-primary btn-rounded-sm" :icon="'fa-sort-amount-asc' | fonticon" title="Get Closest Animal Center" action="buttonGetDistanceToCareCentersTap"/>
+            <IconButton class="fa gps-button btn-primary btn-rounded-sm" :icon="'fa-sort-amount-asc' | fonticon" title="Get Closest Animal Center" :action="buttonGetDistanceToCareCentersTap"/>
 
             <RadListView row="2" for="location in centerLocations" @itemTap="onItemTap" class="list-group">
 
@@ -235,6 +235,7 @@ export default {
         }
       );
     },
+    // TODO: optimize; this should be already computed before clicking button
     buttonGetDistanceToCareCentersTap: function() {
       console.log(
         "buttonGetDistanceToCareCentersTap(), getting list of animal care centers; sorted by distance"
