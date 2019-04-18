@@ -118,13 +118,6 @@
                         <Label row="7" col="0" class="description-value" text="Primary Color:" /> 
                         <Label row="7" col="1" class="description-value" :text="item.primary_color" />    
 
-                        
-                                  
-
-    
-    
-                            <!-- <Textview editable="false" class="description-value"
-                                textWrap="true" :text="description" /> -->
                         </GridLayout>
                     </ScrollView>
                 </StackLayout>
@@ -283,13 +276,7 @@ export default {
   data() {
     return {
       images: null,
-      isLike: false,
-      isHeart: false,
-      description: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione maiores, veritatis nesciunt sint dolorum sequi dicta omnis dolor blanditiis, ipsam officiis commodi temporibus quas non nobis tempore saepe necessitatibus quasi! Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-				\nRatione maiores, veritatis nesciunt sint dolorum sequi dicta omnis dolor blanditiis, ipsam officiis commodi temporibus quas non nobis tempore saepe necessitatibus quasi! Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-				\nNesciunt sint dolorum sequi dicta omnis dolor blanditiis, ipsam officiis commodi temporibus quas non nobis tempore saepe necessitatibus quasi!
-				\nRatione maiores, veritatis nesciunt sint dolorum sequi dicta omnis dolor blanditiis, ipsam officiis commodi temporibus quas non nobis tempore saepe necessitatibus quasi! Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-				\nNesciunt sint dolorum sequi dicta omnis dolor blanditiis, ipsam officiis commodi temporibus quas non nobis tempore saepe necessitatibus quasi!	`
+      isHeart: false
     };
   }
 };
