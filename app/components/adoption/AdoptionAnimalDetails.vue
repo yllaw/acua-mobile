@@ -170,67 +170,6 @@ export default {
   },
   mounted() {},
   methods: {
-    onLoaded() {
-      // this.animateFrom()
-    },
-    animateFrom() {
-      let cover = this.$refs.cover.nativeView;
-      let images = this.$refs.images.nativeView;
-      let page = this.$refs.page.nativeView;
-
-      images.translateY = 200;
-      images.opacity = 0;
-      images.scaleX = 0;
-      cover.scaleY = 0;
-
-      cover.translateY = 200;
-      cover.opacity = 0;
-      cover.scaleX = 0;
-      cover.scaleY = 0;
-
-      (page.backgroundColor = "#d4d6d8"), this.animateTo();
-    },
-    animateTo() {
-      let cover = this.$refs.cover.nativeView;
-      let images = this.$refs.images.nativeView;
-      let page = this.$refs.page.nativeView;
-
-      // images.animate({
-      // 	scale: { x: 1, y: 1 } ,
-      // 	translate: { x: 0, y: 0},
-      // 	opacity: 1,
-      // 	duration: 1000,
-      // 	delay: 150
-      // });
-
-      cover.animate({
-        scale: {
-          x: 0.5,
-          y: 0.5
-        },
-        opacity: 1,
-        duration: 1000,
-        delay: 0
-      });
-      cover.animate({
-        translate: {
-          x: 0,
-          y: 0
-        },
-        scale: {
-          x: 1,
-          y: 1
-        },
-        duration: 1000,
-        delay: 1000
-      });
-
-      page.animate({
-        backgroundColor: "#ffffff",
-        duration: 2000,
-        delay: 0
-      });
-    },
     close() {
       this.$navigateBack();
     },

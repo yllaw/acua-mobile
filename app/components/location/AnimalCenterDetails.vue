@@ -7,15 +7,16 @@
 
         <ScrollView>
             <StackLayout>
-                <Image :src="AnimalCenter.imageURL" stretch="aspectFit" height="200" class="m-b-15" />
+                <!-- Animal Center cover pic -->
+                <Image :src="AnimalCenter.imageURL" stretch="aspectFit" height="200" class="anim-cover m-b-15" />
 
                 <Label row="1" class="hr-light m-t-15 m-b-15"/>
 
                 <GridLayout rows="*, *, *, auto" columns="auto,*">
-                <Image row="0" col="0" class="p-l-15 p-b-10 m-r-20" src="~/assets/images/achouse.png" stretch="aspectFit" height="40" width="40" loadMode="async" margin="3"/>
 
                     <!-- name -->
-                    <Label textWrap="true" margin="5" col="1" class="text p-b-10 font-weight-bold title stack">
+                    <Image row="0" col="0" class="anim-content1 p-l-15 p-b-10 m-r-20" src="~/assets/images/achouse.png" stretch="aspectFit" height="40" width="40" loadMode="async" margin="3"/>
+                    <Label row="0" col="1"  class="anim-content1 text p-b-10 font-weight-bold title stack" margin="5" textWrap="true">
                         <FormattedString>
                             <Span :text="AnimalCenter.name + ' Animal Care Center'" />
                         </FormattedString>
@@ -23,25 +24,25 @@
 
 
                     <!-- address -->
-                    <Image class="p-l-15 p-b-10 m-r-20" row="1" src="~/assets/images/locationicon.png" stretch="aspectFit" height="40" width="40" loadMode="async" margin="3"/>
+                    <Image row="1" col="0" class="anim-content2 p-l-15 p-b-10 m-r-20"  src="~/assets/images/locationicon.png" stretch="aspectFit" height="40" width="40" loadMode="async" margin="3"/>
 
-                    <Label margin="5" @tap="onAddressTap" textWrap="true" row="1" col="1" class="p-b-10 stack">
+                    <Label row="1" col="1" class="anim-content2 p-b-10 stack" margin="5" @tap="onAddressTap" textWrap="true" >
                         <FormattedString>
                             <Span  class="fa text-primary" :text="AnimalCenter.address" />
                         </FormattedString>
                     </Label>
                     
                     <!-- phone -->
-                    <Image class="p-l-15 p-b-10 m-r-20" row="2" src="~/assets/images/phoneicon.png" stretch="aspectFit" height="40" width="40" loadMode="async" margin="3"/>
-                    <Label @tap="onPhoneTap" :text="AnimalCenter.phone" margin="5" row="2" col="1" class="fa text-primary p-b-10 stack" />
+                    <Image row="2" col="0" class="anim-content3 p-l-15 p-b-10 m-r-20"  src="~/assets/images/phoneicon.png" stretch="aspectFit" height="40" width="40" loadMode="async" margin="3"/>
+                    <Label row="2" col="1" class="anim-content3 fa text-primary p-b-10 stack" :text="AnimalCenter.phone" @tap="onPhoneTap" margin="5"  />
                     
                     <!-- hours -->
-                    <Image class="p-l-15 p-b-10 m-r-20" row="3" src="~/assets/images/hoursicon.png" stretch="aspectFit" height="40" width="40" loadMode="async" margin="3"/>
-                    <GridLayout margin="5" class="stack-hours" row="3" col="1" columns="*, *" rows="auto, auto">
-                        <Label class="hours" :text="AnimalCenter.availability.weekday" row="0" col="0"/>
-                        <Label class="hours" :text="AnimalCenter.availability.weekdayhours" row="0" col="1" textWrap="true"/>
-                        <Label class="hours" :text="AnimalCenter.availability.weekend" row="1" col="0"/>
-                        <Label class="hours" :text="AnimalCenter.availability.weekendhours" row="1" col="1" textWrap="true"/>
+                    <Image row="3" col="0" class="anim-content4 p-l-15 p-b-10 m-r-20" src="~/assets/images/hoursicon.png" stretch="aspectFit" height="40" width="40" loadMode="async" margin="3"/>
+                    <GridLayout row="3" col="1" columns="*, *" rows="auto, auto" class="anim-content4 stack-hours"  margin="5">
+                        <Label row="0" col="0" class="hours" :text="AnimalCenter.availability.weekday" />
+                        <Label row="0" col="1" class="hours" :text="AnimalCenter.availability.weekdayhours"  textWrap="true"/>
+                        <Label row="1" col="0" class="hours" :text="AnimalCenter.availability.weekend" />
+                        <Label row="1" col="1" class="hours" :text="AnimalCenter.availability.weekendhours"  textWrap="true"/>
                     </GridLayout>
 
                 </GridLayout>
@@ -100,17 +101,110 @@ export default {
         }
       });
     },
-
     onPhoneTap() {
       console.log("onPhoneTap(), call " + this.AnimalCenter.phone);
       phone.dial(this.AnimalCenter.phone, true);
-    }
+    },
+    
   }
 };
 </script>
 
 <style scoped lang="scss">
 @import "@/AnimalCenter";
+
+//--- <animation> ---
+
+// cover image
+.anim-cover {
+  opacity: 0;
+  animation-name: key-cover;
+  animation-duration: 1;
+  animation-delay: 0.5;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+@keyframes key-cover {
+  0% {
+    opacity: 0;
+    transform: translate(0, 100) scale(0, 0);
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  30% {
+    opacity: 0.5;
+    transform: scale(0.6, 0.6);
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1, 1);
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+}
+
+// icons & content
+.anim-content1 {
+  opacity: 0;
+  animation-name: key-content;
+  animation-duration: 1;
+  animation-delay: 0.75;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.anim-content2 {
+  opacity: 0;
+  animation-name: key-content;
+  animation-duration: 1;
+  animation-delay: 1.0;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.anim-content3 {
+  opacity: 0;
+  animation-name: key-content;
+  animation-duration: 1;
+  animation-delay: 1.25;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.anim-content4 {
+  opacity: 0;
+  animation-name: key-content;
+  animation-duration: 1;
+  animation-delay: 1.5;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+
+@keyframes key-content {
+  0% {
+    opacity: 0;
+    transform: translate(50, 50);
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+}
+//--- </animation> ---
+
+
+//--- css ---
 
 .title {
   font-size: 18em;

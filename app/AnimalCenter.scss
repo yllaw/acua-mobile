@@ -51,6 +51,7 @@ $secondary: lighten(#000, 46%);
 $disabled: lighten(#000, 62%);
 $accent: $accent-dark;
 $error: $error-light;
+$bar-blue: #02556e;
 
 // SideDrawer
 $item-color-android : #737373;
@@ -70,7 +71,7 @@ $ab-color: $white;
 
 // Buttons
 $btn-color-inverse: $white;
-$btn-color: $accent;
+$btn-color: $bar-blue;
 $btn-color-secondary: darken($btn-color, 10%);
 $btn-color-outline-highlighted: lighten($btn-color, 10%);
 

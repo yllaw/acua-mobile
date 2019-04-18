@@ -7,7 +7,8 @@
 
 
         <StackLayout>
-            <Button class="gps-button btn btn-primary btn-rounded-sm" text="Get Closest Animal Center" textWrap="true"  @tap="buttonGetDistanceToCareCentersTap"/>
+            <!--get distance btn -->
+            <IconButton class="fa gps-button btn-primary btn-rounded-sm" :icon="'fa-sort-amount-asc' | fonticon" title="Get Closest Animal Center" action="buttonGetDistanceToCareCentersTap"/>
 
             <RadListView row="2" for="location in centerLocations" @itemTap="onItemTap" class="list-group">
 
@@ -85,6 +86,9 @@ import { Accuracy } from "tns-core-modules/ui/enums";
 // toast
 const Toast = require("nativescript-toasts");
 //-------
+
+// components
+import IconButton from "@/components/buttons/IconButton.vue"
 
 import AnimalCenterDetails from "@/components/location/AnimalCenterDetails";
 
@@ -203,6 +207,9 @@ export default {
       ],
       currentLoc: {} // current location obj
     };
+  },
+  components: {
+    IconButton
   },
   computed: {
     centerList() {
@@ -324,8 +331,9 @@ ActionBar {
   margin-right: 5
 }
 
-.gps-button {
+.gps-button{
   border-radius: 25%;
+  margin: 10;
 }
 
 .list-group {
