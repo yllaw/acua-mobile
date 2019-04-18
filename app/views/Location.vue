@@ -8,7 +8,7 @@
 
         <StackLayout>
             <!--get distance btn -->
-            <IconButton class="fa gps-button btn-primary btn-rounded-sm" :icon="'fa-sort-amount-asc' | fonticon" title="Get Closest Animal Center" :action="buttonGetDistanceToCareCentersTap"/>
+            <IconButton class="fa gps-button" :icon="'fa-sort-amount-asc' | fonticon" title="Get Closest Animal Center" :action="buttonGetDistanceToCareCentersTap"/>
 
             <RadListView row="2" for="location in centerLocations" @itemTap="onItemTap" class="list-group">
 
@@ -23,7 +23,6 @@
                     <!-- distance -->
                     <Label col="1" horizontalAlignment="right" class="list-group-item-text m-r-5 text-secondary">
                         <FormattedString>
-                            <!-- distance -->
                             <Span :text="'~'+ location.distance + 'mi'"/> 
                         </FormattedString>
                     </Label>
@@ -333,6 +332,10 @@ ActionBar {
 }
 
 .gps-button{
+  background: linear-gradient(0deg, lightgray, white);
+  color: $homepage-blue;
+  border-width: 1;
+  border-color: gray;
   border-radius: 25%;
   margin: 10;
 }
