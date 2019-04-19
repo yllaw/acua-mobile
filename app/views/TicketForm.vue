@@ -51,7 +51,8 @@ export default {
       if (newVal !== null) {
         alert({
           title: "Ticket Submitted",
-          message: "Hello " + newVal.name + ", you're ticket # is " + newVal.number,
+          message: "Hello " + newVal.name + ", you're ticket # is " + newVal.number
+          + ". You will be served at window " + (newVal.window + 1) + ".",
           okButtonText: "OK"
         })
       } else {
