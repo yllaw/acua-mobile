@@ -76,7 +76,7 @@
         }).then(
             result => {
               if (this.locations.hasOwnProperty(result.text)) {
-                this.setTicketLocation(result.text)
+                this.setTicketLocation(this.locations[result.text])
 
                 console.log("--- scanned: " + result.text)
 

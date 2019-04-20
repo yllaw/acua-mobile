@@ -1,15 +1,12 @@
 const httpModule = require('tns-core-modules/http')
-import env from '@/env.json'
 
 export default {
-  getTickets () {
-    return httpModule.getJSON(`https://${env.SUBURL}.ngrok.io/ticket`)
-  },
   addTicket (ticket) {
     return httpModule.request({
-      url: `https://${env.SUBURL}.ngrok.io/ticket`,
+      url: `https://acua-server.herokuapp.com/tickets`,
       method: 'POST',
-      headers: { "Content-Type": "application/json" }
+      headers: { "Content-Type": "application/json" },
+      content: JSON.stringify(ticket)
     })
   }
 }

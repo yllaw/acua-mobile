@@ -1,12 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import Ticket from '@/models/Ticket'
 import Animal from '@/models/Animal'
-// import TicketService from '@/services/TicketService'
+import Ticket from '@/models/Ticket'
+import TicketService from '@/services/TicketService'
 // import FaqService from '@/services/FaqService'
-// import AdoptionService from '@services/AdoptionService'
-import AdoptionService from '@/services/FakeAdoptionService'
-import TicketService from '@/services/FakeTicketService'
+// import TicketService from '@/services/FakeTicketService'
 import FaqService from '@/services/FakeFaqService'
 
 Vue.use(Vuex)
@@ -18,7 +16,9 @@ export default new Vuex.Store({
     faqs: [],
     userAnimal: new Animal(),
     userFaq: {},
-    userTicket: new Ticket()
+    location: 'Downey',
+    userTicket: new Ticket(),
+    approvedTicket: undefined
   },
   // change the state of the app (must be synchronous)
   mutations: {
@@ -33,7 +33,7 @@ export default new Vuex.Store({
       state.userFaq = faq
     },
     setTicketLocation (state, location) {
-      state.userTicket.setLocation(location)
+      state.location = location
     },
     setTicketInfo (state, userInput) {
       state.userTicket.setTicketInfo(userInput)
@@ -45,7 +45,7 @@ export default new Vuex.Store({
       state.tickets = tickets
     },
     ADD_TICKET (state, ticket) {
-      state.tickets.push(ticket)
+      state.approvedTicket = ticket
     },
     SET_FAQS (state, faqs) {
       state.faqs = faqs
@@ -71,7 +71,7 @@ export default new Vuex.Store({
     addTicket ({ commit }, ticket) {
       TicketService.addTicket(ticket)
         .then(res => {
-          commit('ADD_TICKET', res)
+          commit('ADD_TICKET', res.content.toJSON())
         })
     },
     loadFaqs ({ commit }) {
@@ -83,7 +83,7 @@ export default new Vuex.Store({
     addFaq ({ commit }, faq) {
       FaqService.addFaq(faq)
         .then(res => {
-          commit('ADD_FAQ', res)
+          commit('ADD_FAQ', res.content.toJSON())
         })
     }
   },

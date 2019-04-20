@@ -29,29 +29,40 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['setTicketInfo']),
+    ...mapActions(['addTicket']),
     // this.setTicketInfo(object), where object contains phone, name, query, comment properties,
     submitTicket () {
-      this.setTicketInfo({ 
-        phone: this.phone,
-        name: this.name,
-        query: this.query
-      })
 
       this.$navigateTo(this.home)
 
-      setTimeout(() => {
-        // if this alert doesn't show up please upgrade to {N} 2.4.0+
-        alert({
-          title: "Ticket Submitted",
-          message: "Hello " + this.userTicket.name + ", you're ticket # is " + Math.floor(Math.random() * 100),
-          okButtonText: "OK"
-        })
-      }, 500)
+      this.addTicket({
+        name: this.name,
+        phone: this.phone,
+        query: this.query,
+        location: this.location
+      })
     }
   },
   computed: {
-    ...mapState(['userTicket'])
+    ...mapState(['userTicket', 'approvedTicket', 'location'])
+  },
+  watch: {
+    approvedTicket(newVal, oldVal) {
+      if (newVal !== null) {
+        alert({
+          title: "Ticket Submitted",
+          message: "Hello " + newVal.name + ", you're ticket # is " + newVal.number
+          + ". You will be served at window " + (newVal.window + 1) + ".",
+          okButtonText: "OK"
+        })
+      } else {
+        alert({
+          title: "No service",
+          message: "There are currently no employees serving tickets",
+          okButtonText: "OK"
+        })
+      }
+    }
   },
   props: {
     query: String
