@@ -59,7 +59,7 @@ export default new Vuex.Store({
   // asynchronous operations (Such as API calls)
   actions: {
   //   loadAnimals({ commit }) {
-  //     AdoptionService
+  //     AdoptionService.getAnimals()
   //   }
   // },
     loadTickets ({ commit }) {
