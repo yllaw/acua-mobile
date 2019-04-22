@@ -1,12 +1,20 @@
 export default class {
-    constructor({animal_id, animal_name, animal_type, sex, age, DOB, primary_color, secondary_color, breed_group, primary_breed, secondary_breed, animal_stat, stamp  }) {
-        this.animal_id = animal.animalId
-        this.animal_type =  
-        this.id = Math.floor(Math.random() * 100)
-        this.question = question
-        this.answer = null
-        this.count = 0
-    }
+
+    // constructor({animal_id, animal_name, animal_type, sex, age, DOB, primary_color, secondary_color, breed_group, primary_breed, secondary_breed, animal_stat, stamp  }) {
+    //     this.animal_id = animal_id
+    //     this.animal_name = animal_name
+    //     this.animal_type = animal_type
+    //     this.sex = sex
+    //     this.age = age
+    //     this.DOB = nuDOBll
+    //     this.primary_color = primary_color
+    //     this.secondary_color = secondary_color
+    //     this.breed_group = breed_group
+    //     this.primary_breed = primary_breed
+    //     this.secondary_breed = secondary_breed
+    //     this.animal_stat = animal_stat
+    //     this.stamp = stamp
+    // }
 
 
     // category: "Dog",
