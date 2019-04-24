@@ -42,7 +42,8 @@
 <!--selected tab set to view animal -->
 <!--item -->
 			<GridLayout v-show="selectedTabview == 0" row="2" width="100%" backgroundColor="white">
-
+<!--TODO: CHANGE :KEY TO DIFFERENT VALUE -->
+<!-- VUE WARNING: Duplicate keys detected: '[object Object]'. This may cause an update error. found in <AdoptionAnimalDetails> -->
 				<ListView ref="listview" separatorColor="transparent" for="item in items" :key="index">
 
 					<v-template>
