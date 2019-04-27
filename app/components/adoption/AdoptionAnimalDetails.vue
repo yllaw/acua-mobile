@@ -150,22 +150,7 @@ export default {
     }
   },
   created() {
-    this.images = [
-      {
-        src: "~/assets/images/food/pancake640.jpg"
-      },
-      {
-        src: "~/assets/images/food/pancake640.jpg"
-      },
-      {
-        src: "~/assets/images/food/pancake640.jpg"
-      },
-      {
-        src: "~/assets/images/food/pancake640.jpg"
-      }
-    ];
-    // this.isLike = this.item.isLike;
-    // this.isHeart = this.item.isFavorite;
+    
   },
   mounted() {},
   methods: {

@@ -28,6 +28,7 @@ export default new Vuex.Store({
     },
     ADD_ANIMAL(state, animal) {
       state.animals.push(animal)
+      console.log(JSON.stringify(state.animals))
     },
     storeFaq(state, faq) {
       state.userFaq = faq
@@ -58,28 +59,34 @@ export default new Vuex.Store({
   },
   // asynchronous operations (Such as API calls)
   actions: {
-  //   loadAnimals({ commit }) {
-  //     AdoptionService.getAnimals()
-  //   }
-  // },
+    loadAnimals({ commit }) {
+      AdoptionService.getAnimals()
+        .then(res => {
+          commit('ADD_ANIMAL', res.content.toJSON)
+        })
+    },
+
     loadTickets ({ commit }) {
       TicketService.getTickets()
         .then(res => {
           commit('SET_TICKETS', res)
         })
     },
+
     addTicket ({ commit }, ticket) {
       TicketService.addTicket(ticket)
         .then(res => {
           commit('ADD_TICKET', res.content.toJSON())
         })
     },
+
     loadFaqs ({ commit }) {
       FaqService.getFaqs()
         .then(res => {
           commit('SET_FAQS', res)
         })
     },
+
     addFaq ({ commit }, faq) {
       FaqService.addFaq(faq)
         .then(res => {
