@@ -193,7 +193,7 @@ export default {
           isFavorite: true,
           age: "10 months",
           isFavorite: false,
-        }
+        },
         // {
         //   name: "Muffin",
         //   cover: "~/assets/images/doggo.png",

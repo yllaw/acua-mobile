@@ -1,0 +1,120 @@
+{
+    "animals": [
+        {
+          "name": "Twinkie",
+          "cover": "~/assets/images/dog-button.jpg",
+          "images": [
+                { "src": "~/assets/images/bee.png"
+                },
+                { "src": "~/assets/images/peacock.png"
+                },
+                { "src": "~/assets/images/rattlesnake.png"
+                },
+                { "src": "~/assets/images/coyote.png"
+                },
+                { "src": "~/assets/images/mountainlion.png"
+                },
+                { "src": "~/assets/images/opossum.png"
+                }
+            ],
+          "category": "Dog",
+          "categoryTag": "#2D9CDB",
+          "breed_group": "Toy",
+          "primary_breed": "Chihuahua",
+          "age": "4 months",
+          "gender": "F",
+          "animal_size": "Small",
+          "primary_color": "Tan",
+          "location": "Downey",
+          "isAvailable": true,
+          "isFavorite": false
+        },
+        {
+          "name": "Boogie",
+          "cover": "~/assets/images/cat-roaming-icon.png",
+          "images": [
+                { "src": "~/assets/images/bee.png"
+                },
+                { "src": "~/assets/images/peacock.png"
+                },
+                { "src": "~/assets/images/rattlesnake.png"
+                },
+                { "src": "~/assets/images/coyote.png"
+                },
+                { "src": "~/assets/images/mountainlion.png"
+                },
+                { "src": "~/assets/images/opossum.png"
+                }
+            ],
+          "category": "Cat",
+          "categoryTag": "#6127ae",
+          "breed_group": "Shorthair",
+          "primary_breed": "Tabby",
+          "age": "6",
+          "gender": "M",
+          "animal_size": "Small",
+          "primary_color": "Tan",
+          "location": "Downey",
+          "isAvailable": true,
+          "isFavorite": true
+        },
+        {
+          "name": "Snoopy",
+          "cover": "~/assets/images/snoopy.jpg",
+          "images": [
+                { "src": "~/assets/images/bee.png"
+                },
+                { "src": "~/assets/images/peacock.png"
+                },
+                { "src": "~/assets/images/rattlesnake.png"
+                },
+                { "src": "~/assets/images/coyote.png"
+                },
+                { "src": "~/assets/images/mountainlion.png"
+                },
+                { "src": "~/assets/images/opossum.png"
+                }
+            ],
+          "category": "Dog",
+          "categoryTag": "#27AE60",
+          "breed_group": "Hound",
+          "primary_breed": "Beagle",
+          "age": "10",
+          "gender": "M",
+          "animal_size": "Small",
+          "primary_color": "Tan",
+          "location": "Downey",
+          "isAvailable": false,
+          "isFavorite": true
+        },
+        {
+          "name": "Ariana",
+          "cover": "~/assets/images/cat-button.jpg",
+          "images": [
+                { "src": "~/assets/images/bee.png"
+                },
+                { "src": "~/assets/images/peacock.png"
+                },
+                { "src": "~/assets/images/rattlesnake.png"
+                },
+                { "src": "~/assets/images/coyote.png"
+                },
+                { "src": "~/assets/images/mountainlion.png"
+                },
+                { "src": "~/assets/images/opossum.png"
+                }
+            ],
+          "category": "Cat",
+          "categoryTag": "#e4ce0d",
+          "breed_group": "Longhair",
+          "primary_breed": "Domestic",
+          "age": "10 months",
+          "gender": "F",
+          "animal_size": "Small",
+          "primary_color": "Gray",
+          "location": "Downey",
+          "isAvailable": true,
+          "isFavorite": false,
+        }
+    ]
+}
