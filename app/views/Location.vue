@@ -285,14 +285,6 @@ export default {
                     : loc2.distance > loc1.distance ? -1 : 0
               );
 
-              // toast to notify list was sorted by distance
-              // TODO: bugfix when spamming button there can be a finite amount of Toasts that constantly appear
-              let options = {
-                text: "Sorted by Distance",
-                duration: Toast.DURATION.SHORT,
-                position: Toast.POSITION.CENTER //optional
-              };
-              Toast.show(options);
             }
           },
           function(e) {
@@ -300,7 +292,6 @@ export default {
           }
         );
     },
-
     onItemTap(e) {
       // Navigate to AnimalCenterDetails
       console.log("onItemTap(e), navigateTo " + JSON.stringify(e.item));
@@ -314,7 +305,17 @@ export default {
           curve: "easeIn"
         }
       });
-    }
+    },
+    showToast() {
+              // toast to notify list was sorted by distance
+              // TODO: bugfix when spamming button there can be a finite amount of Toasts that constantly appear
+              let options = {
+                text: "Sorted by Distance",
+                duration: Toast.DURATION.SHORT,
+                position: Toast.POSITION.CENTER //optional
+              };
+              Toast.show(options);
+    },
   }
 };
 </script>
