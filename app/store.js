@@ -30,8 +30,8 @@ export default new Vuex.Store({
     storeTicket (state, ticket) {
       state.userTicket = ticket
     },
-    SET_TICKETS (state, tickets) {
-      state.tickets = tickets
+    SET_TICKET (state, ticket) {
+      state.approvedTicket = ticket
     },
     ADD_TICKET (state, ticket) {
       state.approvedTicket = ticket
@@ -45,10 +45,10 @@ export default new Vuex.Store({
   },
   // asynchronous operations (Such as API calls)
   actions: {
-    loadTickets ({ commit }) {
-      TicketService.getTickets()
+    checkTicket ({ commit }, ticketId) {
+      TicketService.checkTicket(ticketId)
         .then(res => {
-          commit('SET_TICKETS', res)
+          commit('SET_TICKET', res)
         })
     },
     addTicket ({ commit }, ticket) {
