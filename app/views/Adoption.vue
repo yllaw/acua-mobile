@@ -16,18 +16,25 @@
 					<GridLayout class="tabview" :class="selectedTabview==0?'active':''"
 							@tap="adoptionList" rows="*,auto" cols="auto" col="0" row="0"
 							width="50%">
+
 							<Label v-show="selectedTabview==0" row="0" class="fa navIcon"
 									:text="selectedTabview==0?'fa-paw':'' | fonticon"/>
+
 							<Label horizontalAlignment="center" :class="selectedTabview==0?'active':''" row="1"
 									text="Animals" class="tabviewText"></Label>
+
 					</GridLayout>
+
 					<GridLayout class="tabview" :class="selectedTabview==1?'active':''"
 							@tap="showCategory" rows="*,auto" cols="auto" col="1" row="0"
 							width="50%">
+
 							<Label v-show="selectedTabview==1" row="0" class="fa navIcon"
 									:text="selectedTabview==1?'fa-filter':'' | fonticon"/>
+
 							<Label :class="selectedTabview==1?'active':''" row="1"
-									text="Filter" horizontalAlignment="center" class="tabviewText"></Label>							
+									text="Filter" horizontalAlignment="center" class="tabviewText"></Label>						
+
 					</GridLayout>
 					<!-- end nav-->
 			</GridLayout>
@@ -35,25 +42,28 @@
 <!--selected tab set to view animal -->
 <!--item -->
 			<GridLayout v-show="selectedTabview == 0" row="2" width="100%" backgroundColor="white">
+<!--TODO: CHANGE :KEY TO DIFFERENT VALUE -->
+<!-- VUE WARNING: Duplicate keys detected: '[object Object]'. This may cause an update error. found in <AdoptionAnimalDetails> -->
 				<ListView ref="listview" separatorColor="transparent" for="item in items" :key="index">
+
 					<v-template>
 						<item :item="item" @clicked="showItem(item)" />
 					</v-template>
+
 				</ListView>
 			</GridLayout>
 
 <!--selected tab view filter -->
 			<GridLayout v-show="selectedTabview == 1" row="2" width="100%" backgroundColor="white">		
+
 				<RadListView ref="listview" separatorColor="transparent" for="item in itemsCategory" :key="index">
+
 					<v-template>
 						<Category :item="item"> </Category>
 					</v-template>
+          
 				</RadListView>
 			</GridLayout>
-
-<!-- bottom nav -->
-
-			<!-- <navBottom row="3" /> -->
 
 		</GridLayout>
 </page>
@@ -113,9 +123,6 @@ export default {
           location: "Downey",
           isAvailable: true,
           isFavorite: false,
-          comments: 13,
-          rating: "4.5",
-          description: "a"
         },
         {
           name: "Boogie",
@@ -139,9 +146,6 @@ export default {
           location: "Downey",
           isAvailable: true,
           isFavorite: true,
-          comments: 7,
-          rating: "4.0",
-          description: "a"
         },
         {
           name: "Snoopy",
@@ -165,9 +169,6 @@ export default {
           location: "Downey",
           isAvailable: false,
           isFavorite: true,
-          comments: 11,
-          rating: "4.0",
-          description: "a"
         },
         {
           name: "Ariana",
@@ -186,13 +187,12 @@ export default {
           primary_breed: "Domestic",
           gender: "F",
           animal_size: "Small",
-          primary_color: "Tan",
+          primary_color: "Gray",
           location: "Downey",
           isAvailable: true,
           isFavorite: true,
           age: "10 months",
           isFavorite: false,
-          description: "a"
         }
         // {
         //   name: "Muffin",

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import Animal from '@/models/Animal'
 import Ticket from '@/models/Ticket'
 import TicketService from '@/services/TicketService'
 // import FaqService from '@/services/FaqService'
@@ -10,7 +11,10 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    animals: [],
+    tickets: [],
     faqs: [],
+    userAnimal: new Animal(),
     userFaq: {},
     location: 'Downey',
     userTicket: new Ticket(),
@@ -18,7 +22,14 @@ export default new Vuex.Store({
   },
   // change the state of the app (must be synchronous)
   mutations: {
-    storeFaq (state, faq) {
+    // adoption
+    storeAnimal(state, animal) {
+      state.userFaq = animal
+    },
+    ADD_ANIMAL(state, animal) {
+      state.animals.push(animal)
+    },
+    storeFaq(state, faq) {
       state.userFaq = faq
     },
     setTicketLocation (state, location) {
@@ -42,6 +53,8 @@ export default new Vuex.Store({
     ADD_FAQ (state, faq) {
       state.faqs.push(faq)
     }
+    
+
   },
   // asynchronous operations (Such as API calls)
   actions: {

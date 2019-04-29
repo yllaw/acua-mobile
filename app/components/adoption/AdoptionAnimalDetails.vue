@@ -1,9 +1,9 @@
 <template>
     <Page actionBarHidden="true" class="anim-page"
-        backgroundSpanUnderStatusBar="true" @loaded="onLoaded">
+        backgroundSpanUnderStatusBar="true">
         <StackLayout class="main" verticalAlignment="top">
 
-
+                <!-- Animal Cover image -->
             <GridLayout class="anim-cover" rows="auto" columns="*">
                 <Image row="0" col="0" marginTop="-40" height="180" stretch="aspectFill"
                     class="card-img" :src="item.cover" />
@@ -12,6 +12,7 @@
                     class="fa close" fontSize="24" />
             </GridLayout>
 
+                <!-- Animal gallery images -->
             <ScrollView class="anim-images" orientation="horizontal">
                 <StackLayout orientation="horizontal" class="">
                     <GridLayout v-bind:key="image" v-for="image in item.images" rows="auto" columns="*">
@@ -21,6 +22,7 @@
                 </StackLayout>
             </ScrollView>
 
+            <!-- Animal details -->
             <GridLayout rows="auto,auto,auto,auto" columns="auto" class="content">
 
                 <GridLayout class="anim-itemInfo" marginTop="15" row="1"
@@ -35,20 +37,10 @@
                     <Label row="1" col="1" class="item-category" textwrap="true"
                         verticalAlignment="top" horizontalAlignment="left"
                         :text="item.category" />
-                    <!-- <Label row="2" col="1" class="item-category" :text="'Average Rate:' + item.rating " /> -->
-
-
-                    <!-- <StackLayout row="3" col="1" orientation="horizontal">
-                        <Label class="fa rate" :text="'fa-star' | fonticon" />
-                        <Label class="fa rate" :text="'fa-star' | fonticon" />
-                        <Label class="fa rate" :text="'fa-star' | fonticon" />
-                        <Label class="fa rate" :text="'fa-star' | fonticon" />
-                        <Label class="fa rate" :text="'fa-star-half-o' | fonticon" />
-                    </StackLayout> -->
-
 
                 </GridLayout>
 
+              <!-- social bar -->
                 <StackLayout class="line anim-likes" row="2" width="100%"
                     marginTop="10" />
 
@@ -59,12 +51,14 @@
                             :text="'fa-info-circle' | fonticon" />
                         <Label col="1" row="0" class="layout" :text="item.breed_group + ' - ' + item.primary_breed"></Label>
                     </GridLayout>
+
                     <GridLayout col="1" rows="auto" columns="auto,auto" @tap="toggleHeart"
                         marginRight="15">
                         <Label col="0" row="0" ref="favorite" class="like-icon  fa"
                             :class="[item.isFavorite ? 'heart-active' : 'default']" :text="item.isFavorite ? 'fa-heart':'fa-heart-o' | fonticon" />
                         <Label col="1" row="0" class="layout" text="Favorite"></Label>
                     </GridLayout>
+
                     <StackLayout col="2" orientation="horizontal">
                         <Label ref="" class="like-icon layout fa" :text="'fa-share-square-o' | fonticon" />
                         <Label class="layout" text="Share"></Label>
@@ -72,6 +66,8 @@
                 </GridLayout>
             </GridLayout>
 
+
+            <!-- Animal Description Label (w/ icon) -->
             <StackLayout width="100%" class="lineBreak anim-likes" />
 
             <Gridlayout rows="auto,*" class="content anim-content" marginTop="15">
@@ -83,12 +79,15 @@
                         textWrap="true" />
                 </GridLayout>
 
+
+                <!-- Animal Description -->
                 <StackLayout row="1">
                     <ScrollView>
                         <GridLayout rows="*, *, *, *, *, *, *, *" columns="auto, *" verticalAlignment="top"
                             horizontalAlignment="center">
                           
                         <Label row="0" col="0" class="description-value" text="Availability:" />
+
                         <Label row="0" col="1"  class="fa description-value" :class="item.isAvailable==true? 'isAvailable':'isNotAvailable'">
                         <FormattedString>
                             <Span :text="item.isAvailable==true? 'Available':'Not Available'" />
@@ -170,9 +169,11 @@ export default {
   },
   mounted() {},
   methods: {
+    // navigateBack
     close() {
       this.$navigateBack();
     },
+    // Animate 'Favorite' icon
     animateFavorite() {
       let imgLogo = this.$refs.favorite.nativeView;
       imgLogo
@@ -205,11 +206,9 @@ export default {
         .then(function() {});
     },
     toggleHeart() {
+      // toggle isFavorite
       this.animateFavorite();
       this.item.isFavorite = !this.item.isFavorite;
-    },
-    onClickButton() {
-      this.$emit("clicked");
     }
   },
   data() {
@@ -221,6 +220,7 @@ export default {
 };
 </script>
 <style scoped>
+/* CSS */
 .close {
   font-size: 20;
   color: rgb(226, 229, 229);
@@ -362,6 +362,8 @@ TextView {
   background-color: #e0e0e0;
 }
 
+
+/* Animations */
 .anim-page {
   background-color: #d4d6d8;
   animation-name: key-page;
