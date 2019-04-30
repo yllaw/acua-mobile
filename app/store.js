@@ -3,9 +3,9 @@ import Vuex from 'vuex'
 import Animal from '@/models/Animal'
 import Ticket from '@/models/Ticket'
 import TicketService from '@/services/TicketService'
-// import FaqService from '@/services/FaqService'
+import FaqService from '@/services/FaqService'
 // import TicketService from '@/services/FakeTicketService'
-import FaqService from '@/services/FakeFaqService'
+// import FaqService from '@/services/FakeFaqService'
 
 Vue.use(Vuex)
 
@@ -91,7 +91,7 @@ export default new Vuex.Store({
       const words = search.split(' ')
       
       return state.faqs.filter(faq => words.some(
-        word => faq.question.toLowerCase().includes(word.toLowerCase())
+        word => faq.query.toLowerCase().includes(word.toLowerCase())
         || faq.answer.toLowerCase().includes(word.toLowerCase())))
     }
   }
