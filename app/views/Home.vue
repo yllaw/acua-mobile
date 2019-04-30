@@ -149,22 +149,8 @@ export default {
   color: #ffffff;
 }
 
-.S_Bar {
-  color: #050505;
-}
 
-.S_Button {
-  /* text="right"; 
-        horizontalAlignment="right";
-        width="33%" 
-        height="70" 
-        /*backgroundColor="#1c6b48"/>*/
-  background-image: url("~/assets/images/NativeScript-Vue.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-  .cover {
+.cover {
     background: linear-gradient(45deg, plum, #009fca)
 }
 
@@ -189,11 +175,5 @@ export default {
   background-color: #eeeeee;
 }
 
-.message {
-  vertical-align: center;
-  text-align: center;
-  font-size: 20;
-  color: #252525;
-}
 </style>
 
