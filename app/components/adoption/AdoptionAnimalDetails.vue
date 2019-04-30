@@ -247,21 +247,6 @@ TextView {
   font-weight: bold
 }
 
-.rate {
-  padding-top: 3;
-  margin: 0;
-  color: #ffe900;
-  font-size: 18;
-}
-
-.rating-value {
-  margin-left: 5;
-}
-
-.liked-active {
-  color: #4080ff;
-}
-
 .heart-active {
   color: #b51213;
 }
