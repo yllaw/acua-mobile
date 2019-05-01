@@ -2,7 +2,7 @@
   <StackLayout orientation="vertical">
     <Label class="homepage-blue text-primary list-group-item-text font-weight-bold" textWrap="true">
     <FormattedString>
-        <Span :text="item.question"/>
+        <Span :text="item.query"/>
       </FormattedString>
     </Label>
     

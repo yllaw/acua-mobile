@@ -25,7 +25,8 @@ export default {
     return {
       phone: '',
       name: '',
-      home: Home
+      home: Home,
+      limit: 0
     }
   },
   methods: {
@@ -48,20 +49,23 @@ export default {
   },
   watch: {
     approvedTicket(newVal, oldVal) {
-      if (newVal !== null) {
-        alert({
-          title: "Ticket Submitted",
-          message: "Hello " + newVal.name + ", you're ticket # is " + newVal.number
-          + ". You will be served at window " + (newVal.window + 1) + ".",
-          okButtonText: "OK"
-        })
-      } else {
-        alert({
-          title: "No service",
-          message: "There are currently no employees serving tickets",
-          okButtonText: "OK"
-        })
+      if (this.limit < 1) {
+        if (newVal !== null) {
+          alert({
+            title: "Ticket Submitted",
+            message: "Hello " + newVal.name + ", you're ticket # is " + newVal.number
+            + ". You will be served at window " + (newVal.window + 1) + ".",
+            okButtonText: "OK"
+          })
+        } else {
+          alert({
+            title: "No service",
+            message: "There are currently no employees serving tickets",
+            okButtonText: "OK"
+          })
+        }
       }
+      this.limit++
     }
   },
   props: {

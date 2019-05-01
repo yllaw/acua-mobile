@@ -3,9 +3,9 @@ import Vuex from 'vuex'
 import Animal from '@/models/Animal'
 import Ticket from '@/models/Ticket'
 import TicketService from '@/services/TicketService'
-// import FaqService from '@/services/FaqService'
+import FaqService from '@/services/FaqService'
 // import TicketService from '@/services/FakeTicketService'
-import FaqService from '@/services/FakeFaqService'
+// import FaqService from '@/services/FakeFaqService'
 
 Vue.use(Vuex)
 
@@ -42,8 +42,8 @@ export default new Vuex.Store({
     storeTicket (state, ticket) {
       state.userTicket = ticket
     },
-    SET_TICKETS (state, tickets) {
-      state.tickets = tickets
+    SET_TICKET (state, ticket) {
+      state.approvedTicket = ticket
     },
     ADD_TICKET (state, ticket) {
       state.approvedTicket = ticket
@@ -65,11 +65,11 @@ export default new Vuex.Store({
           commit('ADD_ANIMAL', res.content.toJSON)
         })
     },
-
-    loadTickets ({ commit }) {
-      TicketService.getTickets()
+    
+    checkTicket ({ commit }, ticketId) {
+      TicketService.checkTicket(ticketId)
         .then(res => {
-          commit('SET_TICKETS', res)
+          commit('SET_TICKET', res)
         })
     },
 
@@ -102,7 +102,7 @@ export default new Vuex.Store({
       const words = search.split(' ')
       
       return state.faqs.filter(faq => words.some(
-        word => faq.question.toLowerCase().includes(word.toLowerCase())
+        word => faq.query.toLowerCase().includes(word.toLowerCase())
         || faq.answer.toLowerCase().includes(word.toLowerCase())))
     }
   }

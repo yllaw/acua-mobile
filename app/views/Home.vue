@@ -40,10 +40,10 @@
 import CategoryButton from "@/components/buttons/CategoryButton.vue"
 import Faq from "./Faq.vue"
 import Location from "./Location.vue"
-import QRScanner from "./QRScanner.vue"
+import QRScanner from "./TicketOptions.vue"
 import Adoption from "./Adoption.vue"
 import ServiceRequest from "./ServiceRequest.vue"
-import { mapState } from "vuex"
+import { mapState, mapActions, mapMutations } from "vuex"
 
 export default {
   data() {
@@ -61,6 +61,7 @@ export default {
       textWrap: false,
       //search: "this will change as you type",
       results: [],
+      polling: undefined,
       faq: Faq,
       location: Location,
       qrScanner: QRScanner,
@@ -73,6 +74,8 @@ export default {
   computed: mapState(['approvedTicket']),
 
   methods: {
+    ...mapActions(['checkTicket']),
+    ...mapMutations(['SET_TICKET']),
     toLocationList() {
       this.$navigateTo(this.location, {
         animated: true,
@@ -95,11 +98,13 @@ export default {
     },
     toQRScanner () {
       if (typeof this.approvedTicket === 'object') {
-        alert({
-          title: "Access Denied",
-          message: "You cannot submit another ticket.",
-          okButtonText: "OK"
-        })
+        if (this.approvedTicket.hasOwnProperty('window')) {
+          alert({
+            title: "Access Denied",
+            message: "You cannot submit another ticket.",
+            okButtonText: "OK"
+          })
+        }
       } else {
         this.$navigateTo(this.qrScanner, {
           animated: true,
@@ -130,8 +135,36 @@ export default {
           curve: "easeIn"
         }
       });
+    },
+    pollData() {
+      this.polling = setInterval(() => {
+        // Check if ticket is complete every X seconds
+        if (typeof this.approvedTicket === 'object') {
+          if (this.approvedTicket.hasOwnProperty('number')) {
+            // console.log(this.approvedTicket.number, this.approvedTicket.isComplete)
+            if (this.approvedTicket.isComplete) {
+              this.SET_TICKET(undefined)
+              alert({
+                title: "Thank You",
+                message: "Your ticket has been served. Have a nice day!",
+                okButtonText: "OK"
+              })
+            } else {
+              this.checkTicket(this.approvedTicket.id)
+            }
+          }
+        }
+      }, 5000)
     }
 
+  },
+
+  mounted() {
+    this.pollData()
+  },
+
+  beforeDestroy() {
+    clearInterval(this.polling)
   },
 
   components: {

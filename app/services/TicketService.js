@@ -8,5 +8,9 @@ export default {
       headers: { "Content-Type": "application/json" },
       content: JSON.stringify(ticket)
     })
+  },
+
+  checkTicket (ticketId) {
+    return httpModule.getJSON(`https://acua-server.herokuapp.com/tickets/${ticketId}`)
   }
 }
