@@ -101,6 +101,7 @@ export default {
       selectedTab: 0,
       selectedTabview: 0,
       items: [
+        // TODO: use store.js and animalservice
         {
           name: "Twinkie",
           cover: "~/assets/images/dog-button.jpg",
